@@ -1,16 +1,23 @@
 import type { Metadata, Viewport } from "next";
 import { BookingProvider } from "@/components/BookingProvider";
 import { CityProvider } from "@/components/CityProvider";
+import { CmsProvider } from "@/components/CmsProvider";
+import { CookieBanner } from "@/components/CookieBanner";
 import { UIProvider } from "@/components/UIProvider";
+import { getCmsData } from "@/lib/cms-store";
 import { getServerCity } from "@/lib/server-city";
 import "./globals.css";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata(): Promise<Metadata> {
   const { city, origin } = await getServerCity();
-  const title = `GeeApp — русификация, прошивка и приложения для авто ${city.inName}`;
+  const cms = getCmsData();
+  const brand = cms.settings.brandName || "GeeApp";
+  const title = `${brand} — русификация, прошивка и приложения для авто ${city.inName}`;
   const description = city.isHeadquarters
-    ? `Прошивка, русификация мультимедиа и установка Яндекс Навигатора на штатный экран авто ${city.inName} (ул. Энтузиастов, 28а) и онлайн. Подбор по марке и модели.`
-    : `Прошивка, русификация мультимедиа и установка приложений на штатный экран авто ${city.inName}. Проверенные мастера-партнёры и онлайн-прошивка — подбор по марке и модели.`;
+    ? `Прошивка, русификация мультимедиа и установка Яндекс Навигатора на штатный экран авто ${city.inName} (${cms.settings.hqAddress}) и онлайн.`
+    : `Прошивка, русификация мультимедиа и установка приложений на штатный экран авто ${city.inName}. Проверенные мастера-партнёры и онлайн-прошивка.`;
 
   return {
     metadataBase: new URL(origin),
@@ -21,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       url: origin,
-      siteName: "GeeApp",
+      siteName: brand,
       locale: "ru_RU",
       type: "website",
     },
@@ -41,14 +48,20 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const { city } = await getServerCity();
+  const cms = getCmsData();
 
   return (
     <html lang="ru">
       <body>
         <UIProvider>
-          <CityProvider initialSlug={city.slug}>
-            <BookingProvider>{children}</BookingProvider>
-          </CityProvider>
+          <CmsProvider data={cms}>
+            <CityProvider initialSlug={city.slug} citiesList={cms.cities}>
+              <BookingProvider>
+                {children}
+                <CookieBanner />
+              </BookingProvider>
+            </CityProvider>
+          </CmsProvider>
         </UIProvider>
       </body>
     </html>

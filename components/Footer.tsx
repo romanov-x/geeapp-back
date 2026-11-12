@@ -139,7 +139,7 @@ export function Footer() {
             geeapp.
           </HeroLink>
           <div className="footer-legal">
-            <HeroLink href="/privacy">О данных заявки</HeroLink>
+            <HeroLink href="/legal">Юридическая информация и реквизиты</HeroLink>
             <span>Онлайн-форма сохраняет черновик</span>
             <p className="image-credit">
               Изображения салона созданы с помощью ИИ и не являются фотографиями выполненных работ.

@@ -1,27 +1,18 @@
 "use client";
 import { HeroCard, HeroChip, HeroLink } from "@/components/HeroPrimitives";
-import { asset, type Vehicle } from "@/lib/data";
-import {
-  catalogEntries,
-  entryForVehicleId,
-  type CatalogEntry,
-} from "@/lib/catalog";
+import { asset } from "@/lib/data";
+import type { CatalogEntry } from "@/lib/catalog";
 import { Arrow } from "./Arrow";
 
-type ModelCardProps = {
-  entry?: CatalogEntry;
-  car?: Vehicle | null;
-  rus?: Vehicle | null;
+export function ModelCard({
+  entry,
+  hidden = false,
+}: {
+  entry: CatalogEntry;
   hidden?: boolean;
-};
-
-export function ModelCard({ entry, car, rus, hidden = false }: ModelCardProps) {
-  const resolved =
-    entry ||
-    (car ? entryForVehicleId(car.id) : rus ? entryForVehicleId(rus.id) : undefined) ||
-    catalogEntries[0];
-
-  const { supported, photo, fullTitle, priceDisplay, shortNote, slug } = resolved;
+}) {
+  const { supported, photo, video, fullTitle, priceDisplay, shortNote, slug } =
+    entry;
 
   return (
     <HeroCard
@@ -41,22 +32,26 @@ export function ModelCard({ entry, car, rus, hidden = false }: ModelCardProps) {
             e.currentTarget.alt = "Место для фотографии автомобиля";
           }}
         />
+        {video && <span className="model-video-pill">▶ Видео</span>}
       </div>
 
       <h3>{fullTitle}</h3>
 
       <div className="chips">
-        {resolved.car?.service === "apps" && supported && (
-          <>
-            <HeroChip className="chip chip--primary">Установка приложений</HeroChip>
-            <HeroChip className="chip">Прошивка</HeroChip>
-          </>
+        {supported && entry.services.apps?.enabled && (
+          <HeroChip className="chip chip--primary">Установка приложений</HeroChip>
         )}
-        {resolved.needsCompatibility && (
-          <HeroChip className="chip">Совместимость уточняется</HeroChip>
+        {supported && entry.services.russian?.enabled && (
+          <HeroChip className="chip">Русификация ГУ</HeroChip>
         )}
-        {(resolved.rus || resolved.car?.id === "car-2") && (
-          <HeroChip className="chip">Русификация</HeroChip>
+        {supported && entry.services.dashboard?.enabled && (
+          <HeroChip className="chip">Приборка</HeroChip>
+        )}
+        {supported && entry.services.firmware?.enabled && (
+          <HeroChip className="chip">Прошивка</HeroChip>
+        )}
+        {entry.needsCompatibility && (
+          <HeroChip className="chip">Проверка по фото ГУ</HeroChip>
         )}
         {!supported && <HeroChip className="chip">Не прошивается</HeroChip>}
       </div>
@@ -64,7 +59,10 @@ export function ModelCard({ entry, car, rus, hidden = false }: ModelCardProps) {
       <p className="model-price">{priceDisplay}</p>
       <p className="model-note">{shortNote}</p>
 
-      <HeroLink className="button btn btn--primary model-link" href={`/model/${slug}`}>
+      <HeroLink
+        className="button btn btn--primary model-link"
+        href={`/model/${slug}`}
+      >
         <span>Подробнее и цены</span>
         <Arrow />
       </HeroLink>

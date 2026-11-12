@@ -2,6 +2,16 @@
 import { useState } from "react";
 import type { CmsData, PermissionId, StaffPublic } from "@/lib/cms-types";
 import { StaffManager } from "./StaffManager";
+import { CatalogEditor } from "./CatalogEditor";
+import { BrandsEditor } from "./BrandsEditor";
+import { CitiesEditor } from "./CitiesEditor";
+import { SectionsEditor } from "./SectionsEditor";
+import { WorksEditor } from "./WorksEditor";
+import { FaqEditor } from "./FaqEditor";
+import { SettingsEditor } from "./SettingsEditor";
+import { ReviewsEditor } from "./ReviewsEditor";
+import { LegalEditor } from "./LegalEditor";
+import { TemplatesEditor } from "./TemplatesEditor";
 
 type TabDef = {
   id: string;
@@ -14,10 +24,13 @@ const TABS: TabDef[] = [
   { id: "catalog", label: "Модели и цены", perm: "catalog" },
   { id: "brands", label: "Марки", perm: "brands" },
   { id: "cities", label: "Города", perm: "cities" },
-  { id: "sections", label: "Контент главной", perm: "sections" },
+  { id: "sections", label: "Контент блоков", perm: "sections" },
+  { id: "templates", label: "Шаблоны страниц", perm: "templates" },
   { id: "works", label: "Портфолио работ", perm: "works" },
+  { id: "reviews", label: "Отзывы (ReviewLab)", perm: "reviews" },
   { id: "faq", label: "FAQ", perm: "faq" },
-  { id: "settings", label: "Контакты и документы", perm: "settings" },
+  { id: "legal", label: "Юр. документы РФ", perm: "legal" },
+  { id: "settings", label: "Контакты", perm: "settings" },
   { id: "staff", label: "Сотрудники и роли", perm: "staff" },
 ];
 
@@ -35,16 +48,47 @@ export function AdminApp({
   const [cms, setCms] = useState<CmsData | null>(initialCms);
   const [activeTab, setActiveTab] = useState("overview");
 
-  // Авторизация
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [authError, setAuthError] = useState("");
   const [busy, setBusy] = useState(false);
-  const [backupStatus, setBackupStatus] = useState("");
+
+  const [saving, setSaving] = useState(false);
+  const [toast, setToast] = useState<{ kind: "ok" | "error"; text: string } | null>(
+    null
+  );
 
   const can = (perm?: PermissionId) =>
     !perm || Boolean(user?.isOwner || user?.permissions.includes(perm));
+
+  async function savePatch(patch: Partial<CmsData>): Promise<boolean> {
+    setSaving(true);
+    setToast(null);
+    try {
+      const res = await fetch("/api/admin/cms", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ patch }),
+      });
+      const json = await res.json();
+      if (!res.ok) {
+        setToast({ kind: "error", text: json.error || "Ошибка сохранения" });
+        return false;
+      }
+      setCms(json.data);
+      setToast({
+        kind: "ok",
+        text: "Изменения сохранены и опубликованы на сайте!",
+      });
+      return true;
+    } catch {
+      setToast({ kind: "error", text: "Сетевая ошибка при сохранении" });
+      return false;
+    } finally {
+      setSaving(false);
+    }
+  }
 
   async function handleAuth(e: React.FormEvent) {
     e.preventDefault();
@@ -104,7 +148,7 @@ export function AdminApp({
   async function importBackup(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
-    setBackupStatus("");
+    setToast(null);
     try {
       const parsed = JSON.parse(await file.text()) as CmsData;
       const res = await fetch("/api/admin/cms", {
@@ -114,13 +158,19 @@ export function AdminApp({
       });
       const json = await res.json();
       if (!res.ok) {
-        setBackupStatus(json.error || "Ошибка импорта");
+        setToast({ kind: "error", text: json.error || "Ошибка импорта" });
         return;
       }
       setCms(json.data);
-      setBackupStatus("Резервная копия успешно загружена и применена ко всему сайту!");
+      setToast({
+        kind: "ok",
+        text: "Резервная копия успешно загружена и применена ко всему сайту!",
+      });
     } catch {
-      setBackupStatus("Файл повреждён или не является JSON-копией GeeApp.");
+      setToast({
+        kind: "error",
+        text: "Файл повреждён или не является JSON-копией GeeApp.",
+      });
     }
   }
 
@@ -235,7 +285,10 @@ export function AdminApp({
             key={tab.id}
             type="button"
             className={`adm-tab${activeTab === tab.id ? " is-active" : ""}`}
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => {
+              setToast(null);
+              setActiveTab(tab.id);
+            }}
           >
             {tab.label}
           </button>
@@ -243,6 +296,17 @@ export function AdminApp({
       </nav>
 
       <main className="adm-main">
+        {toast && (
+          <div
+            className={`adm-alert ${
+              toast.kind === "ok" ? "adm-alert--ok" : "adm-alert--error"
+            }`}
+            style={{ marginBottom: "1rem" }}
+          >
+            {toast.text}
+          </div>
+        )}
+
         {activeTab === "overview" && cms && (
           <div className="adm-grid-2">
             <section className="adm-card">
@@ -279,9 +343,6 @@ export function AdminApp({
                 скачать полный слепок контента (например, из Codespaces) и
                 загрузить его на боевой сервер Timeweb Cloud в 1 клик.
               </p>
-              {backupStatus && (
-                <p className="adm-alert adm-alert--ok">{backupStatus}</p>
-              )}
               <div className="adm-row-actions">
                 <button
                   type="button"
@@ -306,17 +367,83 @@ export function AdminApp({
           </div>
         )}
 
-        {activeTab === "staff" && can("staff") && (
-          <StaffManager currentUserId={user.id} />
+        {cms && activeTab === "catalog" && can("catalog") && (
+          <CatalogEditor
+            key={cms.updatedAt}
+            cms={cms}
+            saving={saving}
+            onSave={savePatch}
+          />
         )}
 
-        {activeTab !== "overview" && activeTab !== "staff" && (
-          <section className="adm-card">
-            <h2>Раздел «{TABS.find((t) => t.id === activeTab)?.label}»</h2>
-            <p className="adm-muted">
-              База данных и права доступа подключены. Визуальные формы редактирования этого раздела подключаем на Шаге Б!
-            </p>
-          </section>
+        {cms && activeTab === "brands" && can("brands") && (
+          <BrandsEditor
+            key={cms.updatedAt}
+            cms={cms}
+            saving={saving}
+            onSave={savePatch}
+          />
+        )}
+
+        {cms && activeTab === "cities" && can("cities") && (
+          <CitiesEditor
+            key={cms.updatedAt}
+            cms={cms}
+            saving={saving}
+            onSave={savePatch}
+          />
+        )}
+
+        {cms && activeTab === "sections" && can("sections") && (
+          <SectionsEditor
+            key={cms.updatedAt}
+            cms={cms}
+            saving={saving}
+            onSave={savePatch}
+          />
+        )}
+
+        {cms && activeTab === "works" && can("works") && (
+          <WorksEditor
+            key={cms.updatedAt}
+            cms={cms}
+            saving={saving}
+            onSave={savePatch}
+          />
+        )}
+
+        {cms && activeTab === "faq" && can("faq") && (
+          <FaqEditor
+            key={cms.updatedAt}
+            cms={cms}
+            saving={saving}
+            onSave={savePatch}
+          />
+        )}
+
+        {cms && activeTab === "settings" && can("settings") && (
+          <SettingsEditor
+            key={cms.updatedAt}
+            cms={cms}
+            saving={saving}
+            onSave={savePatch}
+          />
+        )}
+
+        {cms && activeTab === "templates" && can("templates") && (
+          <TemplatesEditor key={cms.updatedAt} cms={cms} saving={saving} onSave={savePatch} />
+        )}
+
+        {cms && activeTab === "reviews" && can("reviews") && (
+          <ReviewsEditor key={cms.updatedAt} cms={cms} saving={saving} onSave={savePatch} />
+        )}
+        
+        {cms && activeTab === "legal" && can("legal") && (
+          <LegalEditor key={cms.updatedAt} cms={cms} saving={saving} onSave={savePatch} />
+        )}
+
+        {activeTab === "staff" && can("staff") && (
+          <StaffManager currentUserId={user.id} />
         )}
       </main>
     </div>

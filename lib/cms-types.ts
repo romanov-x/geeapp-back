@@ -4,28 +4,38 @@ import type { CityInfo } from "./cities";
 export const PERMISSIONS = [
   {
     id: "catalog",
-    label: "Каталог моделей и цены",
-    description: "Добавление и редактирование авто, цен, пакетов и фото моделей",
+    label: "Каталог моделей, цены и медиа авто",
+    description: "Автомобили, цены, главное фото/видео карточки и галерея работ модели",
   },
   {
     id: "brands",
     label: "Марки и логотипы",
-    description: "Редактирование списка марок, синонимов и загрузка логотипов",
+    description: "Список марок, русские синонимы и логотипы брендов",
   },
   {
     id: "cities",
     label: "Города и поддомены",
-    description: "Управление регионами, поддоменами и форматами работы в городах",
+    description: "Регионы, поддомены *.geeapp.ru и форматы работы",
   },
   {
     id: "sections",
-    label: "Контент главной страницы",
-    description: "Первый экран (Hero), карточки услуг, блок «О компании» и тарифы",
+    label: "Контент блоков",
+    description: "Первый экран (фото/видео), карточки услуг, «О компании» и тарифы",
+  },
+  {
+    id: "templates",
+    label: "Шаблоны страниц и конструктор",
+    description: "Порядок блоков на главной и создание новых страниц из готовых компонентов",
   },
   {
     id: "works",
     label: "Портфолио работ",
-    description: "Загрузка фото/видео кейсов и описаний выполненных работ",
+    description: "Кейсы выполненных работ с фото и видео",
+  },
+  {
+    id: "reviews",
+    label: "Отзывы (ReviewLab)",
+    description: "Подключение виджета и API ReviewLab, фильтрация площадок",
   },
   {
     id: "faq",
@@ -33,14 +43,19 @@ export const PERMISSIONS = [
     description: "Добавление, изменение и сортировка частых вопросов",
   },
   {
+    id: "legal",
+    label: "Юридические документы РФ и Cookie",
+    description: "Реквизиты, Политика 152-ФЗ, два согласия и политика Cookie",
+  },
+  {
     id: "settings",
-    label: "Контакты, соцсети и документы",
-    description: "Телефон, почта, ссылки на мессенджеры и юридические страницы",
+    label: "Контакты и соцсети",
+    description: "Телефон, почта, карта и мессенджеры",
   },
   {
     id: "staff",
     label: "Сотрудники и права доступа",
-    description: "Создание учётных записей по email, назначение ролей и галочек прав",
+    description: "Учётные записи по email, роли и галочки возможностей",
   },
 ] as const;
 
@@ -60,6 +75,13 @@ export type StaffUser = {
 
 export type StaffPublic = Omit<StaffUser, "passwordHash">;
 
+export type HeroMediaSlot = {
+  kind?: "image" | "video";
+  src: string;
+  videoSrc?: string;
+  alt: string;
+};
+
 export type HeroContent = {
   hqBadge: string;
   regionalBadge: string;
@@ -69,7 +91,7 @@ export type HeroContent = {
   ctaLabel: string;
   hqSubnote: string;
   regionalSubnote: string;
-  splitImages: { src: string; alt: string }[];
+  splitImages: HeroMediaSlot[];
 };
 
 export type ServiceTileContent = {
@@ -102,6 +124,14 @@ export type WorkItemContent = {
   video?: string;
 };
 
+export type ModelGalleryItem = {
+  id: string;
+  kind: "image" | "video";
+  src: string;
+  poster?: string;
+  caption: string;
+};
+
 export type FaqItemContent = {
   id: string;
   q: string;
@@ -114,6 +144,79 @@ export type SocialChannel = {
   href: string;
   icon: string;
   enabled: boolean;
+};
+
+export type ReviewLabSettings = {
+  enabled: boolean;
+  mode: "api" | "embed";
+  widgetId: string;
+  embedHtml: string;
+  kicker: string;
+  title: string;
+  subtitle: string;
+  limit: number;
+};
+
+export type LegalDocsContent = {
+  updatedDate: string;
+  companyFullName: string;
+  inn: string;
+  ogrnip: string;
+  legalAddress: string;
+  serviceAddress: string;
+  dpoEmail: string;
+  phone: string;
+  bankDetails: string;
+  privacyTitle: string;
+  privacyBody: string;
+  consentPrimaryLabel: string;
+  consentPrimaryTitle: string;
+  consentPrimaryBody: string;
+  consentSecondaryEnabled: boolean;
+  consentSecondaryRequired: boolean;
+  consentSecondaryLabel: string;
+  consentSecondaryTitle: string;
+  consentSecondaryBody: string;
+  cookieTitle: string;
+  cookieBody: string;
+  cookieBannerEnabled: boolean;
+  cookieBannerText: string;
+};
+
+export type PageBlockType =
+  | "hero"
+  | "brands"
+  | "services"
+  | "models"
+  | "russian"
+  | "about"
+  | "reviews"
+  | "formats"
+  | "faq"
+  | "custom";
+
+export type PageBlockInstance = {
+  id: string;
+  type: PageBlockType;
+  enabled: boolean;
+  customKicker?: string;
+  customTitle?: string;
+  customText?: string;
+  customMediaKind?: "none" | "image" | "video";
+  customMediaSrc?: string;
+  customCtaLabel?: string;
+  customCtaHref?: string;
+  customOpenBooking?: boolean;
+};
+
+export type CustomPageTemplate = {
+  id: string;
+  slug: string;
+  title: string;
+  metaDescription: string;
+  published: boolean;
+  showInFooter: boolean;
+  blocks: PageBlockInstance[];
 };
 
 export type SiteSettingsContent = {
@@ -133,6 +236,59 @@ export type SiteSettingsContent = {
   consentText: string;
 };
 
+export const MODEL_SERVICE_OPTIONS = [
+  {
+    key: "apps",
+    label: "Установка приложений",
+    defaultNote:
+      "Яндекс Навигатор, Яндекс Музыка, VK Видео, Кинопоиск, RuStore, разделение экрана и мультируль.",
+  },
+  {
+    key: "russian",
+    label: "Русификация мультимедиа",
+    defaultNote:
+      "Полный программный перевод меню головного устройства, настроек автомобиля, климата и ассистентов.",
+  },
+  {
+    key: "dashboard",
+    label: "Русификация приборной панели",
+    defaultNote:
+      "Перевод цифровой приборной панели: бортовой компьютер, статусы систем и уведомления.",
+  },
+  {
+    key: "firmware",
+    label: "Прошивка ГУ / доп. функции (Android Auto, CarPlay, звук DTS)",
+    defaultNote:
+      "Оптимизация штатного ПО, разблокировка протоколов смартфона, голосового управления и аудиопроцессора.",
+  },
+] as const;
+
+export type ModelServiceKey = (typeof MODEL_SERVICE_OPTIONS)[number]["key"];
+
+export type ModelServiceConfig = {
+  enabled: boolean;
+  price: number | null; // null = автоматически «По запросу»
+  note?: string;
+};
+
+export type VehicleModel = {
+  id: string;
+  slug: string;
+  make: string;
+  name: string;
+  supported: boolean;
+  needsCompatibility: boolean;
+  needsModel: boolean;
+  photo: string;
+  video: string;
+  aliases: string[];
+  compatibilityNote: string;
+  summary: string;
+  services: Record<ModelServiceKey, ModelServiceConfig>;
+  gallery: ModelGalleryItem[];
+  legacyIds: string[];
+};
+
 export type CmsData = {
   updatedAt: string;
   hero: HeroContent;
@@ -146,11 +302,18 @@ export type CmsData = {
   formats: FormatCardContent[];
   faq: FaqItemContent[];
   works: WorkItemContent[];
+  reviews: ReviewLabSettings;
+  legal: LegalDocsContent;
+  homeBlocks: PageBlockInstance[];
+  customPages: CustomPageTemplate[];
   cities: CityInfo[];
   brandLogos: Record<string, string>;
   brandAliases: Record<string, string[]>;
   vehicleImages: Record<string, string>;
+  vehicleVideos: Record<string, string>;
+  vehicleGalleries: Record<string, ModelGalleryItem[]>;
   modelAliases: Record<string, string[]>;
   vehicles: Vehicle[];
   settings: SiteSettingsContent;
+  models: VehicleModel[];
 };
