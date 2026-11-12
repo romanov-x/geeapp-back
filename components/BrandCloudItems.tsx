@@ -1,0 +1,3 @@
+import {HeroLink} from "@/components/HeroPrimitives";
+import {asset,brandLogo,monogram,orderedMakes,vehicles} from "@/lib/data";
+export function BrandCloudItems(){return <div className="brands-strip" id="brands-strip">{orderedMakes().map((make,i)=>{const count=vehicles.filter(c=>c.make===make).length,logo=brandLogo(make);return <HeroLink key={make} className={`strip-pill strip-pill--${count>=6?"l":count>=3?"m":"s"}`} href={`/?make=${encodeURIComponent(make)}#models`} style={{animationDelay:`${(i%12)*.22}s`}}><span className={`brand-logo${logo?" brand-logo--img":""}`} aria-hidden="true">{logo?<img src={asset(logo)} alt="" loading="lazy" decoding="async"/>:monogram(make)}</span><span className="strip-pill-name">{make}</span></HeroLink>;})}</div>;}

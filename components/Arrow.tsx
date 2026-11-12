@@ -1,0 +1,1 @@
+export function Arrow(){return <svg className="m-arrow" viewBox="0 0 20 20" aria-hidden="true"><path className="m-arrow__stem" d="M3 10h12"/><path className="m-arrow__head" d="M10 5l5 5-5 5"/></svg>;}

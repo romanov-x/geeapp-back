@@ -1,0 +1,53 @@
+/* GeeApp chrome: Medeo Sans; paper #f5f4f7, white #fff,
+   ink #211d2a, muted #665e70, violet #6230b4, lilac #d7c4ff.
+   Desktop: brand | city | navigation | action | contacts.
+   Tablet:  brand | city |                 contacts | menu.
+   Mobile:  brand | city | menu;             contacts below.
+   Contact alignment is to the shared trailing edge at every size. */
+.root:global(.header){position:fixed;inset:0 0 auto;width:100%;padding:12px 0;z-index:40}
+.root .inner{display:grid;grid-template-columns:auto minmax(0,12rem) minmax(0,1fr) auto auto;grid-template-areas:"brand city nav action contacts";align-items:center;gap:16px;position:relative;min-height:72px;padding:12px 20px;background:rgb(255 255 255 / .92);border:1px solid #ffffffa0;border-radius:24px;box-shadow:0 10px 36px #31184f14;backdrop-filter:blur(18px)}
+.root .inner .brand{grid-area:brand;font-size:30px;min-height:44px;align-items:center;white-space:nowrap;justify-self:start}
+.root .inner .city{grid-area:city;min-width:0;max-width:100%;justify-self:start}
+.root .inner .city :global(.city-button){display:flex;gap:6px;width:100%;max-width:100%;min-width:0;min-height:44px;height:auto;padding:6px;font-size:14px;justify-content:flex-start}
+.root .inner .city :global(.city-name){white-space:normal;text-overflow:clip;overflow:visible;text-align:start;line-height:1.25;min-width:0}
+.root .inner .nav{grid-area:nav;display:flex;align-items:center;gap:16px;min-width:0}
+.root .inner .nav a{font-size:14px;white-space:nowrap}
+.root .inner .action{grid-area:action;min-width:0}
+.root .inner .action :global(.button){font-size:14px;padding:12px 16px;white-space:nowrap}
+.root .inner .contacts{grid-area:contacts;display:flex;align-items:center;justify-content:flex-end;justify-self:end;width:auto;min-width:0;margin:0;gap:12px;flex-wrap:nowrap}
+.root .inner .contacts :global(.header-phone){font-size:14px;min-height:44px;white-space:nowrap}
+.root .inner .contacts :global(.social-links){gap:4px;margin:0}
+.root .inner .contacts :global(.social-circle){width:36px;height:36px;padding:4px}
+.root .inner .contacts :global(.social-circle img){width:28px;height:28px}
+.root .inner .contacts :global(.social-circle>span){display:none}
+.root .inner .toggle{grid-area:menu;display:none;position:static;width:44px;min-width:44px;height:44px;margin:0;justify-self:end;flex:none}
+@media(max-width:1439px){
+ .root .inner{grid-template-columns:auto minmax(0,1fr) auto auto;grid-template-areas:"brand city contacts menu"}
+ .root .inner .nav,.root .inner .action{display:none}
+ .root .inner .toggle{display:flex}
+ .root .inner .city{max-width:13rem}
+}
+@media(max-width:899px){
+ .root:global(.header){padding:8px 0}
+ .root .inner{grid-template-columns:auto minmax(0,1fr) 44px;grid-template-areas:"brand city menu" ". contacts contacts";gap:6px 12px;padding:10px 16px}
+ .root .inner .brand{font-size:26px}
+ .root .inner .city{width:100%;max-width:16rem}
+ .root .inner .contacts{width:100%}
+}
+@media(max-width:599px){
+ .root .inner{grid-template-areas:"brand city menu" "contacts contacts contacts";padding:10px 12px;column-gap:8px}
+ .root .inner .brand{font-size:24px}
+ .root .inner .city :global(.city-button){font-size:13px;padding:4px;gap:4px}
+ .root .inner .contacts{gap:8px}
+ .root .inner .contacts :global(.header-phone){font-size:13px}
+ .root .inner .contacts :global(.social-circle){width:32px;height:32px;padding:4px}
+ .root .inner .contacts :global(.social-circle img){width:24px;height:24px}
+}
+@media(max-width:399px){
+ .root .inner{column-gap:6px}
+ .root .inner .brand{font-size:22px}
+ .root .inner .city :global(.city-button){font-size:12px;padding:2px;gap:3px}
+ .root .inner .contacts :global(.header-phone){font-size:12px}
+ .root .inner .contacts :global(.social-circle){width:28px;height:28px;padding:3px}
+ .root .inner .contacts :global(.social-circle img){width:22px;height:22px}
+}

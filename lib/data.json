@@ -1,0 +1,2521 @@
+{
+  "vehicles": [
+    {
+      "id": "car-1",
+      "service": "apps",
+      "make": "Geely",
+      "name": "Monjaro 1 поколение",
+      "price": 12000,
+      "supported": true,
+      "source": "12000 ₽ (полный пакет приложений, навигация, работа над удобством использования авто, доп. функции комфорта, недоступные с завода)",
+      "original": "Geely Monjaro 1 поколение - 12000 ₽ (полный пакет приложений, навигация, работа над удобством использования авто, доп. функции комфорта, недоступные с завода)"
+    },
+    {
+      "id": "car-2",
+      "service": "apps",
+      "make": "Geely",
+      "name": "Monjaro Rest 2025",
+      "price": 30000,
+      "supported": true,
+      "source": "русификация + установка пакета приложений (30000 ₽. Прошиваются модели выпущенные до марта 2025 года)",
+      "original": "Geely Monjaro Rest 2025 - русификация + установка пакета приложений (30000 ₽. Прошиваются модели выпущенные до марта 2025 года)"
+    },
+    {
+      "id": "car-3",
+      "service": "apps",
+      "make": "Geely",
+      "name": "Monjaro Flagship SE 2026",
+      "price": 15000,
+      "supported": true,
+      "source": "15000 ₽ (полный пакет приложений, навигация, сплиты, функции отключения надоедливых ассистентов и сохранения режима вождения, недоступные с завода)",
+      "original": "Geely Monjaro Flagship SE 2026 - 15000 ₽ (полный пакет приложений, навигация, сплиты, функции отключения надоедливых ассистентов и сохранения режима вождения, недоступные с завода)"
+    },
+    {
+      "id": "car-4",
+      "service": "apps",
+      "make": "Geely",
+      "name": "Tugella",
+      "price": 22000,
+      "supported": true,
+      "source": "22000 Р (полный пакет приложений + работа над удобством использования машины, мультируль. Цена обусловлена покупкой ПО под каждый автомобиль персонально)",
+      "original": "Geely Tugella/KnewStar 001 - 22000 Р (полный пакет приложений + работа над удобством использования машины, мультируль. Цена обусловлена покупкой ПО под каждый автомобиль персонально)"
+    },
+    {
+      "id": "car-5",
+      "service": "apps",
+      "make": "Geely",
+      "name": "Atlas 2024 Fx11",
+      "price": 12000,
+      "supported": true,
+      "source": "12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)",
+      "original": "Geely Atlas 2024 Fx11 - 12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)"
+    },
+    {
+      "id": "car-6",
+      "service": "apps",
+      "make": "Geely",
+      "name": "Atlas 2026",
+      "price": 15000,
+      "supported": true,
+      "source": "15000 ₽ (полный пакет приложений)",
+      "original": "Geely Atlas 2026 - 15000 ₽ (полный пакет приложений)"
+    },
+    {
+      "id": "car-7",
+      "service": "apps",
+      "make": "Geely",
+      "name": "CityRay",
+      "price": 12000,
+      "supported": true,
+      "source": "12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)",
+      "original": "Geely CityRay - 12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)"
+    },
+    {
+      "id": "car-8",
+      "service": "apps",
+      "make": "Geely",
+      "name": "Atlas Pro (рестайлинг)",
+      "price": 10000,
+      "supported": true,
+      "source": "10000 ₽ (разблокировка Андроид Авто для навигации и музыки, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)",
+      "original": "Geely Atlas Pro (рестайлинг)/ Belgee X70- 10000 ₽ (разблокировка Андроид Авто для навигации и музыки, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)"
+    },
+    {
+      "id": "car-9",
+      "service": "apps",
+      "make": "Geely",
+      "name": "Coolray (прошиваются почти все модели)",
+      "price": 10000,
+      "supported": true,
+      "source": "10000 ₽ (разблокировка Андроид Авто для навигации и музыки, установка приложения для работы CarPlay в связке с коробкой carlinkit, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)",
+      "original": "Geely Coolray (прошиваются почти все модели) - 10000 ₽ (разблокировка Андроид Авто для навигации и музыки, установка приложения для работы CarPlay в связке с коробкой carlinkit, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)"
+    },
+    {
+      "id": "car-10",
+      "service": "apps",
+      "make": "Geely",
+      "name": "Preface",
+      "price": 12000,
+      "supported": true,
+      "source": "12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)",
+      "original": "Geely Preface - 12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)"
+    },
+    {
+      "id": "car-11",
+      "service": "apps",
+      "make": "Geely",
+      "name": "Preface 2026",
+      "price": 15000,
+      "supported": true,
+      "source": "15000 ₽ (полный пакет приложений)",
+      "original": "Geely Preface 2026 - 15000 ₽ (полный пакет приложений)"
+    },
+    {
+      "id": "car-12",
+      "service": "apps",
+      "make": "Belgee",
+      "name": "X50 (1 серия)",
+      "price": 10000,
+      "supported": true,
+      "source": "прошиваются почти все модели) - 10000 ₽ (разблокировка Андроид Авто для навигации и музыки, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)",
+      "original": "Belgee X50 (1 серия) - прошиваются почти все модели) - 10000 ₽ (разблокировка Андроид Авто для навигации и музыки, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)"
+    },
+    {
+      "id": "car-13",
+      "service": "apps",
+      "make": "Belgee",
+      "name": "X50 2025",
+      "price": 20000,
+      "supported": true,
+      "source": "20000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, голосовой помощник)",
+      "original": "Belgee X50 2025 - 20000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, голосовой помощник)"
+    },
+    {
+      "id": "car-14",
+      "service": "apps",
+      "make": "Belgee",
+      "name": "X70 2025",
+      "price": 20000,
+      "supported": true,
+      "source": "(полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, голосовой помощник) - 20000 ₽",
+      "original": "Belgee X70 2025 - (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, голосовой помощник) - 20000 ₽"
+    },
+    {
+      "id": "car-15",
+      "service": "apps",
+      "make": "Geely",
+      "name": "Ex5",
+      "price": 12000,
+      "supported": true,
+      "source": "12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)",
+      "original": "Geely Ex5 - 12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)"
+    },
+    {
+      "id": "car-16",
+      "service": "apps",
+      "make": "Geely",
+      "name": "EX5-EMI",
+      "price": 20000,
+      "supported": true,
+      "source": "20000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, отключение ассисентов, работа с проекционным дисплеем)",
+      "original": "Geely EX5-EMI - 20000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, отключение ассисентов, работа с проекционным дисплеем)"
+    },
+    {
+      "id": "car-17",
+      "service": "apps",
+      "make": "Geely",
+      "name": "EX5-EMR",
+      "price": 20000,
+      "supported": true,
+      "source": "20000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, отключение ассисентов, работа с проекционным дисплеем)",
+      "original": "Geely EX5-EMR - 20000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, отключение ассисентов, работа с проекционным дисплеем)"
+    },
+    {
+      "id": "car-18",
+      "service": "apps",
+      "make": "Geely",
+      "name": "Okavango Rest",
+      "price": 16000,
+      "supported": true,
+      "source": "(полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, голосовой помощник) - 16000 ₽",
+      "original": "Geely Okavango Rest - (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, голосовой помощник) - 16000 ₽"
+    },
+    {
+      "id": "car-19",
+      "service": "apps",
+      "make": "Haval",
+      "name": "Jolion",
+      "price": 8000,
+      "supported": true,
+      "source": "8000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио). Открытие DTS + 1000 руб к стоимости",
+      "original": "HAVAL Jolion - 8000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио). Открытие DTS + 1000 руб к стоимости"
+    },
+    {
+      "id": "car-20",
+      "service": "apps",
+      "make": "Haval",
+      "name": "F7x (рестайлинг)",
+      "price": 10000,
+      "supported": true,
+      "source": "10000 ₽ (готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд)",
+      "original": "Haval F7x (рестайлинг) - 10000 ₽ (готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд)"
+    },
+    {
+      "id": "car-21",
+      "service": "apps",
+      "make": "Haval",
+      "name": "F7 (рестайлинг до 2024 года)",
+      "price": 10000,
+      "supported": true,
+      "source": "10000 ₽ (готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд)",
+      "original": "Haval F7 (рестайлинг до 2024 года) - 10000 ₽ (готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд)"
+    },
+    {
+      "id": "car-22",
+      "service": "apps",
+      "make": "Haval",
+      "name": "F7",
+      "price": 12000,
+      "supported": true,
+      "source": "Пакет приложений, лаунчер, штатная навигация.",
+      "original": "Haval F7 1G (до 2024 года по н.в.) - 12000 ₽ (готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд. )"
+    },
+    {
+      "id": "car-23",
+      "service": "apps",
+      "make": "Haval",
+      "name": "Dargo H",
+      "price": 10000,
+      "supported": true,
+      "source": "10000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио)",
+      "original": "Haval Dargo H - 10000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио)"
+    },
+    {
+      "id": "car-24",
+      "service": "apps",
+      "make": "Haval",
+      "name": "H3",
+      "price": 12000,
+      "supported": true,
+      "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+      "original": "HAVAL H3 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+    },
+    {
+      "id": "car-25",
+      "service": "apps",
+      "make": "Haval",
+      "name": "H6",
+      "price": 12000,
+      "supported": true,
+      "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+      "original": "HAVAL H6 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+    },
+    {
+      "id": "car-26",
+      "service": "apps",
+      "make": "Haval",
+      "name": "H7",
+      "price": 12000,
+      "supported": true,
+      "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+      "original": "HAVAL H7 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+    },
+    {
+      "id": "car-27",
+      "service": "apps",
+      "make": "Haval",
+      "name": "H9",
+      "price": 12000,
+      "supported": true,
+      "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+      "original": "HAVAL H9 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+    },
+    {
+      "id": "car-28",
+      "service": "apps",
+      "make": "Haval",
+      "name": "M6",
+      "price": null,
+      "supported": false,
+      "source": "НЕ ПРОШИВАЮ!",
+      "original": "Haval M6 - НЕ ПРОШИВАЮ!"
+    },
+    {
+      "id": "car-29",
+      "service": "apps",
+      "make": "Tank",
+      "name": "300",
+      "price": 12000,
+      "supported": true,
+      "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+      "original": "Tank 300 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+    },
+    {
+      "id": "car-30",
+      "service": "apps",
+      "make": "Tank",
+      "name": "400",
+      "price": 12000,
+      "supported": true,
+      "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+      "original": "Tank 400 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+    },
+    {
+      "id": "car-31",
+      "service": "apps",
+      "make": "Tank",
+      "name": "500",
+      "price": 12000,
+      "supported": true,
+      "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+      "original": "Tank 500 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+    },
+    {
+      "id": "car-32",
+      "service": "apps",
+      "make": "Tank",
+      "name": "700",
+      "price": 12000,
+      "supported": true,
+      "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+      "original": "Tank 700 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+    },
+    {
+      "id": "car-33",
+      "service": "apps",
+      "make": "Jaecoo",
+      "name": "J7",
+      "price": 12000,
+      "supported": true,
+      "source": "полный пакет приложений, навигация, музыка, фильмы, ТВ, работа с проекцией, работа с приборной панелью - 12000 ₽",
+      "original": "Jaecoo J7 - полный пакет приложений, навигация, музыка, фильмы, ТВ, работа с проекцией, работа с приборной панелью - 12000 ₽"
+    },
+    {
+      "id": "car-34",
+      "service": "apps",
+      "make": "Jaecoo",
+      "name": "J7 (Rest 2026)",
+      "price": 17000,
+      "supported": true,
+      "source": "полный пакет приложений, навигация, музыка, фильмы, ТВ, работа с проекцией, работа с приборной панелью - 17000 ₽",
+      "original": "Jaecoo J7 (Rest 2026) - полный пакет приложений, навигация, музыка, фильмы, ТВ, работа с проекцией, работа с приборной панелью - 17000 ₽"
+    },
+    {
+      "id": "car-35",
+      "service": "apps",
+      "make": "Jaecoo",
+      "name": "J8",
+      "price": 12000,
+      "supported": true,
+      "source": "полный пакет приложений, навигация, музыка, фильмы, ТВ, работа с проекцией, работа с приборной панелью - 12000 ₽",
+      "original": "Jaecoo J8 - полный пакет приложений, навигация, музыка, фильмы, ТВ, работа с проекцией, работа с приборной панелью - 12000 ₽"
+    },
+    {
+      "id": "car-36",
+      "service": "apps",
+      "make": "Jetour",
+      "name": "X70 Plus (Luxury)",
+      "price": 10000,
+      "supported": true,
+      "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽",
+      "original": "Jetour X70 Plus (Luxury) - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽"
+    },
+    {
+      "id": "car-37",
+      "service": "apps",
+      "make": "Jetour",
+      "name": "X90 Plus (Luxury)",
+      "price": 10000,
+      "supported": true,
+      "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽",
+      "original": "Jetour X90 Plus (Luxury) - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽"
+    },
+    {
+      "id": "car-38",
+      "service": "apps",
+      "make": "Jetour",
+      "name": "Dashing",
+      "price": 10000,
+      "supported": true,
+      "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽",
+      "original": "Jetour Dashing - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽"
+    },
+    {
+      "id": "car-39",
+      "service": "apps",
+      "make": "Jetour",
+      "name": "T2",
+      "price": 10000,
+      "supported": true,
+      "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽",
+      "original": "Jetour T2 - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽"
+    },
+    {
+      "id": "car-40",
+      "service": "apps",
+      "make": "Jetour",
+      "name": "Traveller (Китай версия)",
+      "price": 10000,
+      "supported": true,
+      "source": "установка кастомного лаунчера (более удобного для нас), установка приложений, навигатор, музыка, фильмы, тв, частичная русификация интерфейса, в основном в приложениях - 10000 ₽",
+      "original": "Jetour Traveller (Китай версия) - установка кастомного лаунчера (более удобного для нас), установка приложений, навигатор, музыка, фильмы, тв, частичная русификация интерфейса, в основном в приложениях - 10000 ₽"
+    },
+    {
+      "id": "car-41",
+      "service": "apps",
+      "make": "GAC",
+      "name": "GS8",
+      "price": 12000,
+      "supported": true,
+      "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽",
+      "original": "GAC GS8 - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽"
+    },
+    {
+      "id": "car-42",
+      "service": "apps",
+      "make": "GAC",
+      "name": "GS3",
+      "price": 10000,
+      "supported": true,
+      "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽",
+      "original": "GAC GS3 - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽"
+    },
+    {
+      "id": "car-43",
+      "service": "apps",
+      "make": "Changan",
+      "name": "UNI-K",
+      "price": 12000,
+      "supported": true,
+      "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽",
+      "original": "CHANGAN UNI-K - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽"
+    },
+    {
+      "id": "car-44",
+      "service": "apps",
+      "make": "Changan",
+      "name": "UNI-T",
+      "price": 12000,
+      "supported": true,
+      "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽",
+      "original": "CHANGAN UNI-T - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽"
+    },
+    {
+      "id": "car-45",
+      "service": "apps",
+      "make": "Changan",
+      "name": "UNI-V",
+      "price": 12000,
+      "supported": true,
+      "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽",
+      "original": "CHANGAN UNI-V - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽"
+    },
+    {
+      "id": "car-46",
+      "service": "apps",
+      "make": "Changan",
+      "name": "CS75PLUS",
+      "price": 12000,
+      "supported": true,
+      "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽",
+      "original": "CHANGAN CS75PLUS - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽"
+    },
+    {
+      "id": "car-47",
+      "service": "apps",
+      "make": "Changan",
+      "name": "UNI-S/CS55",
+      "price": 12000,
+      "supported": true,
+      "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽",
+      "original": "CHANGAN UNI-S/CS55 - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽"
+    },
+    {
+      "id": "knewstar-001",
+      "service": "apps",
+      "make": "KnewStar",
+      "name": "001",
+      "price": 22000,
+      "supported": true,
+      "source": "22000 Р (полный пакет приложений + работа над удобством использования машины, мультируль. Цена обусловлена покупкой ПО под каждый автомобиль персонально)",
+      "original": "Geely Tugella/KnewStar 001 - 22000 Р (полный пакет приложений + работа над удобством использования машины, мультируль. Цена обусловлена покупкой ПО под каждый автомобиль персонально)"
+    },
+    {
+      "id": "belgee-x70-alias",
+      "service": "apps",
+      "make": "Belgee",
+      "name": "X70 (пакет Android Auto)",
+      "price": 10000,
+      "supported": true,
+      "source": "10000 ₽ (разблокировка Андроид Авто для навигации и музыки, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)",
+      "original": "Geely Atlas Pro (рестайлинг)/ Belgee X70- 10000 ₽ (разблокировка Андроид Авто для навигации и музыки, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)"
+    },
+    {
+      "id": "russian-1",
+      "service": "russian",
+      "make": "Geely",
+      "name": "Atlas Cool (Bouye Cool) 1 поколение",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Atlas Cool (Bouye Cool) 1 поколение."
+    },
+    {
+      "id": "russian-2",
+      "service": "russian",
+      "make": "Geely",
+      "name": "Bouye L дорест",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Bouye L дорест."
+    },
+    {
+      "id": "russian-3",
+      "service": "russian",
+      "make": "Belgee",
+      "name": "X50",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Belgee X50."
+    },
+    {
+      "id": "russian-4",
+      "service": "russian",
+      "make": "Geely",
+      "name": "Binyue Cool",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Binyue Cool."
+    },
+    {
+      "id": "russian-5",
+      "service": "russian",
+      "make": "Geely",
+      "name": "Coolray (2023-2025)",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Geely Coolray (2023-2025)."
+    },
+    {
+      "id": "russian-6",
+      "service": "russian",
+      "make": "Geely",
+      "name": "Monjaro 1 поколение (приборная панель + мультимедиа)",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Geely Monjaro 1 поколение (приборная панель + мультимедиа)."
+    },
+    {
+      "id": "russian-7",
+      "service": "russian",
+      "make": "Geely",
+      "name": "Monjaro 2025 (приборная панель + мультимедиа)",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Geely Monjaro 2025 (приборная панель + мультимедиа)."
+    },
+    {
+      "id": "russian-8",
+      "service": "russian",
+      "make": "Geely",
+      "name": "Monjaro 2026 (мультимедиа)",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Geely Monjaro 2026 (мультимедиа)."
+    },
+    {
+      "id": "russian-9",
+      "service": "russian",
+      "make": "Geely",
+      "name": "Tugella 1 поколение",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Geely Tugella 1 поколение."
+    },
+    {
+      "id": "russian-10",
+      "service": "russian",
+      "make": "Geely",
+      "name": "Boyue",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Geely Boyue."
+    },
+    {
+      "id": "russian-11",
+      "service": "russian",
+      "make": "Geely",
+      "name": "Preface",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Geely Preface."
+    },
+    {
+      "id": "russian-12",
+      "service": "russian",
+      "make": "Changan",
+      "name": "Uni-K",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Changan Uni-K."
+    },
+    {
+      "id": "russian-13",
+      "service": "russian",
+      "make": "Changan",
+      "name": "Uni-Z",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Changan Uni-Z."
+    },
+    {
+      "id": "russian-14",
+      "service": "russian",
+      "make": "Changan",
+      "name": "Uni-V",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Changan Uni-V."
+    },
+    {
+      "id": "russian-15",
+      "service": "russian",
+      "make": "Changan",
+      "name": "A06",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Changan A06."
+    },
+    {
+      "id": "russian-16",
+      "service": "russian",
+      "make": "Changan",
+      "name": "Q05",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Changan Q05."
+    },
+    {
+      "id": "russian-17",
+      "service": "russian",
+      "make": "Changan",
+      "name": "Q07",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Changan Q07."
+    },
+    {
+      "id": "russian-18",
+      "service": "russian",
+      "make": "Changan",
+      "name": "X5 Plus",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Changan X5 Plus."
+    },
+    {
+      "id": "russian-19",
+      "service": "russian",
+      "make": "Changan",
+      "name": "X7",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Changan X7."
+    },
+    {
+      "id": "russian-20",
+      "service": "russian",
+      "make": "Changan",
+      "name": "CS55 Plus",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Changan CS55 Plus."
+    },
+    {
+      "id": "russian-21",
+      "service": "russian",
+      "make": "Changan",
+      "name": "Hunter Plus",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Changan Hunter Plus."
+    },
+    {
+      "id": "russian-22",
+      "service": "russian",
+      "make": "Haval",
+      "name": "H6 gen2",
+      "price": null,
+      "supported": true,
+      "source": "Русификация HAVAL H6 gen2."
+    },
+    {
+      "id": "russian-23",
+      "service": "russian",
+      "make": "Tank",
+      "name": "500",
+      "price": null,
+      "supported": true,
+      "source": "Русификация TANK 500."
+    },
+    {
+      "id": "russian-24",
+      "service": "russian",
+      "make": "Toyota",
+      "name": "Camry XV80",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Toyota Camry XV80."
+    },
+    {
+      "id": "russian-25",
+      "service": "russian",
+      "make": "Toyota",
+      "name": "Camry XV70 XV75",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Toyota Camry XV70 XV75."
+    },
+    {
+      "id": "russian-26",
+      "service": "russian",
+      "make": "Toyota",
+      "name": "RAV4 2024 (приборная панель + мультимедиа)",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Toyota RAV4 2024 (приборная панель + мультимедиа)."
+    },
+    {
+      "id": "russian-27",
+      "service": "russian",
+      "make": "Toyota",
+      "name": "RAV4 2026 (мультимедиа без разбора)",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Toyota RAV4 2026 (мультимедиа без разбора)."
+    },
+    {
+      "id": "russian-28",
+      "service": "russian",
+      "make": "Toyota",
+      "name": "Highlander (приборная панель + мультимедиа)",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Toyota Highlander (приборная панель + мультимедиа)."
+    },
+    {
+      "id": "russian-29",
+      "service": "russian",
+      "make": "Toyota",
+      "name": "Sienna",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Toyota Sienna."
+    },
+    {
+      "id": "russian-30",
+      "service": "russian",
+      "make": "Toyota",
+      "name": "Venza",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Toyota Venza."
+    },
+    {
+      "id": "russian-31",
+      "service": "russian",
+      "make": "Toyota",
+      "name": "Crown Kluger (24-25)",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Toyota Crown Kluger (24-25)."
+    },
+    {
+      "id": "russian-32",
+      "service": "russian",
+      "make": "Toyota",
+      "name": "Highlander USA",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Toyota Highlander USA."
+    },
+    {
+      "id": "russian-33",
+      "service": "russian",
+      "make": "Toyota",
+      "name": "BZ3x",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Toyota BZ3x."
+    },
+    {
+      "id": "russian-34",
+      "service": "russian",
+      "make": "Jetour",
+      "name": "Dashing (дорест)",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Jetour Dashing (дорест)."
+    },
+    {
+      "id": "russian-35",
+      "service": "russian",
+      "make": "Jetour",
+      "name": "T2 (Гибрид)",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Jetour T2 (Гибрид)."
+    },
+    {
+      "id": "russian-36",
+      "service": "russian",
+      "make": "Jetour",
+      "name": "X70 Plus (любое поколение, возможна частичная русификация)",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Jetour X70 Plus (любое поколение, возможна частичная русификация)."
+    },
+    {
+      "id": "russian-37",
+      "service": "russian",
+      "make": "BYD",
+      "name": "Leopard 3",
+      "price": null,
+      "supported": true,
+      "source": "Русификация BYD Leopard 3."
+    },
+    {
+      "id": "russian-38",
+      "service": "russian",
+      "make": "BYD",
+      "name": "Leopard 5",
+      "price": null,
+      "supported": true,
+      "source": "Русификация BYD Leopard 5."
+    },
+    {
+      "id": "russian-39",
+      "service": "russian",
+      "make": "BYD",
+      "name": "HYPC",
+      "price": null,
+      "supported": true,
+      "source": "Русификация BYD HYPC."
+    },
+    {
+      "id": "russian-40",
+      "service": "russian",
+      "make": "Hyundai",
+      "name": "Sonata 2021+",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Hyundai Sonata 2021+."
+    },
+    {
+      "id": "russian-41",
+      "service": "russian",
+      "make": "Hyundai",
+      "name": "SantaFe new 2024",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Hyundai SantaFe new 2024."
+    },
+    {
+      "id": "russian-42",
+      "service": "russian",
+      "make": "Hyundai",
+      "name": "Palisade",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Hyundai Palisade."
+    },
+    {
+      "id": "russian-43",
+      "service": "russian",
+      "make": "Hyundai",
+      "name": "Mufasa DLX",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Hyundai Mufasa DLX."
+    },
+    {
+      "id": "russian-44",
+      "service": "russian",
+      "make": "Hyundai",
+      "name": "Elantra",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Hyundai Elantra."
+    },
+    {
+      "id": "russian-45",
+      "service": "russian",
+      "make": "Kia",
+      "name": "K3 2022+",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Kia K3 2022+."
+    },
+    {
+      "id": "russian-46",
+      "service": "russian",
+      "make": "Kia",
+      "name": "K5 2022+",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Kia K5 2022+."
+    },
+    {
+      "id": "russian-47",
+      "service": "russian",
+      "make": "Kia",
+      "name": "K4 2024+",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Kia K4 2024+."
+    },
+    {
+      "id": "russian-48",
+      "service": "russian",
+      "make": "Genesis",
+      "name": "GV80 Gen6",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Genesis GV80 Gen6."
+    },
+    {
+      "id": "russian-bmw",
+      "service": "russian",
+      "make": "BMW",
+      "name": "Уточнить модель",
+      "price": null,
+      "supported": true,
+      "source": "Русификация доступна для большинства моделей. Конкретную модель и систему нужно проверить.",
+      "needsModel": true
+    },
+    {
+      "id": "russian-50",
+      "service": "russian",
+      "make": "Ssangyong",
+      "name": "Rexton",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Ssangyong Rexton."
+    },
+    {
+      "id": "russian-51",
+      "service": "russian",
+      "make": "Ssangyong",
+      "name": "Korando",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Ssangyong Korando."
+    },
+    {
+      "id": "russian-52",
+      "service": "russian",
+      "make": "Ssangyong",
+      "name": "Tivoli",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Ssangyong Tivoli."
+    },
+    {
+      "id": "russian-53",
+      "service": "russian",
+      "make": "Exeed",
+      "name": "RX",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Exeed RX."
+    },
+    {
+      "id": "russian-54",
+      "service": "russian",
+      "make": "Zeekr",
+      "name": "001",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Zeekr 001."
+    },
+    {
+      "id": "russian-55",
+      "service": "russian",
+      "make": "Hongqi",
+      "name": "EQM5",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Hongqi EQM5."
+    },
+    {
+      "id": "russian-56",
+      "service": "russian",
+      "make": "Kia",
+      "name": "Sportage 2016 - 2021",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Kia Sportage 2016 - 2021."
+    },
+    {
+      "id": "russian-57",
+      "service": "russian",
+      "make": "Lexus",
+      "name": "RX / NX (USA)",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Lexus RX NX (USA)."
+    },
+    {
+      "id": "russian-58",
+      "service": "russian",
+      "make": "Chevrolet",
+      "name": "Monza",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Chevrolet Monza."
+    },
+    {
+      "id": "russian-59",
+      "service": "russian",
+      "make": "Mazda",
+      "name": "CX-5",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Mazda CX-5."
+    },
+    {
+      "id": "russian-60",
+      "service": "russian",
+      "make": "Lynk&Co",
+      "name": "900",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Lynk&Co 900."
+    },
+    {
+      "id": "russian-61",
+      "service": "russian",
+      "make": "Lixiang",
+      "name": "L6",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Lixiang L6."
+    },
+    {
+      "id": "russian-62",
+      "service": "russian",
+      "make": "Lixiang",
+      "name": "L9",
+      "price": null,
+      "supported": true,
+      "source": "Русификация Lixiang L9."
+    },
+    {
+      "id": "photo-1",
+      "service": "inquiry",
+      "make": "BYD",
+      "name": "Seagull 2025",
+      "price": null,
+      "supported": true,
+      "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+      "needsCompatibility": true
+    },
+    {
+      "id": "photo-2",
+      "service": "inquiry",
+      "make": "BYD",
+      "name": "Tang L",
+      "price": null,
+      "supported": true,
+      "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+      "needsCompatibility": true
+    },
+    {
+      "id": "photo-3",
+      "service": "inquiry",
+      "make": "BYD",
+      "name": "YangWang U8",
+      "price": null,
+      "supported": true,
+      "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+      "needsCompatibility": true
+    },
+    {
+      "id": "photo-4",
+      "service": "inquiry",
+      "make": "Geely",
+      "name": "Galaxy M7",
+      "price": null,
+      "supported": true,
+      "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+      "needsCompatibility": true
+    },
+    {
+      "id": "photo-5",
+      "service": "inquiry",
+      "make": "Haval",
+      "name": "F7 2 поколение",
+      "price": null,
+      "supported": true,
+      "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+      "needsCompatibility": true
+    },
+    {
+      "id": "photo-6",
+      "service": "inquiry",
+      "make": "Haval",
+      "name": "F7x 2 поколение",
+      "price": null,
+      "supported": true,
+      "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+      "needsCompatibility": true
+    },
+    {
+      "id": "photo-7",
+      "service": "inquiry",
+      "make": "Volga",
+      "name": "C50",
+      "price": null,
+      "supported": true,
+      "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+      "needsCompatibility": true
+    },
+    {
+      "id": "photo-8",
+      "service": "inquiry",
+      "make": "Volga",
+      "name": "K40",
+      "price": null,
+      "supported": true,
+      "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+      "needsCompatibility": true
+    },
+    {
+      "id": "photo-9",
+      "service": "inquiry",
+      "make": "Volga",
+      "name": "K50",
+      "price": null,
+      "supported": true,
+      "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+      "needsCompatibility": true
+    },
+    {
+      "id": "photo-10",
+      "service": "inquiry",
+      "make": "Volkswagen",
+      "name": "Teramont Pro",
+      "price": null,
+      "supported": true,
+      "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+      "needsCompatibility": true
+    }
+  ],
+  "config": {
+    "brand": "Geeapp",
+    "defaultCity": "chelyabinsk",
+    "cities": {
+      "chelyabinsk": {
+        "name": "Челябинск",
+        "inName": "Челябинске",
+        "subdomain": "chelyabinsk"
+      }
+    },
+    "vehicles": [
+      {
+        "id": "car-1",
+        "service": "apps",
+        "make": "Geely",
+        "name": "Monjaro 1 поколение",
+        "price": 12000,
+        "supported": true,
+        "source": "12000 ₽ (полный пакет приложений, навигация, работа над удобством использования авто, доп. функции комфорта, недоступные с завода)",
+        "original": "Geely Monjaro 1 поколение - 12000 ₽ (полный пакет приложений, навигация, работа над удобством использования авто, доп. функции комфорта, недоступные с завода)"
+      },
+      {
+        "id": "car-2",
+        "service": "apps",
+        "make": "Geely",
+        "name": "Monjaro Rest 2025",
+        "price": 30000,
+        "supported": true,
+        "source": "русификация + установка пакета приложений (30000 ₽. Прошиваются модели выпущенные до марта 2025 года)",
+        "original": "Geely Monjaro Rest 2025 - русификация + установка пакета приложений (30000 ₽. Прошиваются модели выпущенные до марта 2025 года)"
+      },
+      {
+        "id": "car-3",
+        "service": "apps",
+        "make": "Geely",
+        "name": "Monjaro Flagship SE 2026",
+        "price": 15000,
+        "supported": true,
+        "source": "15000 ₽ (полный пакет приложений, навигация, сплиты, функции отключения надоедливых ассистентов и сохранения режима вождения, недоступные с завода)",
+        "original": "Geely Monjaro Flagship SE 2026 - 15000 ₽ (полный пакет приложений, навигация, сплиты, функции отключения надоедливых ассистентов и сохранения режима вождения, недоступные с завода)"
+      },
+      {
+        "id": "car-4",
+        "service": "apps",
+        "make": "Geely",
+        "name": "Tugella",
+        "price": 22000,
+        "supported": true,
+        "source": "22000 Р (полный пакет приложений + работа над удобством использования машины, мультируль. Цена обусловлена покупкой ПО под каждый автомобиль персонально)",
+        "original": "Geely Tugella/KnewStar 001 - 22000 Р (полный пакет приложений + работа над удобством использования машины, мультируль. Цена обусловлена покупкой ПО под каждый автомобиль персонально)"
+      },
+      {
+        "id": "car-5",
+        "service": "apps",
+        "make": "Geely",
+        "name": "Atlas 2024 Fx11",
+        "price": 12000,
+        "supported": true,
+        "source": "12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)",
+        "original": "Geely Atlas 2024 Fx11 - 12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)"
+      },
+      {
+        "id": "car-6",
+        "service": "apps",
+        "make": "Geely",
+        "name": "Atlas 2026",
+        "price": 15000,
+        "supported": true,
+        "source": "15000 ₽ (полный пакет приложений)",
+        "original": "Geely Atlas 2026 - 15000 ₽ (полный пакет приложений)"
+      },
+      {
+        "id": "car-7",
+        "service": "apps",
+        "make": "Geely",
+        "name": "CityRay",
+        "price": 12000,
+        "supported": true,
+        "source": "12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)",
+        "original": "Geely CityRay - 12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)"
+      },
+      {
+        "id": "car-8",
+        "service": "apps",
+        "make": "Geely",
+        "name": "Atlas Pro (рестайлинг)",
+        "price": 10000,
+        "supported": true,
+        "source": "10000 ₽ (разблокировка Андроид Авто для навигации и музыки, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)",
+        "original": "Geely Atlas Pro (рестайлинг)/ Belgee X70- 10000 ₽ (разблокировка Андроид Авто для навигации и музыки, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)"
+      },
+      {
+        "id": "car-9",
+        "service": "apps",
+        "make": "Geely",
+        "name": "Coolray (прошиваются почти все модели)",
+        "price": 10000,
+        "supported": true,
+        "source": "10000 ₽ (разблокировка Андроид Авто для навигации и музыки, установка приложения для работы CarPlay в связке с коробкой carlinkit, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)",
+        "original": "Geely Coolray (прошиваются почти все модели) - 10000 ₽ (разблокировка Андроид Авто для навигации и музыки, установка приложения для работы CarPlay в связке с коробкой carlinkit, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)"
+      },
+      {
+        "id": "car-10",
+        "service": "apps",
+        "make": "Geely",
+        "name": "Preface",
+        "price": 12000,
+        "supported": true,
+        "source": "12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)",
+        "original": "Geely Preface - 12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)"
+      },
+      {
+        "id": "car-11",
+        "service": "apps",
+        "make": "Geely",
+        "name": "Preface 2026",
+        "price": 15000,
+        "supported": true,
+        "source": "15000 ₽ (полный пакет приложений)",
+        "original": "Geely Preface 2026 - 15000 ₽ (полный пакет приложений)"
+      },
+      {
+        "id": "car-12",
+        "service": "apps",
+        "make": "Belgee",
+        "name": "X50 (1 серия)",
+        "price": 10000,
+        "supported": true,
+        "source": "прошиваются почти все модели) - 10000 ₽ (разблокировка Андроид Авто для навигации и музыки, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)",
+        "original": "Belgee X50 (1 серия) - прошиваются почти все модели) - 10000 ₽ (разблокировка Андроид Авто для навигации и музыки, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)"
+      },
+      {
+        "id": "car-13",
+        "service": "apps",
+        "make": "Belgee",
+        "name": "X50 2025",
+        "price": 20000,
+        "supported": true,
+        "source": "20000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, голосовой помощник)",
+        "original": "Belgee X50 2025 - 20000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, голосовой помощник)"
+      },
+      {
+        "id": "car-14",
+        "service": "apps",
+        "make": "Belgee",
+        "name": "X70 2025",
+        "price": 20000,
+        "supported": true,
+        "source": "(полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, голосовой помощник) - 20000 ₽",
+        "original": "Belgee X70 2025 - (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, голосовой помощник) - 20000 ₽"
+      },
+      {
+        "id": "car-15",
+        "service": "apps",
+        "make": "Geely",
+        "name": "Ex5",
+        "price": 12000,
+        "supported": true,
+        "source": "12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)",
+        "original": "Geely Ex5 - 12000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея)"
+      },
+      {
+        "id": "car-16",
+        "service": "apps",
+        "make": "Geely",
+        "name": "EX5-EMI",
+        "price": 20000,
+        "supported": true,
+        "source": "20000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, отключение ассисентов, работа с проекционным дисплеем)",
+        "original": "Geely EX5-EMI - 20000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, отключение ассисентов, работа с проекционным дисплеем)"
+      },
+      {
+        "id": "car-17",
+        "service": "apps",
+        "make": "Geely",
+        "name": "EX5-EMR",
+        "price": 20000,
+        "supported": true,
+        "source": "20000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, отключение ассисентов, работа с проекционным дисплеем)",
+        "original": "Geely EX5-EMR - 20000 ₽ (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, отключение ассисентов, работа с проекционным дисплеем)"
+      },
+      {
+        "id": "car-18",
+        "service": "apps",
+        "make": "Geely",
+        "name": "Okavango Rest",
+        "price": 16000,
+        "supported": true,
+        "source": "(полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, голосовой помощник) - 16000 ₽",
+        "original": "Geely Okavango Rest - (полный пакет приложений + работа над удобством использования машины, мультируль, сплит дисплея, голосовой помощник) - 16000 ₽"
+      },
+      {
+        "id": "car-19",
+        "service": "apps",
+        "make": "Haval",
+        "name": "Jolion",
+        "price": 8000,
+        "supported": true,
+        "source": "8000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио). Открытие DTS + 1000 руб к стоимости",
+        "original": "HAVAL Jolion - 8000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио). Открытие DTS + 1000 руб к стоимости"
+      },
+      {
+        "id": "car-20",
+        "service": "apps",
+        "make": "Haval",
+        "name": "F7x (рестайлинг)",
+        "price": 10000,
+        "supported": true,
+        "source": "10000 ₽ (готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд)",
+        "original": "Haval F7x (рестайлинг) - 10000 ₽ (готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд)"
+      },
+      {
+        "id": "car-21",
+        "service": "apps",
+        "make": "Haval",
+        "name": "F7 (рестайлинг до 2024 года)",
+        "price": 10000,
+        "supported": true,
+        "source": "10000 ₽ (готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд)",
+        "original": "Haval F7 (рестайлинг до 2024 года) - 10000 ₽ (готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд)"
+      },
+      {
+        "id": "car-22",
+        "service": "apps",
+        "make": "Haval",
+        "name": "F7",
+        "price": 12000,
+        "supported": true,
+        "source": "Пакет приложений, лаунчер, штатная навигация.",
+        "original": "Haval F7 1G (до 2024 года по н.в.) - 12000 ₽ (готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд. )"
+      },
+      {
+        "id": "car-23",
+        "service": "apps",
+        "make": "Haval",
+        "name": "Dargo H",
+        "price": 10000,
+        "supported": true,
+        "source": "10000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио)",
+        "original": "Haval Dargo H - 10000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио)"
+      },
+      {
+        "id": "car-24",
+        "service": "apps",
+        "make": "Haval",
+        "name": "H3",
+        "price": 12000,
+        "supported": true,
+        "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+        "original": "HAVAL H3 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+      },
+      {
+        "id": "car-25",
+        "service": "apps",
+        "make": "Haval",
+        "name": "H6",
+        "price": 12000,
+        "supported": true,
+        "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+        "original": "HAVAL H6 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+      },
+      {
+        "id": "car-26",
+        "service": "apps",
+        "make": "Haval",
+        "name": "H7",
+        "price": 12000,
+        "supported": true,
+        "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+        "original": "HAVAL H7 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+      },
+      {
+        "id": "car-27",
+        "service": "apps",
+        "make": "Haval",
+        "name": "H9",
+        "price": 12000,
+        "supported": true,
+        "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+        "original": "HAVAL H9 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+      },
+      {
+        "id": "car-28",
+        "service": "apps",
+        "make": "Haval",
+        "name": "M6",
+        "price": null,
+        "supported": false,
+        "source": "НЕ ПРОШИВАЮ!",
+        "original": "Haval M6 - НЕ ПРОШИВАЮ!"
+      },
+      {
+        "id": "car-29",
+        "service": "apps",
+        "make": "Tank",
+        "name": "300",
+        "price": 12000,
+        "supported": true,
+        "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+        "original": "Tank 300 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+      },
+      {
+        "id": "car-30",
+        "service": "apps",
+        "make": "Tank",
+        "name": "400",
+        "price": 12000,
+        "supported": true,
+        "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+        "original": "Tank 400 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+      },
+      {
+        "id": "car-31",
+        "service": "apps",
+        "make": "Tank",
+        "name": "500",
+        "price": 12000,
+        "supported": true,
+        "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+        "original": "Tank 500 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+      },
+      {
+        "id": "car-32",
+        "service": "apps",
+        "make": "Tank",
+        "name": "700",
+        "price": 12000,
+        "supported": true,
+        "source": "12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))",
+        "original": "Tank 700 - 12000 ₽ (полный пакет приложений, навигация, приложения музыки, видео, ТВ, радио, сплит экран, новая приборная панель (колодцы))"
+      },
+      {
+        "id": "car-33",
+        "service": "apps",
+        "make": "Jaecoo",
+        "name": "J7",
+        "price": 12000,
+        "supported": true,
+        "source": "полный пакет приложений, навигация, музыка, фильмы, ТВ, работа с проекцией, работа с приборной панелью - 12000 ₽",
+        "original": "Jaecoo J7 - полный пакет приложений, навигация, музыка, фильмы, ТВ, работа с проекцией, работа с приборной панелью - 12000 ₽"
+      },
+      {
+        "id": "car-34",
+        "service": "apps",
+        "make": "Jaecoo",
+        "name": "J7 (Rest 2026)",
+        "price": 17000,
+        "supported": true,
+        "source": "полный пакет приложений, навигация, музыка, фильмы, ТВ, работа с проекцией, работа с приборной панелью - 17000 ₽",
+        "original": "Jaecoo J7 (Rest 2026) - полный пакет приложений, навигация, музыка, фильмы, ТВ, работа с проекцией, работа с приборной панелью - 17000 ₽"
+      },
+      {
+        "id": "car-35",
+        "service": "apps",
+        "make": "Jaecoo",
+        "name": "J8",
+        "price": 12000,
+        "supported": true,
+        "source": "полный пакет приложений, навигация, музыка, фильмы, ТВ, работа с проекцией, работа с приборной панелью - 12000 ₽",
+        "original": "Jaecoo J8 - полный пакет приложений, навигация, музыка, фильмы, ТВ, работа с проекцией, работа с приборной панелью - 12000 ₽"
+      },
+      {
+        "id": "car-36",
+        "service": "apps",
+        "make": "Jetour",
+        "name": "X70 Plus (Luxury)",
+        "price": 10000,
+        "supported": true,
+        "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽",
+        "original": "Jetour X70 Plus (Luxury) - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽"
+      },
+      {
+        "id": "car-37",
+        "service": "apps",
+        "make": "Jetour",
+        "name": "X90 Plus (Luxury)",
+        "price": 10000,
+        "supported": true,
+        "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽",
+        "original": "Jetour X90 Plus (Luxury) - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽"
+      },
+      {
+        "id": "car-38",
+        "service": "apps",
+        "make": "Jetour",
+        "name": "Dashing",
+        "price": 10000,
+        "supported": true,
+        "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽",
+        "original": "Jetour Dashing - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽"
+      },
+      {
+        "id": "car-39",
+        "service": "apps",
+        "make": "Jetour",
+        "name": "T2",
+        "price": 10000,
+        "supported": true,
+        "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽",
+        "original": "Jetour T2 - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽"
+      },
+      {
+        "id": "car-40",
+        "service": "apps",
+        "make": "Jetour",
+        "name": "Traveller (Китай версия)",
+        "price": 10000,
+        "supported": true,
+        "source": "установка кастомного лаунчера (более удобного для нас), установка приложений, навигатор, музыка, фильмы, тв, частичная русификация интерфейса, в основном в приложениях - 10000 ₽",
+        "original": "Jetour Traveller (Китай версия) - установка кастомного лаунчера (более удобного для нас), установка приложений, навигатор, музыка, фильмы, тв, частичная русификация интерфейса, в основном в приложениях - 10000 ₽"
+      },
+      {
+        "id": "car-41",
+        "service": "apps",
+        "make": "GAC",
+        "name": "GS8",
+        "price": 12000,
+        "supported": true,
+        "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽",
+        "original": "GAC GS8 - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽"
+      },
+      {
+        "id": "car-42",
+        "service": "apps",
+        "make": "GAC",
+        "name": "GS3",
+        "price": 10000,
+        "supported": true,
+        "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽",
+        "original": "GAC GS3 - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 10000 ₽"
+      },
+      {
+        "id": "car-43",
+        "service": "apps",
+        "make": "Changan",
+        "name": "UNI-K",
+        "price": 12000,
+        "supported": true,
+        "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽",
+        "original": "CHANGAN UNI-K - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽"
+      },
+      {
+        "id": "car-44",
+        "service": "apps",
+        "make": "Changan",
+        "name": "UNI-T",
+        "price": 12000,
+        "supported": true,
+        "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽",
+        "original": "CHANGAN UNI-T - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽"
+      },
+      {
+        "id": "car-45",
+        "service": "apps",
+        "make": "Changan",
+        "name": "UNI-V",
+        "price": 12000,
+        "supported": true,
+        "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽",
+        "original": "CHANGAN UNI-V - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽"
+      },
+      {
+        "id": "car-46",
+        "service": "apps",
+        "make": "Changan",
+        "name": "CS75PLUS",
+        "price": 12000,
+        "supported": true,
+        "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽",
+        "original": "CHANGAN CS75PLUS - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽"
+      },
+      {
+        "id": "car-47",
+        "service": "apps",
+        "make": "Changan",
+        "name": "UNI-S/CS55",
+        "price": 12000,
+        "supported": true,
+        "source": "готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽",
+        "original": "CHANGAN UNI-S/CS55 - готовый пакет приложений, лаунчер для удобства использования, штатная навигация и тд - 12000 ₽"
+      },
+      {
+        "id": "knewstar-001",
+        "service": "apps",
+        "make": "KnewStar",
+        "name": "001",
+        "price": 22000,
+        "supported": true,
+        "source": "22000 Р (полный пакет приложений + работа над удобством использования машины, мультируль. Цена обусловлена покупкой ПО под каждый автомобиль персонально)",
+        "original": "Geely Tugella/KnewStar 001 - 22000 Р (полный пакет приложений + работа над удобством использования машины, мультируль. Цена обусловлена покупкой ПО под каждый автомобиль персонально)"
+      },
+      {
+        "id": "belgee-x70-alias",
+        "service": "apps",
+        "make": "Belgee",
+        "name": "X70 (пакет Android Auto)",
+        "price": 10000,
+        "supported": true,
+        "source": "10000 ₽ (разблокировка Андроид Авто для навигации и музыки, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)",
+        "original": "Geely Atlas Pro (рестайлинг)/ Belgee X70- 10000 ₽ (разблокировка Андроид Авто для навигации и музыки, ТВ, Радио, Онлайн кинотеатр, отдельно Я.Навигатор в самом планшете будет сильно тупить)"
+      },
+      {
+        "id": "russian-1",
+        "service": "russian",
+        "make": "Geely",
+        "name": "Atlas Cool (Bouye Cool) 1 поколение",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Atlas Cool (Bouye Cool) 1 поколение."
+      },
+      {
+        "id": "russian-2",
+        "service": "russian",
+        "make": "Geely",
+        "name": "Bouye L дорест",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Bouye L дорест."
+      },
+      {
+        "id": "russian-3",
+        "service": "russian",
+        "make": "Belgee",
+        "name": "X50",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Belgee X50."
+      },
+      {
+        "id": "russian-4",
+        "service": "russian",
+        "make": "Geely",
+        "name": "Binyue Cool",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Binyue Cool."
+      },
+      {
+        "id": "russian-5",
+        "service": "russian",
+        "make": "Geely",
+        "name": "Coolray (2023-2025)",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Geely Coolray (2023-2025)."
+      },
+      {
+        "id": "russian-6",
+        "service": "russian",
+        "make": "Geely",
+        "name": "Monjaro 1 поколение (приборная панель + мультимедиа)",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Geely Monjaro 1 поколение (приборная панель + мультимедиа)."
+      },
+      {
+        "id": "russian-7",
+        "service": "russian",
+        "make": "Geely",
+        "name": "Monjaro 2025 (приборная панель + мультимедиа)",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Geely Monjaro 2025 (приборная панель + мультимедиа)."
+      },
+      {
+        "id": "russian-8",
+        "service": "russian",
+        "make": "Geely",
+        "name": "Monjaro 2026 (мультимедиа)",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Geely Monjaro 2026 (мультимедиа)."
+      },
+      {
+        "id": "russian-9",
+        "service": "russian",
+        "make": "Geely",
+        "name": "Tugella 1 поколение",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Geely Tugella 1 поколение."
+      },
+      {
+        "id": "russian-10",
+        "service": "russian",
+        "make": "Geely",
+        "name": "Boyue",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Geely Boyue."
+      },
+      {
+        "id": "russian-11",
+        "service": "russian",
+        "make": "Geely",
+        "name": "Preface",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Geely Preface."
+      },
+      {
+        "id": "russian-12",
+        "service": "russian",
+        "make": "Changan",
+        "name": "Uni-K",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Changan Uni-K."
+      },
+      {
+        "id": "russian-13",
+        "service": "russian",
+        "make": "Changan",
+        "name": "Uni-Z",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Changan Uni-Z."
+      },
+      {
+        "id": "russian-14",
+        "service": "russian",
+        "make": "Changan",
+        "name": "Uni-V",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Changan Uni-V."
+      },
+      {
+        "id": "russian-15",
+        "service": "russian",
+        "make": "Changan",
+        "name": "A06",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Changan A06."
+      },
+      {
+        "id": "russian-16",
+        "service": "russian",
+        "make": "Changan",
+        "name": "Q05",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Changan Q05."
+      },
+      {
+        "id": "russian-17",
+        "service": "russian",
+        "make": "Changan",
+        "name": "Q07",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Changan Q07."
+      },
+      {
+        "id": "russian-18",
+        "service": "russian",
+        "make": "Changan",
+        "name": "X5 Plus",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Changan X5 Plus."
+      },
+      {
+        "id": "russian-19",
+        "service": "russian",
+        "make": "Changan",
+        "name": "X7",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Changan X7."
+      },
+      {
+        "id": "russian-20",
+        "service": "russian",
+        "make": "Changan",
+        "name": "CS55 Plus",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Changan CS55 Plus."
+      },
+      {
+        "id": "russian-21",
+        "service": "russian",
+        "make": "Changan",
+        "name": "Hunter Plus",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Changan Hunter Plus."
+      },
+      {
+        "id": "russian-22",
+        "service": "russian",
+        "make": "Haval",
+        "name": "H6 gen2",
+        "price": null,
+        "supported": true,
+        "source": "Русификация HAVAL H6 gen2."
+      },
+      {
+        "id": "russian-23",
+        "service": "russian",
+        "make": "Tank",
+        "name": "500",
+        "price": null,
+        "supported": true,
+        "source": "Русификация TANK 500."
+      },
+      {
+        "id": "russian-24",
+        "service": "russian",
+        "make": "Toyota",
+        "name": "Camry XV80",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Toyota Camry XV80."
+      },
+      {
+        "id": "russian-25",
+        "service": "russian",
+        "make": "Toyota",
+        "name": "Camry XV70 XV75",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Toyota Camry XV70 XV75."
+      },
+      {
+        "id": "russian-26",
+        "service": "russian",
+        "make": "Toyota",
+        "name": "RAV4 2024 (приборная панель + мультимедиа)",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Toyota RAV4 2024 (приборная панель + мультимедиа)."
+      },
+      {
+        "id": "russian-27",
+        "service": "russian",
+        "make": "Toyota",
+        "name": "RAV4 2026 (мультимедиа без разбора)",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Toyota RAV4 2026 (мультимедиа без разбора)."
+      },
+      {
+        "id": "russian-28",
+        "service": "russian",
+        "make": "Toyota",
+        "name": "Highlander (приборная панель + мультимедиа)",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Toyota Highlander (приборная панель + мультимедиа)."
+      },
+      {
+        "id": "russian-29",
+        "service": "russian",
+        "make": "Toyota",
+        "name": "Sienna",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Toyota Sienna."
+      },
+      {
+        "id": "russian-30",
+        "service": "russian",
+        "make": "Toyota",
+        "name": "Venza",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Toyota Venza."
+      },
+      {
+        "id": "russian-31",
+        "service": "russian",
+        "make": "Toyota",
+        "name": "Crown Kluger (24-25)",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Toyota Crown Kluger (24-25)."
+      },
+      {
+        "id": "russian-32",
+        "service": "russian",
+        "make": "Toyota",
+        "name": "Highlander USA",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Toyota Highlander USA."
+      },
+      {
+        "id": "russian-33",
+        "service": "russian",
+        "make": "Toyota",
+        "name": "BZ3x",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Toyota BZ3x."
+      },
+      {
+        "id": "russian-34",
+        "service": "russian",
+        "make": "Jetour",
+        "name": "Dashing (дорест)",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Jetour Dashing (дорест)."
+      },
+      {
+        "id": "russian-35",
+        "service": "russian",
+        "make": "Jetour",
+        "name": "T2 (Гибрид)",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Jetour T2 (Гибрид)."
+      },
+      {
+        "id": "russian-36",
+        "service": "russian",
+        "make": "Jetour",
+        "name": "X70 Plus (любое поколение, возможна частичная русификация)",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Jetour X70 Plus (любое поколение, возможна частичная русификация)."
+      },
+      {
+        "id": "russian-37",
+        "service": "russian",
+        "make": "BYD",
+        "name": "Leopard 3",
+        "price": null,
+        "supported": true,
+        "source": "Русификация BYD Leopard 3."
+      },
+      {
+        "id": "russian-38",
+        "service": "russian",
+        "make": "BYD",
+        "name": "Leopard 5",
+        "price": null,
+        "supported": true,
+        "source": "Русификация BYD Leopard 5."
+      },
+      {
+        "id": "russian-39",
+        "service": "russian",
+        "make": "BYD",
+        "name": "HYPC",
+        "price": null,
+        "supported": true,
+        "source": "Русификация BYD HYPC."
+      },
+      {
+        "id": "russian-40",
+        "service": "russian",
+        "make": "Hyundai",
+        "name": "Sonata 2021+",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Hyundai Sonata 2021+."
+      },
+      {
+        "id": "russian-41",
+        "service": "russian",
+        "make": "Hyundai",
+        "name": "SantaFe new 2024",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Hyundai SantaFe new 2024."
+      },
+      {
+        "id": "russian-42",
+        "service": "russian",
+        "make": "Hyundai",
+        "name": "Palisade",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Hyundai Palisade."
+      },
+      {
+        "id": "russian-43",
+        "service": "russian",
+        "make": "Hyundai",
+        "name": "Mufasa DLX",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Hyundai Mufasa DLX."
+      },
+      {
+        "id": "russian-44",
+        "service": "russian",
+        "make": "Hyundai",
+        "name": "Elantra",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Hyundai Elantra."
+      },
+      {
+        "id": "russian-45",
+        "service": "russian",
+        "make": "Kia",
+        "name": "K3 2022+",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Kia K3 2022+."
+      },
+      {
+        "id": "russian-46",
+        "service": "russian",
+        "make": "Kia",
+        "name": "K5 2022+",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Kia K5 2022+."
+      },
+      {
+        "id": "russian-47",
+        "service": "russian",
+        "make": "Kia",
+        "name": "K4 2024+",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Kia K4 2024+."
+      },
+      {
+        "id": "russian-48",
+        "service": "russian",
+        "make": "Genesis",
+        "name": "GV80 Gen6",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Genesis GV80 Gen6."
+      },
+      {
+        "id": "russian-bmw",
+        "service": "russian",
+        "make": "BMW",
+        "name": "Уточнить модель",
+        "price": null,
+        "supported": true,
+        "source": "Русификация доступна для большинства моделей. Конкретную модель и систему нужно проверить.",
+        "needsModel": true
+      },
+      {
+        "id": "russian-50",
+        "service": "russian",
+        "make": "Ssangyong",
+        "name": "Rexton",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Ssangyong Rexton."
+      },
+      {
+        "id": "russian-51",
+        "service": "russian",
+        "make": "Ssangyong",
+        "name": "Korando",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Ssangyong Korando."
+      },
+      {
+        "id": "russian-52",
+        "service": "russian",
+        "make": "Ssangyong",
+        "name": "Tivoli",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Ssangyong Tivoli."
+      },
+      {
+        "id": "russian-53",
+        "service": "russian",
+        "make": "Exeed",
+        "name": "RX",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Exeed RX."
+      },
+      {
+        "id": "russian-54",
+        "service": "russian",
+        "make": "Zeekr",
+        "name": "001",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Zeekr 001."
+      },
+      {
+        "id": "russian-55",
+        "service": "russian",
+        "make": "Hongqi",
+        "name": "EQM5",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Hongqi EQM5."
+      },
+      {
+        "id": "russian-56",
+        "service": "russian",
+        "make": "Kia",
+        "name": "Sportage 2016 - 2021",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Kia Sportage 2016 - 2021."
+      },
+      {
+        "id": "russian-57",
+        "service": "russian",
+        "make": "Lexus",
+        "name": "RX / NX (USA)",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Lexus RX NX (USA)."
+      },
+      {
+        "id": "russian-58",
+        "service": "russian",
+        "make": "Chevrolet",
+        "name": "Monza",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Chevrolet Monza."
+      },
+      {
+        "id": "russian-59",
+        "service": "russian",
+        "make": "Mazda",
+        "name": "CX-5",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Mazda CX-5."
+      },
+      {
+        "id": "russian-60",
+        "service": "russian",
+        "make": "Lynk&Co",
+        "name": "900",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Lynk&Co 900."
+      },
+      {
+        "id": "russian-61",
+        "service": "russian",
+        "make": "Lixiang",
+        "name": "L6",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Lixiang L6."
+      },
+      {
+        "id": "russian-62",
+        "service": "russian",
+        "make": "Lixiang",
+        "name": "L9",
+        "price": null,
+        "supported": true,
+        "source": "Русификация Lixiang L9."
+      },
+      {
+        "id": "photo-1",
+        "service": "inquiry",
+        "make": "BYD",
+        "name": "Seagull 2025",
+        "price": null,
+        "supported": true,
+        "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+        "needsCompatibility": true
+      },
+      {
+        "id": "photo-2",
+        "service": "inquiry",
+        "make": "BYD",
+        "name": "Tang L",
+        "price": null,
+        "supported": true,
+        "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+        "needsCompatibility": true
+      },
+      {
+        "id": "photo-3",
+        "service": "inquiry",
+        "make": "BYD",
+        "name": "YangWang U8",
+        "price": null,
+        "supported": true,
+        "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+        "needsCompatibility": true
+      },
+      {
+        "id": "photo-4",
+        "service": "inquiry",
+        "make": "Geely",
+        "name": "Galaxy M7",
+        "price": null,
+        "supported": true,
+        "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+        "needsCompatibility": true
+      },
+      {
+        "id": "photo-5",
+        "service": "inquiry",
+        "make": "Haval",
+        "name": "F7 2 поколение",
+        "price": null,
+        "supported": true,
+        "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+        "needsCompatibility": true
+      },
+      {
+        "id": "photo-6",
+        "service": "inquiry",
+        "make": "Haval",
+        "name": "F7x 2 поколение",
+        "price": null,
+        "supported": true,
+        "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+        "needsCompatibility": true
+      },
+      {
+        "id": "photo-7",
+        "service": "inquiry",
+        "make": "Volga",
+        "name": "C50",
+        "price": null,
+        "supported": true,
+        "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+        "needsCompatibility": true
+      },
+      {
+        "id": "photo-8",
+        "service": "inquiry",
+        "make": "Volga",
+        "name": "K40",
+        "price": null,
+        "supported": true,
+        "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+        "needsCompatibility": true
+      },
+      {
+        "id": "photo-9",
+        "service": "inquiry",
+        "make": "Volga",
+        "name": "K50",
+        "price": null,
+        "supported": true,
+        "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+        "needsCompatibility": true
+      },
+      {
+        "id": "photo-10",
+        "service": "inquiry",
+        "make": "Volkswagen",
+        "name": "Teramont Pro",
+        "price": null,
+        "supported": true,
+        "source": "Модель добавлена по фотографии владельца. Доступные услуги, совместимость и стоимость требуют отдельного подтверждения.",
+        "needsCompatibility": true
+      }
+    ],
+    "vehicleImages": {
+      "car-3": "assets/cars/img-02658c602cdb57787e2d.webp",
+      "russian-40": "assets/cars/img-0497240aceb544f8ac7b.webp",
+      "car-37": "assets/cars/img-0521d108cb26c1c4b764.webp",
+      "russian-28": "assets/cars/img-0797205faf431c157cd2.webp",
+      "car-45": "assets/cars/img-0d6ebe1211c2f8028e9f.webp",
+      "russian-14": "assets/cars/img-0d6ebe1211c2f8028e9f.webp",
+      "car-30": "assets/cars/img-0f47213de88fe881fcd5.webp",
+      "car-39": "assets/cars/img-12990241f00e57673cf6.webp",
+      "russian-35": "assets/cars/img-12990241f00e57673cf6.webp",
+      "car-43": "assets/cars/img-133a327ed1f45b3ee541.webp",
+      "russian-12": "assets/cars/img-133a327ed1f45b3ee541.webp",
+      "russian-43": "assets/cars/img-1c0be3bd2be45ea9f152.webp",
+      "photo-5": "assets/cars/img-1eea62538016851e1cf7.webp",
+      "russian-27": "assets/cars/img-22722edaed8ab2fe8835.webp",
+      "car-5": "assets/cars/img-266c346184b480687f34.webp",
+      "russian-55": "assets/cars/img-2bf2862378fd7cab7fc7.webp",
+      "russian-58": "assets/cars/img-2cf8dc6c0e25871e6443.webp",
+      "photo-10": "assets/cars/img-2d1c47fe9789a0cd1d11.webp",
+      "russian-60": "assets/cars/img-30dca3e1ee948cbec3ce.webp",
+      "russian-37": "assets/cars/img-30e00cee33ab7498252e.webp",
+      "photo-4": "assets/cars/img-316ded091dc6d1d2d00c.webp",
+      "car-31": "assets/cars/img-348e2da18eea3e48a234.webp",
+      "russian-23": "assets/cars/img-348e2da18eea3e48a234.webp",
+      "russian-42": "assets/cars/img-358e20ad1430ea9cda05.webp",
+      "car-14": "assets/cars/img-379fd1e3aa70c6e4ee94.webp",
+      "car-1": "assets/cars/img-38c366d29894ae19d39a.webp",
+      "russian-6": "assets/cars/img-38c366d29894ae19d39a.webp",
+      "russian-62": "assets/cars/img-392857a7a19c027a84b2.webp",
+      "car-23": "assets/cars/img-3ecf6f85138d4e137bd8.webp",
+      "car-4": "assets/cars/img-41efba109d0559f0e8ea.webp",
+      "russian-9": "assets/cars/img-41efba109d0559f0e8ea.webp",
+      "photo-1": "assets/cars/img-44b96f4c2908eeed1c69.webp",
+      "car-24": "assets/cars/img-4836c9b94e553ed445ba.webp",
+      "car-36": "assets/cars/img-5214b8643e4b5c719bf2.webp",
+      "russian-36": "assets/cars/img-5214b8643e4b5c719bf2.webp",
+      "car-16": "assets/cars/img-5dd371c1ea559850db36.webp",
+      "russian-33": "assets/cars/img-5e9d3d64a45ae811af75.webp",
+      "russian-25": "assets/cars/img-6125c70abd225536994f.webp",
+      "car-11": "assets/cars/img-656816796a6c57cf597e.webp",
+      "russian-17": "assets/cars/img-658533fb152d9a681dcb.webp",
+      "photo-9": "assets/cars/img-6920ca15165cc3dc3cd2.webp",
+      "russian-50": "assets/cars/img-697dcee39c023c9ab4de.webp",
+      "car-44": "assets/cars/img-6b6a7d1aa2f86c918ef5.webp",
+      "russian-53": "assets/cars/img-6bac1ba3fcb1c52b8876.webp",
+      "russian-26": "assets/cars/img-6c916d3ec0b498c45a43.webp",
+      "russian-41": "assets/cars/img-700b126601e976885b3a.webp",
+      "car-27": "assets/cars/img-76dd4dbce0e609ee02f2.webp",
+      "belgee-x70-alias": "assets/cars/img-7755bf96aaca6219c6b4.webp",
+      "russian-59": "assets/cars/img-784450434c5863625da3.webp",
+      "photo-7": "assets/cars/img-8224d7d178abfbe8b49e.webp",
+      "photo-3": "assets/cars/img-842004b41acebbc7c58c.webp",
+      "car-6": "assets/cars/img-84a117ea0552022139c4.webp",
+      "car-25": "assets/cars/img-864ae63f901bfa045fb1.webp",
+      "car-41": "assets/cars/img-8667dd595b2049e6d852.webp",
+      "photo-2": "assets/cars/img-8710b9823bf0ae995246.webp",
+      "car-32": "assets/cars/img-879a348e218c43edf3aa.webp",
+      "car-38": "assets/cars/img-87d7b689b6213a39d2a7.webp",
+      "russian-34": "assets/cars/img-87d7b689b6213a39d2a7.webp",
+      "car-12": "assets/cars/img-8c889c11f2f3724eae89.webp",
+      "russian-3": "assets/cars/img-8c889c11f2f3724eae89.webp",
+      "photo-6": "assets/cars/img-8cc3b1fda5c63ea1e3dd.webp",
+      "car-19": "assets/cars/img-8dd4c5904d6551aec472.webp",
+      "car-47": "assets/cars/img-92bccf5bdfa0c4f71646.webp",
+      "car-15": "assets/cars/img-9706cf9c70aa018eff59.webp",
+      "russian-52": "assets/cars/img-976765ce0811ff1a8436.webp",
+      "car-26": "assets/cars/img-97eb11a1ec3b691ad02d.webp",
+      "car-40": "assets/cars/img-9d890bc4436866b3d084.webp",
+      "russian-57": "assets/cars/img-9dc7e69d175e7c176483.webp",
+      "russian-61": "assets/cars/img-9ee8cd2c15c96e2e9281.webp",
+      "russian-45": "assets/cars/img-a18628f62c1618fd3f6e.webp",
+      "russian-48": "assets/cars/img-a42d371c800a191b66b2.webp",
+      "car-2": "assets/cars/img-aba03df90c74b57480b4.webp",
+      "russian-7": "assets/cars/img-aba03df90c74b57480b4.webp",
+      "car-42": "assets/cars/img-b02e36fed0bf02181988.webp",
+      "car-13": "assets/cars/img-b76d34dc58525ab8e627.webp",
+      "car-46": "assets/cars/img-bee75815c76bdd2fef3c.webp",
+      "russian-24": "assets/cars/img-c19082ae7044c88df655.webp",
+      "car-9": "assets/cars/img-c217c2634b6423f51b2a.webp",
+      "russian-5": "assets/cars/img-c217c2634b6423f51b2a.webp",
+      "russian-16": "assets/cars/img-c5cfc7368ebf68c83ed1.webp",
+      "russian-56": "assets/cars/img-cff8f38c51193aba8451.webp",
+      "car-17": "assets/cars/img-d356c8b5881d84f9122c.webp",
+      "russian-38": "assets/cars/img-d46857dfca1bc5965634.webp",
+      "car-10": "assets/cars/img-d70dfcd1b1d104fbb674.webp",
+      "russian-11": "assets/cars/img-d70dfcd1b1d104fbb674.webp",
+      "car-21": "assets/cars/img-dfcd1e4fb24044ef766f.webp",
+      "russian-51": "assets/cars/img-e13da113ce90676a6f08.webp",
+      "russian-54": "assets/cars/img-e3add74f83a7af8371c9.webp",
+      "russian-46": "assets/cars/img-e99d15ef5b3387c861ab.webp",
+      "car-18": "assets/cars/img-ea21a2a63d3f7864dce5.webp",
+      "russian-13": "assets/cars/img-ea6d5e0f1ac315ca0e3e.webp",
+      "russian-8": "assets/cars/img-ea9ff11be75f488fa358.webp",
+      "russian-47": "assets/cars/img-eb5483d406b8e6577cbc.webp",
+      "car-33": "assets/cars/img-ed64f460a8d41f4cf22f.webp",
+      "car-29": "assets/cars/img-eef22fcc6d9443ec1360.webp",
+      "car-35": "assets/cars/img-f42af1e20afbe7433b69.webp",
+      "car-8": "assets/cars/img-f4417916b54148988f35.webp",
+      "car-7": "assets/cars/img-f6eead702c1e6d4b30fb.webp",
+      "car-34": "assets/cars/img-f8e2aebc2eaf99c22a19.webp",
+      "russian-15": "assets/cars/img-ff3a6a83bf68f376ff42.webp"
+    },
+    "brandLogos": {
+      "Belgee": "assets/brands/belgee.png",
+      "KnewStar": "assets/brands/knewstar.png",
+      "Volga": "assets/brands/volga.png",
+      "Volkswagen": "assets/brands/volkswagen.png",
+      "Geely": "assets/brands/geely.png",
+      "Haval": "assets/brands/haval.png",
+      "Tank": "assets/brands/tank.png",
+      "Jaecoo": "assets/brands/jaecoo.png",
+      "Jetour": "assets/brands/jetour.png",
+      "GAC": "assets/brands/gac.png",
+      "Changan": "assets/brands/changan.png",
+      "Toyota": "assets/brands/toyota.png",
+      "BYD": "assets/brands/byd.png",
+      "Hyundai": "assets/brands/hyundai.png",
+      "Kia": "assets/brands/kia.png",
+      "Genesis": "assets/brands/genesis.png",
+      "BMW": "assets/brands/bmw.png",
+      "Ssangyong": "assets/brands/ssangyong.png",
+      "Exeed": "assets/brands/exeed.png",
+      "Zeekr": "assets/brands/zeekr.png",
+      "Hongqi": "assets/brands/hongqi.png",
+      "Lexus": "assets/brands/lexus.png",
+      "Chevrolet": "assets/brands/chevrolet.png",
+      "Mazda": "assets/brands/mazda.png",
+      "Lynk&Co": "assets/brands/lynkco.png",
+      "Lixiang": "assets/brands/lixiang.png"
+    },
+    "services": [
+      {
+        "id": "inquiry",
+        "title": "Проверить совместимость",
+        "summary": "Уточним возможности автомобиля.",
+        "detail": "Модель добавлена по фотографии. Доступность услуг требует проверки.",
+        "icon": "search",
+        "price": null
+      },
+      {
+        "id": "russian",
+        "title": "Русификация",
+        "summary": "Разберитесь в настройках с первого взгляда.",
+        "detail": "Проверим возможность перевода меню и мультимедийной системы вашего автомобиля.",
+        "icon": "language",
+        "price": null
+      },
+      {
+        "id": "firmware",
+        "title": "Прошивка",
+        "summary": "Настройте систему под свои задачи.",
+        "detail": "Уточним текущую версию ПО и подберём доступные изменения для вашей комплектации.",
+        "icon": "chip",
+        "price": null
+      },
+      {
+        "id": "apps",
+        "title": "Установка приложений",
+        "summary": "Нужные приложения — в автомобиле.",
+        "detail": "Обсудим навигацию, музыку и другие приложения. Доступность зависит от системы автомобиля.",
+        "icon": "apps",
+        "price": "Пакеты от 8 000 ₽"
+      }
+    ],
+    "contactUrl": null,
+    "phone": null,
+    "address": "Челябинск, ул. Энтузиастов, 28а",
+    "hours": "На связи с 10:00 до 22:00",
+    "channels": {
+      "avito": "https://www.avito.ru/chelyabinsk/predlozheniya_uslug/ustanovka_prilozheniy_geely_haval_changan_i_dr_4413075846",
+      "whatsapp": "https://wa.me/79995811533",
+      "telegram": "https://t.me/romanovsss",
+      "max": "https://max.ru/u/f9LHodD0cOJxcP7aF6iz9xCmKRHYHEAaflpRWPR5JXB89QGLiq34rRX8syo"
+    }
+  },
+  "works": [
+    {
+      "car": "car-1",
+      "img": "assets/interior-detail.webp",
+      "done": "Полный пакет приложений: навигация, музыка и онлайн-кинотеатры на штатном экране. Настройка удобства и функций комфорта."
+    },
+    {
+      "car": "car-2",
+      "img": "assets/hero-premium-small.webp",
+      "done": "Русификация мультимедиа и приборной панели, установка пакета приложений. Автомобиль выпуска до марта 2025 года."
+    },
+    {
+      "car": "car-4",
+      "img": "assets/interior-detail-small.webp",
+      "done": "Полный пакет приложений, мультируль и доработка удобства использования. ПО подобрано под конкретный автомобиль."
+    },
+    {
+      "car": "car-33",
+      "img": "assets/interior-detail.webp",
+      "done": "Приложения, навигация и работа с проекцией и приборной панелью."
+    },
+    {
+      "car": "car-25",
+      "img": "assets/interior-detail-small.webp",
+      "done": "Пакет приложений с навигацией, музыкой и видео. Сплит экран и новая приборная панель."
+    },
+    {
+      "car": "car-40",
+      "img": "assets/interior-detail.webp",
+      "done": "Кастомный лаунчер, приложения, навигатор и частичная русификация интерфейса для китайской версии."
+    }
+  ]
+}

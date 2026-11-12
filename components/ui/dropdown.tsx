@@ -1,0 +1,5 @@
+"use client";
+import {Select,SelectItem} from "@heroui/react";
+export type DropdownItem={value:string;label:string;hint?:string;disabled?:boolean};
+export type DropdownProps={items:DropdownItem[];value?:string;onChange?:(value:string)=>void;label?:string;placeholder?:string;disabled?:boolean;controlId?:string;describedBy?:string;invalid?:boolean;required?:boolean;complete?:boolean};
+export function Dropdown({items,value,onChange,label,disabled,controlId,describedBy,invalid,required,complete}:DropdownProps){const options=items.filter(i=>i.value);return <Select id={controlId} aria-label={label} aria-describedby={describedBy} aria-required={required} isDisabled={disabled} isInvalid={invalid} selectedKeys={value?[value]:[]} disallowEmptySelection selectionMode="single" onChange={event=>onChange?.(event.target.value)} placeholder={items.find(i=>!i.value)?.label} disabledKeys={options.filter(i=>i.disabled).map(i=>i.value)} variant="bordered" radius="lg" classNames={{trigger:"hero-select-trigger"}} data-complete={complete} data-select-id={controlId}>{options.map(i=><SelectItem key={i.value}>{i.label}</SelectItem>)}</Select>;}
