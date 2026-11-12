@@ -27,19 +27,28 @@ export function Header({
   const header = useRef<HTMLElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
   const [expanded, setExpanded] = useState(false);
-  const [darkUnderlay, setDarkUnderlay] = useState(false);
+
 
   useEffect(() => {
     let frame = 0;
     const measure = () => {
       frame = 0;
-      const bounds = header.current?.getBoundingClientRect();
-      if (!bounds) return;
-      const midpoint = (bounds.top + bounds.bottom) / 2;
-      setDarkUnderlay(Array.from(document.querySelectorAll(".russian-section, .footer, .mini-footer")).some((section) => {
-        const rect = section.getBoundingClientRect();
-        return rect.top <= midpoint && rect.bottom >= midpoint;
-      }));
+      if (!header.current) return;
+      // Evaluate each control separately: the header can cross several surfaces at once.
+      const darkSurfaces = Array.from(document.querySelectorAll(
+        ".russian-section, .footer, .mini-footer, .service-tile:first-child, .format-card--featured, .hero-split-media figure"
+      )).map((surface) => surface.getBoundingClientRect());
+      header.current.querySelectorAll<HTMLElement>(
+        ".brand, .city-button, .nav-link, .action-button, .header-phone, .menu-toggle, [data-header-call]"
+      ).forEach((control) => {
+        const rect = control.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        const x = (rect.left + rect.right) / 2;
+        const y = (rect.top + rect.bottom) / 2;
+        control.dataset.headerTone = darkSurfaces.some((surface) =>
+          surface.left <= x && surface.right >= x && surface.top <= y && surface.bottom >= y
+        ) ? "dark" : "light";
+      });
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(measure); };
     measure();
@@ -72,7 +81,7 @@ export function Header({
 
   return (
     <>
-      <header className={`header ${styles.root}`} ref={header} data-tone={darkUnderlay ? "dark" : "light"}>
+      <header className={`header ${styles.root}`} ref={header}>
         <div className={`wrap ${styles.inner}`} data-header-layout>
           <HeroLink
             className="skip-link"
@@ -116,13 +125,13 @@ export function Header({
           <div className={styles.action} data-header-part="action">
             {bookingHref ? (
               <HeroLink
-                className="button btn btn--primary"
+                className="button btn btn--primary action-button"
                 href={bookingHref}
               >
                 {bookingLabel} <Arrow />
               </HeroLink>
             ) : (
-              <BookingButton className="button btn btn--primary">
+              <BookingButton className="button btn btn--primary action-button">
                 Оставить заявку <Arrow />
               </BookingButton>
             )}
@@ -141,6 +150,7 @@ export function Header({
           <div className={styles.mobileActions}>
             <HeroLink
               className={styles.quickCall}
+              data-header-call
               href="tel:+79995811533"
               aria-label="Позвонить +7 (999) 581-15-33"
             >
@@ -217,7 +227,7 @@ export function Header({
               </HeroLink>
               <SocialLinks className="mobile-socials social-links" />
               <BookingButton
-                className="button btn btn--primary"
+                className="button btn btn--primary action-button"
                 onClick={close}
               >
                 Оставить заявку <Arrow />

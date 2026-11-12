@@ -23,11 +23,17 @@
   -webkit-backdrop-filter: blur(24px);
 }
 
-.root[data-tone="dark"] .inner { color: var(--color-inverse); }
-.root[data-tone="dark"] .inner .city :global(.city-button) { color: var(--color-ink); }
-.root[data-tone="dark"] .inner .brand,
-.root[data-tone="dark"] .inner .contacts :global(.header-phone),
-.root[data-tone="dark"] .inner .nav a { color: var(--color-inverse); }
+/* Transparent controls share the glass surface; foreground follows the local underlay. */
+.root .inner :global([data-header-tone][data-header-tone="light"]) { color: var(--color-ink); }
+.root .inner :global([data-header-tone][data-header-tone="dark"]),
+.root .inner :global([data-header-tone][data-header-tone="dark"]):hover { color: var(--color-inverse); }
+.root .inner :global(.city-button),
+.root .inner .action :global(.button),
+.root .inner .quickCall,
+.root .inner .toggle { background: transparent; border-radius: 999px; }
+.root .inner .action :global(.button) { border-color: color-mix(in srgb, currentColor 30%, transparent); }
+.root .inner .toggle span { background: currentColor; }
+.root .inner :global([data-header-tone][data-header-tone="dark"]):focus-visible { outline-color: white; }
 
 .root .inner .brand {
   grid-area: brand;
@@ -55,7 +61,7 @@
   padding: 6px 10px;
   font-size: 14px;
   justify-content: flex-start;
-  background: rgb(245 244 247 / 0.85);
+  background: transparent;
 }
 
 .root .inner .city :global(.city-name) {
@@ -155,7 +161,7 @@
   height: 42px;
   border-radius: 14px;
   border: 1px solid var(--line);
-  background: #fff;
+  background: transparent;
   color: var(--accent);
   flex: none;
 }
