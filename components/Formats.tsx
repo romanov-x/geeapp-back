@@ -19,7 +19,7 @@ export function Formats() {
             <h2 id="formats-title">Выберите формат работы.</h2>
           </div>
         </div>
-        <div className="formats-grid">
+        <div className="format-cards">
           {formats.map((fmt) => (
             <HeroCard
               key={fmt.id}
@@ -28,7 +28,7 @@ export function Formats() {
               }`}
             >
               {fmt.badge && <span className="format-badge">{fmt.badge}</span>}
-              <h3>{fmt.title}</h3>
+              <h3 className="format-name">{fmt.title}</h3>
               <p className="format-price">{fmt.price}</p>
               <p className="format-desc">{fmt.description}</p>
               <ul className="format-list">
