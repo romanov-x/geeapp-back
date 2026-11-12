@@ -637,11 +637,16 @@ export function buildModelJsonLd(
   return [breadcrumb, serviceSchema, faqSchema];
 }
 
-export function buildBrandJsonLd(make: string, baseUrl = SITE_URL) {
+export function buildBrandJsonLd(
+  make: string,
+  baseUrl = SITE_URL,
+  inCity = ""
+) {
   const slug = brandSlug(make);
   const brandUrl = `${baseUrl}/brand/${slug}`;
   const list = entriesByMake(make);
   const logo = brandLogo(make);
+  const citySuffix = inCity ? ` ${inCity}` : "";
 
   return [
     {
@@ -655,7 +660,7 @@ export function buildBrandJsonLd(make: string, baseUrl = SITE_URL) {
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      name: `Модели ${make} — прошивка, русификация и установка приложений GeeApp`,
+      name: `Модели ${make} — прошивка, русификация и установка приложений${citySuffix} | GeeApp`,
       url: brandUrl,
       ...(logo ? { image: `${baseUrl}${asset(logo)}` } : {}),
       numberOfItems: list.length,
