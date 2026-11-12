@@ -32,6 +32,7 @@ export function RussianTable() {
         text.length > 150
           ? text.slice(0, 150).replace(/[ ·]+$/, "") + "…"
           : text,
+      truncated: text.length > 150,
     };
   });
 
@@ -39,6 +40,7 @@ export function RussianTable() {
     items.push({
       make: "Ещё",
       isBrand: false,
+      truncated: false,
       text: `${rows
         .slice(9)
         .map(([make]) => make)
@@ -48,7 +50,7 @@ export function RussianTable() {
 
   return (
     <div className="russian-table" id="russian-table">
-      {items.map(({ make, isBrand, text }) => {
+      {items.map(({ make, isBrand, text, truncated }) => {
         const logo = cms.brandLogos[make];
         const content = (
           <>
@@ -77,7 +79,11 @@ export function RussianTable() {
             ) : (
               <span className="rt-make">{content}</span>
             )}
-            <span className="rt-models">{text}</span>
+            <div className="rt-models">
+              {text}
+              {truncated && <HeroLink className="coverage-link" href={`/brand/${brandSlug(make)}`}>Все модели {make} →</HeroLink>}
+              {!isBrand && <HeroLink className="coverage-link" href="/#models">Открыть каталог →</HeroLink>}
+            </div>
           </div>
         );
       })}

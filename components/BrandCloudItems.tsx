@@ -18,9 +18,7 @@ export function BrandCloudItems() {
   );
   const makes = orderedMakesFromEntries(entries);
 
-  return (
-    <div className="brands-strip" id="brands-strip">
-      {makes.map((make) => {
+  const renderMake = (make: string) => {
         const count = entriesFromMake(entries, make).length;
         const logo = cms.brandLogos[make];
         const slug = brandSlug(make);
@@ -32,7 +30,9 @@ export function BrandCloudItems() {
               count >= 6 ? "l" : count >= 3 ? "m" : "s"
             }`}
             href={`/?make=${encodeURIComponent(slug)}#models`}
+            aria-label={`${make}: ${count} моделей — перейти к каталогу`}
             onClick={(e) => {
+              if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0) return;
               if (document.getElementById("models")) {
                 e.preventDefault();
                 history.replaceState(
@@ -66,7 +66,19 @@ export function BrandCloudItems() {
             <span className="strip-pill-name">{make}</span>
           </HeroLink>
         );
-      })}
-    </div>
+      };
+
+  return (
+    <>
+      <div className="brands-strip" id="brands-strip">
+        {makes.slice(0, 8).map(renderMake)}
+      </div>
+      {makes.length > 8 && (
+        <details className="brand-directory">
+          <summary>Все марки ({makes.length})</summary>
+          <div className="brands-strip">{makes.slice(8).map(renderMake)}</div>
+        </details>
+      )}
+    </>
   );
 }

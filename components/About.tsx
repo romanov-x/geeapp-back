@@ -11,6 +11,7 @@ export function About() {
       aria-labelledby="about-title"
     >
       <div className="wrap">
+        <p className="kicker">Подход к работе</p>
         <h2 id="about-title" className="about-title">
           {about.title}
         </h2>
@@ -28,6 +29,7 @@ export function About() {
           <span>листайте</span>
         </div>
         <WorksCarousel />
+        <p className="fine-print">Изображения салона — иллюстрации, созданные с помощью ИИ. Это не фотографии выполненных работ.</p>
       </div>
     </section>
   );

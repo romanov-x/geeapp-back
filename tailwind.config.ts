@@ -10,11 +10,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: "#f5f4f7",
-        ink: "#211d2a",
-        muted: "#665e70",
-        accent: "#6230b4",
-        signal: "#d7c4ff",
+        paper: "var(--color-canvas)",
+        ink: "var(--color-ink)",
+        muted: "var(--color-copy)",
+        accent: "var(--color-action)",
+        signal: "var(--color-selected)",
       },
       fontFamily: {
         sans: ["Medeo Sans", "sans-serif"],
@@ -28,9 +28,9 @@ const config: Config = {
         light: {
           colors: {
             primary: { DEFAULT: "#6230b4", foreground: "#ffffff" },
-            background: "#f5f4f7",
-            foreground: "#211d2a",
-            focus: "#7b42d6",
+            background: "#f7f8fa",
+            foreground: "#17212c",
+            focus: "#6230b4",
           },
         },
       },

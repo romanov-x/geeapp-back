@@ -1,6 +1,6 @@
 "use client";
 import { HeroButton, HeroLink, HeroCard } from "@/components/HeroPrimitives";
-import { useEffect, useMemo, useRef } from "react";
+import { useMemo, useRef } from "react";
 import { asset } from "@/lib/data";
 import { buildCatalogFromModels, entryByVehicleId } from "@/lib/catalog";
 import { useCms } from "./CmsProvider";
@@ -13,19 +13,6 @@ export function WorksCarousel() {
     [cms.models, cms.brandAliases, cms.works]
   );
   const track = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const videos = track.current?.querySelectorAll("video");
-    const media = matchMedia("(prefers-reduced-motion: reduce)");
-    const sync = () =>
-      videos?.forEach((v) => {
-        if (media.matches) v.pause();
-        else void v.play().catch(() => {});
-      });
-    sync();
-    media.addEventListener("change", sync);
-    return () => media.removeEventListener("change", sync);
-  }, [cms.works]);
 
   const move = (direction: number) => {
     const el = track.current;
@@ -42,7 +29,7 @@ export function WorksCarousel() {
         : el.scrollLeft <= 2
         ? max
         : Math.max(0, el.scrollLeft - step);
-    el.scrollTo({ left, behavior: "smooth" });
+    el.scrollTo({ left, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
   };
 
   return (
@@ -55,8 +42,6 @@ export function WorksCarousel() {
           return (
             <HeroCard
               className="work-card"
-              tabIndex={0}
-              onClick={(e) => e.currentTarget.focus()}
               key={work.id}
             >
               {work.video ? (
@@ -65,9 +50,9 @@ export function WorksCarousel() {
                   poster={work.img ? asset(work.img) : undefined}
                   muted
                   playsInline
-                  loop
+                  controls
                   preload="metadata"
-                  aria-hidden="true"
+                  aria-label={`Видео: ${entry?.fullTitle || "Кейс GeeApp"}`}
                 />
               ) : (
                 <img
@@ -108,6 +93,7 @@ export function WorksCarousel() {
           id="works-prev"
           className="button btn btn--secondary"
           aria-label="Предыдущая работа"
+          aria-controls="works-track"
           onClick={() => move(-1)}
         >
           ←
@@ -116,6 +102,7 @@ export function WorksCarousel() {
           id="works-next"
           className="button btn btn--secondary"
           aria-label="Следующая работа"
+          aria-controls="works-track"
           onClick={() => move(1)}
         >
           →

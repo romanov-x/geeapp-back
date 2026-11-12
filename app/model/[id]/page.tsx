@@ -171,9 +171,7 @@ export default async function ModelPage({ params }: Props) {
                   src={asset(entry.video)}
                   poster={entry.photo ? asset(entry.photo) : undefined}
                   controls
-                  autoPlay
                   muted
-                  loop
                   playsInline
                   preload="metadata"
                   className="model-main-video"

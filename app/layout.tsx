@@ -7,6 +7,7 @@ import { UIProvider } from "@/components/UIProvider";
 import { getCmsData } from "@/lib/cms-store";
 import { getServerCity } from "@/lib/server-city";
 import "./globals.css";
+import "./interface.css";
 
 export const dynamic = "force-dynamic";
 

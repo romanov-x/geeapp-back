@@ -35,6 +35,7 @@ export function ReviewsCarousel({ bundle }: { bundle: ReviewLabBundle }) {
           <button
             type="button"
             className={`catalog-filter-pill${platform === "all" ? " is-active" : ""}`}
+            aria-pressed={platform === "all"}
             onClick={() => {
               setPlatform("all");
               setVisible(6);
@@ -49,6 +50,7 @@ export function ReviewsCarousel({ bundle }: { bundle: ReviewLabBundle }) {
                 key={code}
                 type="button"
                 className={`catalog-filter-pill${platform === code ? " is-active" : ""}`}
+                aria-pressed={platform === code}
                 onClick={() => {
                   setPlatform(code);
                   setVisible(6);
@@ -62,6 +64,7 @@ export function ReviewsCarousel({ bundle }: { bundle: ReviewLabBundle }) {
         </div>
       </div>
 
+      <p role="status" className="sr-only">Найдено отзывов: {filtered.length}. Показано: {Math.min(visible, filtered.length)}.</p>
       <div className="reviews-grid">
         {filtered.slice(0, visible).map((item) => (
           <article key={item._id} className="review-card">

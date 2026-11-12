@@ -40,9 +40,8 @@ export function Hero() {
                     <video
                       src={asset(videoUrl)}
                       poster={slot.src ? asset(slot.src) : undefined}
-                      autoPlay
+                      controls
                       muted
-                      loop
                       playsInline
                       preload="metadata"
                       aria-label={slot.alt}

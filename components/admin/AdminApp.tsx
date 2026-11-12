@@ -83,7 +83,7 @@ export function AdminApp({
       });
       return true;
     } catch {
-      setToast({ kind: "error", text: "Сетевая ошибка при сохранении" });
+      setToast({ kind: "error", text: "Не удалось сохранить. Проверьте соединение и повторите сохранение." });
       return false;
     } finally {
       setSaving(false);
@@ -192,7 +192,7 @@ export function AdminApp({
               : "Первый запуск админ-панели. Задайте ваш Email и пароль главного администратора — позже вы сможете добавлять сотрудников и выдавать им права галочками."}
           </p>
 
-          {authError && <p className="adm-alert adm-alert--error">{authError}</p>}
+          <p role="alert" className="adm-alert adm-alert--error" hidden={!authError}>{authError}</p>
 
           {!initialized && (
             <label className="adm-field">
@@ -285,6 +285,7 @@ export function AdminApp({
             key={tab.id}
             type="button"
             className={`adm-tab${activeTab === tab.id ? " is-active" : ""}`}
+            aria-pressed={activeTab === tab.id}
             onClick={() => {
               setToast(null);
               setActiveTab(tab.id);

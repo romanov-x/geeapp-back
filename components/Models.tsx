@@ -111,7 +111,7 @@ export function Models() {
 
   const scroll = (direction: number) => {
     const el = tabs.current?.querySelector<HTMLElement>('[role="tablist"]');
-    el?.scrollBy({ left: direction * el.clientWidth * 0.8, behavior: "smooth" });
+    el?.scrollBy({ left: direction * el.clientWidth * 0.8, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
   };
 
   return (
@@ -263,6 +263,7 @@ export function Models() {
               )}
             </div>
 
+            <p role="status" className="sr-only">Найдено моделей: {cards.length}. Показано: {Math.min(visible, cards.length)}.</p>
             {cards.length === 0 ? (
               <div className="catalog-empty">
                 <p>
@@ -282,7 +283,7 @@ export function Models() {
               </div>
             ) : (
               <>
-                <div className="model-cards" id="model-cards" aria-live="polite">
+                <div className="model-cards" id="model-cards">
                   {cards.map((entry, index) => (
                     <ModelCard
                       key={entry.slug}
@@ -292,7 +293,7 @@ export function Models() {
                   ))}
                 </div>
                 <div className="models-pagination">
-                  <span id="models-count" role="status">
+                  <span id="models-count">
                     Показано {Math.min(visible, cards.length)} из {cards.length}
                   </span>
                   <HeroButton

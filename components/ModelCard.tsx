@@ -60,8 +60,9 @@ export function ModelCard({
       <p className="model-note">{shortNote}</p>
 
       <HeroLink
-        className="button btn btn--primary model-link"
+        className="button model-link"
         href={`/model/${slug}`}
+        aria-label={`Подробнее и цены: ${fullTitle}`}
       >
         <span>Подробнее и цены</span>
         <Arrow />

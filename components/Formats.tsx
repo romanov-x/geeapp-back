@@ -47,6 +47,7 @@ export function Formats() {
             </HeroCard>
           ))}
         </div>
+        <p className="fine-print formats-note">Стоимость зависит от модели и версии мультимедиа. Точный состав работ согласуем до записи.</p>
       </div>
     </section>
   );

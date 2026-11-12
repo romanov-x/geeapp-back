@@ -10,7 +10,6 @@ import {
 import {
   Button,
   Card,
-  Checkbox,
   Chip,
   Input,
   Link,
@@ -30,8 +29,8 @@ const INPUT_LABELS: Record<string, string> = {
 
 export const HeroButton = forwardRef<
   HTMLButtonElement,
-  ButtonHTMLAttributes<HTMLButtonElement>
->(function HeroButton({ className = "", disabled, ...props }, ref) {
+  ButtonHTMLAttributes<HTMLButtonElement> & { staticMotion?: boolean }
+>(function HeroButton({ className = "", disabled, staticMotion, ...props }, ref) {
   const isPrimary = className.includes("primary");
   const isSecondary = className.includes("secondary");
 
@@ -39,6 +38,9 @@ export const HeroButton = forwardRef<
     <Button
       {...(props as unknown as ButtonProps)}
       ref={ref}
+      disableRipple
+      disableAnimation
+      data-motion={staticMotion ? "static" : undefined}
       isDisabled={disabled}
       radius="lg"
       color={isPrimary ? "primary" : "default"}
@@ -92,21 +94,13 @@ export const HeroInput = forwardRef<
 >(function HeroInput({ type, checked, onChange, ...props }, ref) {
   if (type === "checkbox") {
     return (
-      <Checkbox
-        {...(props as object)}
-        isSelected={Boolean(checked)}
-        onValueChange={(value) =>
-          onChange?.({
-            target: { checked: value },
-            currentTarget: { checked: value },
-          } as React.ChangeEvent<HTMLInputElement>)
-        }
-        classNames={{ base: "hero-consent-checkbox", label: "hidden" }}
-        aria-label={
-          props.name === "consent"
-            ? "Согласие на обработку данных"
-            : "Ознакомление с условиями"
-        }
+      <input
+        {...props}
+        ref={ref}
+        type="checkbox"
+        checked={Boolean(checked)}
+        onChange={onChange}
+        className="native-consent-checkbox"
       />
     );
   }

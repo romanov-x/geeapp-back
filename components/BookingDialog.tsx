@@ -610,7 +610,7 @@ export function BookingDialog({
                 <div className="form-consents">
                   {(["consent", "privacy"] as const).map((name) => (
                     <div className="consent-field" key={name}>
-                      <div className="consent-option">
+                      <label className="consent-option" htmlFor={`booking-${name}`}>
                         <HeroInput
                           id={`booking-${name}`}
                           name={name}
@@ -622,7 +622,7 @@ export function BookingDialog({
                           data-complete={String(fields[name])}
                           onChange={(e) => update(name, e.target.checked)}
                         />
-                        <span>
+                        <span className="consent-label">
                           {name === "consent" ? (
                             <>
                               Даю{" "}
@@ -651,7 +651,7 @@ export function BookingDialog({
                             </>
                           )}
                         </span>
-                      </div>
+                      </label>
                       {error(name)}
                     </div>
                   ))}
