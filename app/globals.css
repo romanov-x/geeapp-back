@@ -34,3 +34,245 @@
 @media(max-width:359px){.header .social-circle{width:1.75rem;height:1.75rem}.social-circle img{width:1.25rem;height:1.25rem}.hero-stats{grid-template-columns:1fr;gap:1rem}.hero-stats li{display:flex;align-items:center;gap:1rem}.hero-stats strong{min-width:6rem}.hero-stats span{margin:0}.footer-navigation{gap:1rem}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
+/* === Stage 1: SEO Catalog, Search Toolbar, Model Packages & FAQ === */
+.catalog-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+.catalog-search-box {
+  position: relative;
+  flex: 1 1 22rem;
+  max-width: 38rem;
+}
+.catalog-search-input {
+  width: 100%;
+  min-height: 3.125rem;
+  padding: 0.75rem 2.75rem 0.75rem 1.125rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.95rem;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+.catalog-search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(98, 48, 180, 0.14);
+}
+.catalog-search-clear {
+  position: absolute;
+  right: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  background: #eeeaf5;
+  color: var(--ink);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.catalog-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.catalog-filter-pill {
+  min-height: 2.75rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+.catalog-filter-pill.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.catalog-empty {
+  padding: 2.5rem 1.75rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+}
+.chip--primary {
+  background: #efe8fb;
+  color: #452479;
+}
+.seo-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.seo-breadcrumbs a {
+  text-decoration: none;
+}
+.seo-breadcrumbs a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.seo-breadcrumbs [aria-current="page"] {
+  color: var(--ink);
+  font-weight: 500;
+}
+.model-aliases {
+  margin-top: 0.65rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.model-callout {
+  padding: 0.875rem 1.125rem;
+  background: #f0e9fb;
+  color: #3d216b;
+  border-radius: 1rem;
+  font-size: 0.9375rem;
+}
+.model-cta-group {
+  margin-top: 1.5rem;
+}
+.model-packages {
+  margin-top: 3.5rem;
+}
+.model-packages > h2,
+.model-faq-section > h2 {
+  font-size: clamp(1.625rem, 2.8vw, 2.25rem);
+  margin-bottom: 1.5rem;
+}
+.model-packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1.5rem;
+}
+.model-package-card {
+  padding: 1.75rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+.model-package-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.model-package-price {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.model-package-summary {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.model-feature-list {
+  margin-bottom: 0;
+}
+.model-formats-strip {
+  margin-top: 1.75rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.model-format-step {
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  display: grid;
+  gap: 0.4rem;
+}
+.model-format-step strong {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.model-format-step span {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.model-faq-section {
+  margin-top: 3.5rem;
+}
+.model-faq-grid {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 54rem;
+}
+.model-faq-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 1.125rem;
+  padding: 1rem 1.25rem;
+}
+.model-faq-item summary {
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.45;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.model-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.model-faq-item summary::after {
+  content: "+";
+  font-size: 1.25rem;
+  color: var(--accent);
+  flex: none;
+}
+.model-faq-item[open] summary::after {
+  content: "−";
+}
+.model-faq-item p {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.model-siblings,
+.other-brands-nav {
+  margin-top: 3.5rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--line);
+}
+.sibling-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+.sibling-pill-price {
+  color: var(--accent);
+  font-weight: 500;
+  margin-left: 0.25rem;
+}
+@media (max-width: 900px) {
+  .model-formats-strip {
+    grid-template-columns: 1fr;
+  }
+}

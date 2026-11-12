@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/model/layout,_N_T_/model/[id]/layout,_N_T_/model/[id]/page,_N_T_/model/russian-62"
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/ba1bef18443384ccae78aa4dfb7a25462f0d8746e39ba260f2cd87c930bdb362/$/model/russian-62",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/model/[id]/page"
+    },
+    "isFallback": false
+  }
+}
