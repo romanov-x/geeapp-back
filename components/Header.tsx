@@ -9,17 +9,17 @@ import styles from "./Header.module.css";
 import { Arrow } from "./Arrow";
 
 const items = [
-  { label: "РЈСЃР»СѓРіРё", href: "#services" },
-  { label: "РњРѕРґРµР»Рё", href: "#models" },
-  { label: "Рћ РєРѕРјРїР°РЅРёРё", href: "#about" },
-  { label: "РўР°СЂРёС„С‹", href: "#formats" },
-  { label: "Р’РѕРїСЂРѕСЃС‹", href: "#faq" },
-  { label: "РљРѕРЅС‚Р°РєС‚С‹", href: "#contacts" },
+  { label: "Услуги", href: "#services" },
+  { label: "Модели", href: "#models" },
+  { label: "О компании", href: "#about" },
+  { label: "Тарифы", href: "#formats" },
+  { label: "Вопросы", href: "#faq" },
+  { label: "Контакты", href: "#contacts" },
 ];
 
 export function Header({
   bookingHref,
-  bookingLabel = "РћСЃС‚Р°РІРёС‚СЊ Р·Р°СЏРІРєСѓ",
+  bookingLabel = "Оставить заявку",
 }: {
   bookingHref?: string;
   bookingLabel?: string;
@@ -78,14 +78,14 @@ export function Header({
             className="skip-link"
             href={bookingHref ? "#model-main" : "#home"}
           >
-            РџРµСЂРµР№С‚Рё Рє СЃРѕРґРµСЂР¶РёРјРѕРјСѓ
+            Перейти к содержимому
           </HeroLink>
 
           <HeroLink
             className={`brand ${styles.brand}`}
             data-header-part="brand"
             href={bookingHref ? "/#home" : "#home"}
-            aria-label="GeeApp вЂ” РЅР° РіР»Р°РІРЅСѓСЋ"
+            aria-label="GeeApp — на главную"
           >
             geeapp
             <span className="brand-dot" aria-hidden="true" />
@@ -98,7 +98,7 @@ export function Header({
           <nav
             className={`desktop-nav ${styles.nav}`}
             data-header-part="nav"
-            aria-label="РћСЃРЅРѕРІРЅР°СЏ РЅР°РІРёРіР°С†РёСЏ"
+            aria-label="Основная навигация"
           >
             {items
               .filter((i) => !["#formats", "#contacts"].includes(i.href))
@@ -123,7 +123,7 @@ export function Header({
               </HeroLink>
             ) : (
               <BookingButton className="button btn btn--primary">
-                РћСЃС‚Р°РІРёС‚СЊ Р·Р°СЏРІРєСѓ <Arrow />
+                Оставить заявку <Arrow />
               </BookingButton>
             )}
           </div>
@@ -142,7 +142,7 @@ export function Header({
             <HeroLink
               className={styles.quickCall}
               href="tel:+79995811533"
-              aria-label="РџРѕР·РІРѕРЅРёС‚СЊ +7 (999) 581-15-33"
+              aria-label="Позвонить +7 (999) 581-15-33"
             >
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -152,7 +152,7 @@ export function Header({
             <HeroButton
               className={`menu-toggle ${styles.toggle}`}
               data-header-part="menu"
-              aria-label="РћС‚РєСЂС‹С‚СЊ РјРµРЅСЋ"
+              aria-label="Открыть меню"
               aria-expanded={expanded}
               aria-controls="mobile-nav"
               ref={toggle}
@@ -179,7 +179,7 @@ export function Header({
         }}
       >
         <ModalContent>
-          <ModalHeader className="sr-only">РњРµРЅСЋ РЅР°РІРёРіР°С†РёРё</ModalHeader>
+          <ModalHeader className="sr-only">Меню навигации</ModalHeader>
           <div id="mobile-nav" className="hero-dialog-body mobile-nav">
             <div className="mobile-menu-head">
               <h2 id="mobile-menu-title" className="brand">
@@ -188,10 +188,10 @@ export function Header({
               </h2>
               <HeroButton
                 className="close-modal close-menu"
-                aria-label="Р—Р°РєСЂС‹С‚СЊ РјРµРЅСЋ"
+                aria-label="Закрыть меню"
                 onClick={close}
               >
-                Г—
+                ×
               </HeroButton>
             </div>
 
@@ -199,7 +199,7 @@ export function Header({
               <CityButton />
             </div>
 
-            <nav className="mobile-nav-links" aria-label="РњРѕР±РёР»СЊРЅР°СЏ РЅР°РІРёРіР°С†РёСЏ">
+            <nav className="mobile-nav-links" aria-label="Мобильная навигация">
               {items.map((i) => (
                 <HeroLink
                   key={i.href}
@@ -220,13 +220,13 @@ export function Header({
                 className="button btn btn--primary"
                 onClick={close}
               >
-                РћСЃС‚Р°РІРёС‚СЊ Р·Р°СЏРІРєСѓ <Arrow />
+                Оставить заявку <Arrow />
               </BookingButton>
               <p className="mobile-menu-note">
                 <span data-city="">
                   <CityLabel />
                 </span>{" "}
-                В· РќР° СЃРІСЏР·Рё СЃ 10:00 РґРѕ 22:00
+                · На связи с 10:00 до 22:00
               </p>
             </div>
           </div>

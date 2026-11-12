@@ -54,7 +54,7 @@ export function CityButton() {
       className="city-button"
       title={city}
       onPress={choose}
-      aria-label={`Р’С‹Р±СЂР°С‚СЊ РіРѕСЂРѕРґ. РЎРµР№С‡Р°СЃ ${city}`}
+      aria-label={`Выбрать город. Сейчас ${city}`}
     >
       <svg className="city-location" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" />
@@ -147,11 +147,11 @@ export function CityProvider({
         classNames={{ base: "city-modal" }}
       >
         <ModalContent>
-          <ModalHeader>Р’С‹Р±РµСЂРёС‚Рµ РІР°С€ РіРѕСЂРѕРґ</ModalHeader>
+          <ModalHeader>Выберите ваш город</ModalHeader>
           <ModalBody className="pb-6">
             <Input
-              aria-label="РџРѕРёСЃРє РіРѕСЂРѕРґР°"
-              placeholder="РќР°Р№С‚Рё РіРѕСЂРѕРґ"
+              aria-label="Поиск города"
+              placeholder="Найти город"
               value={search}
               onValueChange={setSearch}
               isClearable
@@ -173,14 +173,14 @@ export function CityProvider({
             </div>
             {filtered.length === 0 && (
               <p>
-                Р“РѕСЂРѕРґ РЅРµ РЅР°Р№РґРµРЅ РІ Р±С‹СЃС‚СЂРѕРј СЃРїРёСЃРєРµ вЂ” РѕСЃС‚Р°РІСЊС‚Рµ Р·Р°СЏРІРєСѓ, РїРѕРґР±РµСЂС‘Рј
-                РѕРЅР»Р°Р№РЅ-С„РѕСЂРјР°С‚.
+                Город не найден в быстром списке — оставьте заявку, подберём
+                онлайн-формат.
               </p>
             )}
             <p className="city-note">
-              Р’ Р§РµР»СЏР±РёРЅСЃРєРµ СЂР°Р±РѕС‚Р°РµС‚ РЅР°С€ СЃС‚Р°С†РёРѕРЅР°СЂРЅС‹Р№ СЃРµСЂРІРёСЃ (СѓР». Р­РЅС‚СѓР·РёР°СЃС‚РѕРІ,
-              28Р°). Р’ РґСЂСѓРіРёС… РіРѕСЂРѕРґР°С… СЂР°Р±РѕС‚Р°СЋС‚ РїСЂРѕРІРµСЂРµРЅРЅС‹Рµ РјР°СЃС‚РµСЂР°-РїР°СЂС‚РЅС‘СЂС‹ Рё
-              РґРѕСЃС‚СѓРїРЅР° РѕРЅР»Р°Р№РЅ-РїСЂРѕС€РёРІРєР° вЂ” Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ СЂР°СЃРїСЂРµРґРµР»РёС‚ РІР°С€Сѓ Р·Р°СЏРІРєСѓ.
+              В Челябинске работает наш стационарный сервис (ул. Энтузиастов,
+              28а). В других городах работают проверенные мастера-партнёры и
+              доступна онлайн-прошивка — администратор распределит вашу заявку.
             </p>
           </ModalBody>
         </ModalContent>

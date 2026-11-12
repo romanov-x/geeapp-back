@@ -26,8 +26,8 @@ export function Formats() {
       <div className="wrap">
         <div className="section-heading">
           <div>
-            <p className="kicker">РўР°СЂРёС„С‹</p>
-            <h2 id="formats-title">Р’С‹Р±РµСЂРёС‚Рµ С„РѕСЂРјР°С‚ СЂР°Р±РѕС‚С‹.</h2>
+            <p className="kicker">Тарифы</p>
+            <h2 id="formats-title">Выберите формат работы.</h2>
           </div>
         </div>
         <div className="format-cards">
@@ -61,7 +61,7 @@ export function Formats() {
             </HeroCard>
           ))}
         </div>
-        <p className="fine-print formats-note">РЎС‚РѕРёРјРѕСЃС‚СЊ Р·Р°РІРёСЃРёС‚ РѕС‚ РјРѕРґРµР»Рё Рё РІРµСЂСЃРёРё РјСѓР»СЊС‚РёРјРµРґРёР°. РўРѕС‡РЅС‹Р№ СЃРѕСЃС‚Р°РІ СЂР°Р±РѕС‚ СЃРѕРіР»Р°СЃСѓРµРј РґРѕ Р·Р°РїРёСЃРё.</p>
+        <p className="fine-print formats-note">Стоимость зависит от модели и версии мультимедиа. Точный состав работ согласуем до записи.</p>
       </div>
     </section>
   );

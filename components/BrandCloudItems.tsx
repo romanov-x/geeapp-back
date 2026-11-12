@@ -30,7 +30,7 @@ export function BrandCloudItems() {
               count >= 6 ? "l" : count >= 3 ? "m" : "s"
             }`}
             href={`/?make=${encodeURIComponent(slug)}#models`}
-            aria-label={`${make}: ${count} РјРѕРґРµР»РµР№ вЂ” РїРµСЂРµР№С‚Рё Рє РєР°С‚Р°Р»РѕРіСѓ`}
+            aria-label={`${make}: ${count} моделей — перейти к каталогу`}
             onClick={(e) => {
               if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0) return;
               if (document.getElementById("models")) {
@@ -69,7 +69,7 @@ export function BrandCloudItems() {
       };
 
   return (
-    <div className="brands-strip" id="brands-strip" aria-label="РњР°СЂРєРё Р°РІС‚РѕРјРѕР±РёР»РµР№">
+    <div className="brands-strip" id="brands-strip" aria-label="Марки автомобилей">
       {makes.map(renderMake)}
     </div>
   );
