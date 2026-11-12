@@ -34,8 +34,8 @@
   --accent: var(--color-action);
   --signal: var(--color-selected);
   --primary-grad: var(--color-action);
-  --radius-control: .75rem;
-  --radius-card: 1.25rem;
+  --radius-control: 1rem;
+  --radius-card: 1.75rem;
   --section-space: clamp(3.5rem, 7vw, 6.5rem);
   --ease-out: cubic-bezier(.23, 1, .32, 1);
   --ease-in-out: cubic-bezier(.77, 0, .175, 1);
@@ -65,7 +65,7 @@ button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
 .m-arrow__stem { opacity: 1; }
 .hero-ui-button[data-pressed=true] { transform: none; }
 .header [data-header-part=action] .btn--primary { background: var(--color-surface); color: var(--color-ink); border: 1px solid var(--color-control-border); }
-.hero-ui-modal, .city-modal { border-radius: 1.25rem; inline-size: calc(100% - 2rem); margin-inline: 1rem; }
+.hero-ui-modal, .city-modal { border-radius: var(--radius-card); inline-size: calc(100% - 2rem); margin-inline: 1rem; }
 .hero-dialog-body, .city-modal, [data-slot=listbox], [data-slot=popoverContent] { overscroll-behavior: contain; }
 
 /* 01 / Introduction: quiet typography, three actual screens, one primary action. */
@@ -74,7 +74,7 @@ button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
 .hero-title-gradient { background: none; color: var(--color-copy); }
 .hero-kicker { font-size: .8125rem; line-height: 1.6; max-inline-size: 60ch; }
 .hero-split-media { gap: .75rem; height: clamp(23rem, 37vw, 32rem); }
-.hero-split-media figure { border: 1px solid var(--color-border); border-radius: 1.25rem; background: var(--color-surface-muted); height: 92%; }
+.hero-split-media figure { border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface-muted); height: 92%; }
 .hero-split-media figure:nth-child(2) { height: 82%; margin-block-end: 0; align-self: end; }
 .hero-split-media figure:nth-child(3) { height: 92%; align-self: start; }
 .hero-split-media :is(img, video) { inline-size: 100%; block-size: 100%; object-fit: cover; }
@@ -84,27 +84,29 @@ button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
 .hero-stats span { font-size: .8125rem; }
 .hero-benefits-action p { max-inline-size: 48ch; line-height: 1.6; }
 
-/* Brand directory: navigation, not a second wall of cards. */
+/* Brand cloud: every make remains visible and leads into the catalog. */
 .brands-strip-wrap { background: var(--color-surface); padding-block: 1.75rem 2.5rem; }
-.brands-strip-label { text-align: start; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
-.brands-strip { justify-content: flex-start; gap: .5rem 1.5rem; }
-.brands-strip .strip-pill { background: transparent; border: 0; border-radius: .375rem; padding: .5rem 0; gap: .625rem; font-size: .9375rem; }
-.brand-logo { background: var(--color-surface-muted); border-radius: .375rem; }
-.brand-directory { margin-block-start: .75rem; }
-.brand-directory summary { inline-size: fit-content; min-block-size: 2.75rem; cursor: pointer; padding-block: .625rem; font-size: .875rem; font-weight: 500; text-decoration: underline; text-underline-offset: .25em; }
-.brand-directory[open] .brands-strip { padding-block-start: .75rem; }
+.brands-strip-label { text-align: center; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
+.brands-strip { justify-content: center; align-items: center; flex-wrap: wrap; gap: .625rem; }
+.brands-strip .strip-pill { background: var(--color-canvas); border: 1px solid var(--color-border); border-radius: 999px; padding: .625rem 1rem; gap: .625rem; font-size: .875rem; }
+.brands-strip .strip-pill--l { padding: .875rem 1.375rem; font-size: 1.0625rem; background: var(--color-selected); border-color: transparent; }
+.brands-strip .strip-pill--m { padding: .75rem 1.125rem; font-size: .9375rem; }
+.city-location { inline-size: 1rem; block-size: 1rem; flex: none; }
+.brand-logo { background: var(--color-surface); border-radius: 50%; }
 
-/* 02 / Services: an open capability list; the app package is the anchor. */
+/* 02 / Services: distinct surfaces and icon plates distinguish each capability. */
 .services-section { background: var(--color-surface); border-block-start: 1px solid var(--color-border); }
 .service-tiles { gap: 1.5rem 2rem; }
-.service-tile { padding: 1.75rem .25rem; border: 0; border-block-start: 1px solid var(--color-border); border-radius: 0; background: transparent; box-shadow: none; }
+.service-tile { padding: 1.75rem; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-canvas); box-shadow: none; }
+.service-tile:nth-child(2) { background: #f2eef9; border-color: #e3daf1; }
+.service-tile:nth-child(3) { background: #edf4f5; border-color: #d9e7e9; }
 .service-tile:first-child { padding: 1.75rem; border: 1px solid transparent; border-radius: var(--radius-card); background: var(--color-ink); color: var(--color-inverse); }
 .service-tile h3 { font-size: 1.25rem; line-height: 1.4; }
 .service-tile p { font-size: .9375rem; }
 .service-tile:first-child p { color: var(--color-inverse-copy); }
-.tile-icon { background: transparent; color: var(--color-ink); inline-size: 2rem; block-size: 2rem; margin-block-end: 1.25rem; place-items: start; border-radius: 0; }
+.tile-icon { background: rgb(255 255 255 / .8); color: var(--color-action); inline-size: 3.5rem; block-size: 3.5rem; margin-block-end: 1.5rem; place-items: center; border-radius: 1.125rem; }
 .tile-icon svg { inline-size: 1.75rem; block-size: 1.75rem; }
-.service-tile:first-child .tile-icon { color: var(--color-inverse); }
+.service-tile:first-child .tile-icon { color: var(--color-inverse); background: rgb(255 255 255 / .1); }
 .app-icons { gap: .5rem; margin-block: .5rem 1rem; }
 .app-icons img { inline-size: 2rem; block-size: 2rem; border-radius: .5rem; }
 
@@ -117,9 +119,9 @@ button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
 .catalog-filter-pills { gap: .375rem; }
 .catalog-filter-pill { background: transparent; border-color: transparent; border-radius: .5rem; color: var(--color-copy); padding-inline: .75rem; }
 .catalog-filter-pill.is-active { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-inverse); }
-.hero-brand-tablist { background: transparent; padding: 0; gap: .25rem; border-radius: 0; }
-.hero-brand-tab { border-radius: .5rem; font-size: .875rem; }
-.hero-brand-tab [data-slot=cursor] { border-radius: .5rem; background: var(--color-selected); box-shadow: none; }
+.hero-brand-tablist { background: #e9eaf0; border: 1px solid #e0e2e9; padding: .5rem; gap: .375rem; border-radius: 1.5rem; }
+.hero-brand-tab { border-radius: 1rem; font-size: .875rem; min-block-size: 2.75rem; }
+.hero-brand-tab [data-slot=cursor] { border-radius: 1rem; background: var(--color-surface); box-shadow: 0 2px 8px #17212c12, 0 1px 2px #17212c08; }
 .hero-brand-tab [data-slot=tabContent] { color: var(--color-copy); white-space: normal; overflow: visible; text-overflow: clip; }
 .hero-brand-tab[aria-selected=true] [data-slot=tabContent] { color: var(--color-action); font-weight: 600; }
 .models-brand-heading h3 { font-size: 1.75rem; }
@@ -128,8 +130,9 @@ button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
 .model-card { padding: 1rem; gap: .75rem; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: none; }
 .vehicle-photo { border: 0; border-radius: .75rem; background: var(--color-surface-muted); }
 .model-card h3 { font-size: 1.25rem; line-height: 1.4; letter-spacing: -.015em; }
-.model-card .chips { gap: .25rem .625rem; }
-.model-card .chip { background: transparent; color: var(--color-copy); border-radius: 0; padding: 0; font-size: .75rem; }
+.model-card .chips { gap: .375rem; }
+.model-card .chip { background: var(--color-surface-muted); color: var(--color-copy); border-radius: 999px; padding: .375rem .75rem; font-size: .75rem; }
+.model-card .chip:first-child { background: var(--color-selected); color: var(--color-action-hover); }
 .model-price { font-size: 1.75rem; letter-spacing: -.02em; }
 .model-card .model-price { padding-block-start: .5rem; }
 .model-note { font-size: .8125rem; line-height: 1.6; }
@@ -181,13 +184,20 @@ button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
 .review-source-link { color: var(--color-ink); text-decoration: underline; min-block-size: 2.75rem; display: inline-flex; align-items: center; }
 .review-photos img { outline: 1px solid #0000001a; outline-offset: -1px; }
 
-/* 07 / Pricing: one recommendation, two quieter alternatives. */
+/* 07 / Pricing: service-specific icons and one recommended package. */
 .formats-section { background: var(--color-surface); }
 .format-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; padding-block-start: .5rem; }
-.format-card { border: 0; border-block-start: 1px solid var(--color-border); border-radius: 0; padding: 1.75rem 1.25rem; background: transparent; gap: 1.125rem; }
+.format-card { border: 1px solid var(--color-border); border-radius: var(--radius-card); padding: 1.75rem; background: var(--color-canvas); gap: 1.125rem; }
 .format-card--featured { background: var(--color-ink); color: var(--color-inverse); border: 1px solid transparent; border-radius: var(--radius-card); padding: 1.75rem; }
-.format-badge { border-radius: 0; padding: 0; background: transparent; color: var(--color-copy); font-size: .75rem; font-weight: 600; letter-spacing: .05em; }
-.format-card--featured .format-badge { color: var(--color-inverse-copy); }
+.format-topline { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-block-end: .5rem; }
+.format-icon { display: grid; place-items: center; flex: none; inline-size: 3.5rem; block-size: 3.5rem; background: var(--color-selected); color: var(--color-action); border-radius: 1.125rem; }
+.format-icon svg { inline-size: 1.75rem; block-size: 1.75rem; }
+.format-card--featured .format-icon { background: rgb(255 255 255 / .12); color: var(--color-inverse); }
+.format-badge { border-radius: 999px; padding: .375rem .75rem; background: var(--color-surface); color: var(--color-copy); font-size: .75rem; font-weight: 600; letter-spacing: .01em; text-align: center; }
+.format-card--featured .format-badge { background: #dcd0f2; color: #352053; }
+.format-card .button { margin-block-start: auto; }
+.format-card .format-list { padding-block-end: .75rem; }
+
 .format-card--featured :is(.format-desc, .format-list) { color: var(--color-inverse-copy); }
 .format-card--featured .format-list li::before { color: var(--color-inverse); }
 .format-card--featured .btn--primary { color: var(--color-ink); background: var(--color-surface); }
@@ -218,8 +228,8 @@ button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
 .footer :is(.footer-lower, .footer-base) { border-color: var(--color-inverse-line); }
 .footer-map { border-radius: var(--radius-card); }
 .map-actions .btn--primary { background: var(--color-surface); color: var(--color-ink); }
-.contact-channels { gap: 0 1rem; }
-.contact-card { background: transparent; border: 0; border-block-end: 1px solid var(--color-inverse-line); border-radius: 0; padding: 1rem 0; }
+.contact-channels { gap: .75rem; }
+.contact-card { background: rgb(255 255 255 / .07); border: 1px solid rgb(255 255 255 / .14); border-radius: 1.25rem; padding: 1rem; backdrop-filter: blur(8px); }
 .contact-card img { inline-size: 1.5rem; block-size: 1.5rem; }
 .contact-card-arrow { margin-inline-start: auto; }
 .footer-wordmark { font-size: clamp(3.5rem, 7vw, 6rem); }
@@ -291,7 +301,7 @@ input::placeholder, textarea::placeholder, .hero-native-input::placeholder { col
   .format-cards { grid-template-columns: 1fr; }
   .format-card { padding-inline: 1.5rem; }
   .faq-intro { position: static; }
-  .hero-brand-tablist { background: var(--color-surface-muted); padding: .25rem; border-radius: .75rem; }
+  .hero-brand-tablist { padding: .5rem; border-radius: 1.5rem; }
   .hero-brand-tab [data-slot=cursor] { background: var(--color-surface); }
   .models-controls .hero-ui-button { border: 1px solid var(--color-control-border); border-radius: 50%; background: transparent; }
 }
@@ -324,7 +334,7 @@ input::placeholder, textarea::placeholder, .hero-native-input::placeholder { col
   .about-facts li { padding-block-start: 0; }
   .about-facts li:first-child { padding-block-start: 1.5rem; }
   .work-card { inline-size: min(78vw, 20rem); }
-  .format-card { padding-inline: .25rem; }
+  .format-card { padding: 1.5rem; }
   .format-card--featured { padding-inline: 1.5rem; }
   .format-price { font-size: 2rem; }
   .faq-question { inline-size: 100%; }
