@@ -1,19 +1,66 @@
-import {HeroCard} from "@/components/HeroPrimitives";
+"use client";
+import { HeroCard } from "@/components/HeroPrimitives";
+import { useCms } from "./CmsProvider";
 
-// Markup and class names follow the reviewed Vanilla B source.
+const SERVICE_ICONS: Record<string, React.ReactNode> = {
+  apps: <><rect x="3" y="3" width="8" height="8" rx="2" /><rect x="13" y="3" width="8" height="8" rx="2" /><rect x="3" y="13" width="8" height="8" rx="2" /><rect x="13" y="13" width="8" height="8" rx="2" /></>,
+  russian: <><rect x="2.5" y="4" width="19" height="12" rx="2" /><path d="M8 20h8M12 16v4M7 10h4M7 7.5h7" /></>,
+  dash: <><path d="M4 14a8 8 0 0 1 16 0M12 14l3.5-3.5" /><circle cx="12" cy="14" r="1.4" /></>,
+  format: <><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z" /><circle cx="12" cy="10" r="2.6" /></>,
+  rollback: <path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5" />,
+  check: <><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5M8 10.5l1.8 1.8 3.5-3.6" /></>,
+};
+
+const APP_ICONS = [
+  ["navi", "Яндекс Навигатор"], ["ym", "Яндекс Музыка"],
+  ["vkvideo", "VK Видео"], ["rutube", "RUTUBE"],
+  ["rustore", "RuStore"], ["fmplay", "FM Play"],
+  ["tv", "ТВ"], ["hud", "HUD Антирадар"],
+] as const;
+
 export function Services() {
-
+  const { serviceTiles } = useCms();
   return (
-<section className="section services-section" id="services" aria-labelledby="services-title"><div className="wrap">
-    <div className="section-heading"><div><p className="kicker">Услуги</p><h2 id="services-title">Всё для мультимедиа вашего автомобиля.</h2><p>Работаем поверх штатной системы: файлы прошивки не меняем, всё можно вернуть к заводскому состоянию.</p></div></div>
-    <div className="service-tiles">
-      <HeroCard className="service-tile"><span className="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"></rect><rect x="13" y="3" width="8" height="8" rx="2"></rect><rect x="3" y="13" width="8" height="8" rx="2"></rect><rect x="13" y="13" width="8" height="8" rx="2"></rect></svg></span><h3>Установка приложений</h3><div className="app-icons" aria-label="Примеры приложений"><img src="/assets/apps/navi-logo.png" alt="Яндекс Навигатор" width="40" height="40" loading="lazy" title="Яндекс Навигатор" /><img src="/assets/apps/ym-logo.png" alt="Яндекс Музыка" width="40" height="40" loading="lazy" title="Яндекс Музыка" /><img src="/assets/apps/vkvideo-logo.png" alt="VK Видео" width="40" height="40" loading="lazy" title="VK Видео" /><img src="/assets/apps/rutube-logo.png" alt="RUTUBE" width="40" height="40" loading="lazy" title="RUTUBE" /><img src="/assets/apps/rustore-logo.png" alt="RuStore" width="40" height="40" loading="lazy" title="RuStore" /><img src="/assets/apps/fmplay-logo.png" alt="FM Play" width="40" height="40" loading="lazy" title="FM Play" /><img src="/assets/apps/tv-logo.png" alt="ТВ" width="40" height="40" loading="lazy" title="ТВ" /><img src="/assets/apps/hud-logo.png" alt="HUD Антирадар" width="40" height="40" loading="lazy" title="HUD Антирадар" /></div><p>Яндекс Навигатор, Музыка, Кинопоиск, VK Видео, RUTUBE, ТВ, радио и RuStore на штатный экран.</p></HeroCard>
-      <HeroCard className="service-tile"><span className="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="2.5" y="4" width="19" height="12" rx="2"></rect><path d="M8 20h8M12 16v4M7 10h4M7 7.5h7"></path></svg></span><h3>Русификация мультимедиа</h3><p>Переводим интерфейс головного устройства на русский: меню, настройки, климат и ассистенты.</p></HeroCard>
-      <HeroCard className="service-tile"><span className="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20a8 8 0 1 1 16 0" transform="translate(-8,-6)"></path><path d="M4 14a8 8 0 0 1 16 0M12 14l3.5-3.5"></path><circle cx="12" cy="14" r="1.4"></circle></svg></span><h3>Русификация приборной панели</h3><p>Русский язык на приборке — для моделей из списка поддерживаемых.</p></HeroCard>
-      <HeroCard className="service-tile"><span className="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z"></path><circle cx="12" cy="10" r="2.6"></circle></svg></span><h3>В сервисе и на выезде</h3><p>Принимаем в Челябинске, большая парковка. Вызов на адрес — по согласованию, оплачивается отдельно.</p></HeroCard>
-      <HeroCard className="service-tile"><span className="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"></path></svg></span><h3>Возврат к заводскому</h3><p>Перед визитом к дилеру всё сбрасывается до заводского состояния — в пару действий.</p></HeroCard>
-      <HeroCard className="service-tile"><span className="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5M8 10.5l1.8 1.8 3.5-3.6"></path></svg></span><h3>Подбор под вашу модель</h3><p>Проверяем совместимость и состав пакета до записи. Модели нет в списке — напишите, проверим.</p></HeroCard>
-    </div>
-  </div></section>
+    <section
+      className="section services-section"
+      id="services"
+      aria-labelledby="services-title"
+    >
+      <div className="wrap">
+        <div className="section-heading">
+          <div>
+            <p className="kicker">Услуги</p>
+            <h2 id="services-title">Всё для мультимедиа вашего автомобиля.</h2>
+            <p>
+              Работаем поверх штатной системы: заводскую проводку не трогаем, всё
+              можно вернуть к заводскому состоянию.
+            </p>
+          </div>
+        </div>
+        <div className="service-tiles">
+          {serviceTiles.map((tile) => (
+            <HeroCard
+              key={tile.id}
+              className="service-tile"
+            >
+              <span className="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                  {SERVICE_ICONS[tile.id] || SERVICE_ICONS.apps}
+                </svg>
+              </span>
+              <h3>{tile.title}</h3>
+              {tile.id === "apps" && (
+                <div className="app-icons" aria-label="Примеры приложений">
+                  {APP_ICONS.map(([name, label]) => (
+                    <img key={name} src={`/assets/apps/${name}-logo.png`} alt={label} title={label} width={40} height={40} loading="lazy" />
+                  ))}
+                </div>
+              )}
+              <p>{tile.description}</p>
+            </HeroCard>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

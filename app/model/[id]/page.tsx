@@ -4,62 +4,47 @@ import { HeroChip, HeroLink } from "@/components/HeroPrimitives";
 import { Arrow } from "@/components/Arrow";
 import { BookingButton } from "@/components/BookingButton";
 import { DetailFooter, DetailHeader } from "@/components/DetailChrome";
-import { asset, orderedMakes } from "@/lib/data";
+import { ReviewsSection } from "@/components/ReviewsSection";
+import { asset } from "@/lib/data";
 import { formatWorkSummary } from "@/lib/cities";
+import { getCmsData } from "@/lib/cms-store";
 import { getServerCity } from "@/lib/server-city";
 import {
-  BRAND_ALIASES,
   brandSlug,
+  buildCatalogFromModels,
   buildModelJsonLd,
-  entriesByMake,
-  resolveModelParam,
+  entriesFromMake,
+  orderedMakesFromEntries,
+  resolveModelFromEntries,
 } from "@/lib/catalog";
 
 type Props = { params: Promise<{ id: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const resolved = resolveModelParam(id);
+  const cms = getCmsData();
+  const entries = buildCatalogFromModels(cms.models, cms.brandAliases, cms.works);
+  const resolved = resolveModelFromEntries(entries, id);
   if (!resolved) return { title: "Модель не найдена — GeeApp" };
 
   const { city, origin } = await getServerCity();
   const { entry } = resolved;
   const canonicalUrl = `${origin}/model/${entry.slug}`;
 
-  const servicePhrase = !entry.supported
-    ? "совместимость и особенности штатной магнитолы"
-    : entry.car?.service === "apps" && entry.rus
-    ? `прошивка, русификация и приложения ${city.inName}`
-    : entry.car?.service === "apps"
-    ? `установка приложений и прошивка ГУ ${city.inName}`
-    : entry.rus
-    ? `русификация мультимедиа ${city.inName}`
-    : `настройка штатной мультимедиа ${city.inName}`;
-
-  const pricePhrase =
-    entry.supported && entry.minPrice ? ` Цена от ${entry.priceDisplay}.` : "";
-  const formatPhrase = city.isHeadquarters
-    ? "Приём в сервисе в Челябинске (ул. Энтузиастов, 28а) и онлайн-прошивка."
-    : `Мастера-партнёры ${city.inName} и дистанционная онлайн-прошивка.`;
-
-  const title = `${entry.fullTitle}: ${servicePhrase} — GeeApp`;
-  const description = `${entry.fullTitle} — ${servicePhrase}.${pricePhrase} ${formatPhrase}`;
+  const title = `${entry.fullTitle}: прошивка, русификация и приложения ${city.inName} — GeeApp`;
+  const description = `${entry.fullTitle} — настройка штатной мультимедиа ${city.inName}. ${
+    entry.supported ? `Стоимость: ${entry.priceDisplay}.` : ""
+  } ${formatWorkSummary(city)}`;
 
   return {
     title,
     description,
-    keywords: [
-      `${entry.fullTitle} прошивка ${city.name}`,
-      `русификация ${entry.fullTitle} ${city.name}`,
-      `Яндекс Навигатор ${entry.fullTitle}`,
-      ...entry.aliases,
-    ],
     alternates: { canonical: canonicalUrl },
     openGraph: {
       title,
       description,
       url: canonicalUrl,
-      siteName: "GeeApp",
+      siteName: cms.settings.brandName || "GeeApp",
       locale: "ru_RU",
       type: "website",
       ...(entry.photo ? { images: [{ url: `${origin}${asset(entry.photo)}` }] } : {}),
@@ -69,20 +54,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ModelPage({ params }: Props) {
   const { id } = await params;
-  const resolved = resolveModelParam(id);
+  const cms = getCmsData();
+  const entries = buildCatalogFromModels(cms.models, cms.brandAliases, cms.works);
+  const resolved = resolveModelFromEntries(entries, id);
   if (!resolved) notFound();
   if (!resolved.isCanonical) permanentRedirect(`/model/${resolved.entry.slug}`);
 
   const { city, origin } = await getServerCity();
   const { entry } = resolved;
-  const siblings = entriesByMake(entry.make)
-    .filter((item) => item.slug !== entry.slug)
-    .slice(0, 6);
-  const jsonLd = buildModelJsonLd(entry, origin, city.name);
-  const ruBrand = BRAND_ALIASES[entry.make]?.[0];
-  const headerHref = entry.supported
-    ? `/?book=${encodeURIComponent(entry.slug)}#home`
-    : `/brand/${entry.brandSlug}`;
+  const brandEntries = entriesFromMake(entries, entry.make);
+  const siblings = brandEntries.filter((item) => item.slug !== entry.slug).slice(0, 6);
+  const makes = orderedMakesFromEntries(entries);
+  const ruBrand = cms.brandAliases[entry.make]?.[0];
+  const jsonLd = buildModelJsonLd(
+    entry,
+    origin,
+    city.name,
+    cms.settings.phoneDisplay
+  );
 
   return (
     <>
@@ -90,7 +79,13 @@ export default async function ModelPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <DetailHeader href={headerHref} />
+      <DetailHeader
+        href={
+          entry.supported
+            ? `/?book=${encodeURIComponent(entry.slug)}#home`
+            : `/brand/${entry.brandSlug}`
+        }
+      />
       <main id="model-main" className="model-page">
         <div className="wrap">
           <nav className="seo-breadcrumbs" aria-label="Хлебные крошки">
@@ -116,25 +111,28 @@ export default async function ModelPage({ params }: Props) {
 
               {entry.aliases.length > 0 && (
                 <p className="model-aliases">
-                  Индексы и названия: {entry.aliases.slice(0, 5).join(" · ")}
+                  Индексы и названия: {entry.aliases.slice(0, 6).join(" · ")}
                 </p>
               )}
 
               <div className="chips" id="model-chips">
-                {entry.car?.service === "apps" && entry.supported && (
-                  <>
-                    <HeroChip className="chip chip--primary">Установка приложений</HeroChip>
-                    <HeroChip className="chip">Прошивка ГУ</HeroChip>
-                  </>
-                )}
-                {(entry.rus || entry.car?.id === "car-2") && (
-                  <HeroChip className="chip">Русификация</HeroChip>
-                )}
+                {entry.packages.map((pkg) => (
+                  <HeroChip
+                    key={pkg.kind}
+                    className={`chip${pkg.kind === "apps" ? " chip--primary" : ""}`}
+                  >
+                    {pkg.badge}: {pkg.priceLabel}
+                  </HeroChip>
+                ))}
                 {!entry.supported && <HeroChip className="chip">Не прошивается</HeroChip>}
-                {entry.needsCompatibility && <HeroChip className="chip">Проверка по фото ГУ</HeroChip>}
+                {entry.needsCompatibility && (
+                  <HeroChip className="chip">Проверка по фото ГУ</HeroChip>
+                )}
               </div>
 
-              <p className="model-price" id="model-price">{entry.priceDisplay}</p>
+              <p className="model-price" id="model-price">
+                {entry.priceDisplay}
+              </p>
 
               {entry.compatibilityNote && (
                 <p className="catalog-restriction model-callout" id="model-restriction">
@@ -166,24 +164,35 @@ export default async function ModelPage({ params }: Props) {
               <p className="fine-print model-fine">{formatWorkSummary(city)}</p>
             </div>
 
+            {/* ГЛАВНОЕ ВИДЕО МОДЕЛИ (если загружено в админке) ЛИБО ФОТО */}
             <div className="vehicle-photo model-photo">
-              <img
-                id="model-photo"
-                src={asset(entry.photo || "assets/car-placeholder.svg")}
-                alt={
-                  entry.photo
-                    ? `${entry.fullTitle} — прошивка и русификация ${city.inName}`
-                    : `Иллюстрация ${entry.fullTitle}`
-                }
-                width={640}
-                height={320}
-              />
+              {entry.video ? (
+                <video
+                  src={asset(entry.video)}
+                  poster={entry.photo ? asset(entry.photo) : undefined}
+                  controls
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="model-main-video"
+                />
+              ) : (
+                <img
+                  id="model-photo"
+                  src={asset(entry.photo || "assets/car-placeholder.svg")}
+                  alt={`${entry.fullTitle} — прошивка и русификация ${city.inName}`}
+                  width={640}
+                  height={320}
+                />
+              )}
             </div>
           </div>
 
           {entry.packages.length > 0 && (
             <section className="model-packages" aria-labelledby="packages-heading">
-              <h2 id="packages-heading">Доступные пакеты и состав работ</h2>
+              <h2 id="packages-heading">Доступные услуги и цены по модели</h2>
               <div className="model-packages-grid">
                 {entry.packages.map((pkg) => (
                   <article key={pkg.kind} className="model-package-card">
@@ -204,6 +213,37 @@ export default async function ModelPage({ params }: Props) {
             </section>
           )}
 
+          {/* ГАЛЕРЕЯ ВЫПОЛНЕННЫХ РАБОТ МОДЕЛИ (показывается, если есть кейсы или кадры) */}
+          {entry.gallery.length > 0 && (
+            <section className="model-gallery-section" aria-labelledby="gallery-heading">
+              <h2 id="gallery-heading">
+                Примеры выполненных работ на {entry.fullTitle}
+              </h2>
+              <div className="model-gallery-grid">
+                {entry.gallery.map((item) => (
+                  <figure key={item.id} className="model-gallery-card">
+                    {item.kind === "video" ? (
+                      <video
+                        src={asset(item.src)}
+                        poster={item.poster ? asset(item.poster) : undefined}
+                        controls
+                        playsInline
+                        preload="metadata"
+                      />
+                    ) : (
+                      <img
+                        src={asset(item.src)}
+                        alt={item.caption || entry.fullTitle}
+                        loading="lazy"
+                      />
+                    )}
+                    {item.caption && <figcaption>{item.caption}</figcaption>}
+                  </figure>
+                ))}
+              </div>
+            </section>
+          )}
+
           <section className="model-detail" id="model-detail">
             <h2 id="model-detail-title">
               {entry.supported
@@ -211,31 +251,6 @@ export default async function ModelPage({ params }: Props) {
                 : `Техническая справка по ${entry.fullTitle}`}
             </h2>
             <p id="model-detail-text">{entry.expertSummary}</p>
-
-            {entry.supported && (
-              <div className="model-formats-strip">
-                <div className="model-format-step">
-                  <strong>1. Заявка администратору</strong>
-                  <span>Проверяем год выпуска и версию прошивки ГУ вашего {entry.cleanName} по фото экрана.</span>
-                </div>
-                <div className="model-format-step">
-                  <strong>
-                    {city.isHeadquarters
-                      ? "2. Сервис в Челябинске или онлайн"
-                      : `2. Мастер-партнёр ${city.inName} или онлайн`}
-                  </strong>
-                  <span>
-                    {city.isHeadquarters
-                      ? "Приглашаем в бокс на ул. Энтузиастов, 28а или подключаем онлайн-прошивку."
-                      : `Администратор передаёт запись проверенному мастеру-партнёру ${city.inName} либо назначает онлайн-сессию.`}
-                  </span>
-                </div>
-                <div className="model-format-step">
-                  <strong>3. Сохранение штатных систем</strong>
-                  <span>Камеры 360°, климат, микрофоны и возможность возврата к заводскому виду сохраняются.</span>
-                </div>
-              </div>
-            )}
           </section>
 
           <section className="model-faq-section" aria-labelledby="model-faq-title">
@@ -256,13 +271,20 @@ export default async function ModelPage({ params }: Props) {
             <section className="model-siblings" aria-labelledby="siblings-title">
               <div className="models-brand-heading">
                 <h2 id="siblings-title">Другие модели {entry.make}</h2>
-                <HeroLink className="brand-section-link text-link" href={`/brand/${entry.brandSlug}`}>
-                  Все модели {entry.make} ({entriesByMake(entry.make).length}) →
+                <HeroLink
+                  className="brand-section-link text-link"
+                  href={`/brand/${entry.brandSlug}`}
+                >
+                  Все модели {entry.make} ({brandEntries.length}) →
                 </HeroLink>
               </div>
               <div className="sibling-pills">
                 {siblings.map((sib) => (
-                  <HeroLink key={sib.slug} className="strip-pill" href={`/model/${sib.slug}`}>
+                  <HeroLink
+                    key={sib.slug}
+                    className="strip-pill"
+                    href={`/model/${sib.slug}`}
+                  >
                     <span>{sib.fullTitle}</span>
                     <span className="sibling-pill-price">{sib.priceDisplay}</span>
                   </HeroLink>
@@ -274,7 +296,7 @@ export default async function ModelPage({ params }: Props) {
           <nav className="other-brands-nav" aria-label="Другие марки автомобилей">
             <p className="kicker">Каталог марок</p>
             <div className="sibling-pills">
-              {orderedMakes().map((m) => (
+              {makes.map((m) => (
                 <HeroLink key={m} className="strip-pill" href={`/brand/${brandSlug(m)}`}>
                   {m}
                 </HeroLink>
@@ -282,6 +304,8 @@ export default async function ModelPage({ params }: Props) {
             </div>
           </nav>
         </div>
+
+        <ReviewsSection />
       </main>
       <DetailFooter />
     </>

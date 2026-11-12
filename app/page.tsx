@@ -1,48 +1,21 @@
 import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { BrandsCloud } from "@/components/BrandsCloud";
-import { Services } from "@/components/Services";
-import { Models } from "@/components/Models";
-import { Russian } from "@/components/Russian";
-import { About } from "@/components/About";
-import { Formats } from "@/components/Formats";
-import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
-import { config } from "@/lib/data";
+import { PageBlocksRenderer } from "@/components/PageBlocksRenderer";
+import { getCmsData } from "@/lib/cms-store";
 import { getServerCity } from "@/lib/server-city";
 
 export default async function Home() {
   const { city, origin } = await getServerCity();
+  const cms = getCmsData();
 
-  const homeJsonLd = city.isHeadquarters
-    ? {
-        "@context": "https://schema.org",
-        "@type": "AutoRepair",
-        name: "GeeApp — настройка и русификация мультимедиа авто",
-        url: origin,
-        telephone: config.phone,
-        openingHours: "Mo-Su 10:00-22:00",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Челябинск",
-          streetAddress: "ул. Энтузиастов, 28а",
-          addressCountry: "RU",
-        },
-        areaServed: { "@type": "City", name: city.name },
-      }
-    : {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: `GeeApp — русификация, прошивка и приложения для авто ${city.inName}`,
-        url: origin,
-        provider: {
-          "@type": "Organization",
-          name: "GeeApp",
-          telephone: config.phone,
-          url: "https://geeapp.ru",
-        },
-        areaServed: { "@type": "City", name: city.name },
-      };
+  const homeJsonLd = {
+    "@context": "https://schema.org",
+    "@type": city.isHeadquarters ? "AutoRepair" : "Service",
+    name: `${cms.settings.brandName} — настройка и русификация мультимедиа авто ${city.inName}`,
+    url: origin,
+    telephone: cms.settings.phoneDisplay,
+    areaServed: { "@type": "City", name: city.name },
+  };
 
   return (
     <>
@@ -52,14 +25,7 @@ export default async function Home() {
       />
       <Header />
       <main id="home" tabIndex={-1}>
-        <Hero />
-        <BrandsCloud />
-        <Services />
-        <Models />
-        <Russian />
-        <About />
-        <Formats />
-        <Faq />
+        <PageBlocksRenderer blocks={cms.homeBlocks} />
       </main>
       <Footer />
     </>

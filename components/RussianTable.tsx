@@ -1,22 +1,21 @@
+"use client";
 import { HeroLink } from "@/components/HeroPrimitives";
-import { asset, brandLogo, monogram, vehicles } from "@/lib/data";
+import { asset, monogram } from "@/lib/data";
 import { brandSlug } from "@/lib/catalog";
+import { useCms } from "./CmsProvider";
 
 export function RussianTable() {
+  const cms = useCms();
   const byMake: Record<string, string[]> = {};
-  vehicles
-    .filter((c) => c.service === "russian")
-    .forEach((c) => {
-      const clean =
-        c.id === "russian-bmw"
-          ? "Модельный ряд iDrive / MGU"
-          : c.name
-              .replace(/\s*\(приборная панель \+ мультимедиа\)/i, "")
-              .replace(/\s*\(мультимедиа без разбора\)/i, "")
-              .replace(/\s*\(мультимедиа\)/i, "")
-              .replace(/\s*\(любое поколение[^)]*\)/i, "")
-              .trim();
-      (byMake[c.make] ||= []).push(clean);
+
+  cms.models
+    .filter(
+      (m) =>
+        m.supported &&
+        (m.services.russian?.enabled || m.services.dashboard?.enabled)
+    )
+    .forEach((m) => {
+      (byMake[m.make] ||= []).push(m.name);
     });
 
   const rows = Object.entries(byMake).sort(
@@ -50,7 +49,7 @@ export function RussianTable() {
   return (
     <div className="russian-table" id="russian-table">
       {items.map(({ make, isBrand, text }) => {
-        const logo = brandLogo(make);
+        const logo = cms.brandLogos[make];
         const content = (
           <>
             {isBrand && (
