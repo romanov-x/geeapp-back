@@ -5,7 +5,7 @@ export type Service = {id:string;title:string;summary:string;detail:string;price
 export type SiteConfig = {brand:string;defaultCity:string;cities:Record<string,{name:string;inName:string;subdomain?:string}>;vehicleImages:Record<string,string>;brandLogos:Record<string,string>;services:Service[];channels:Record<string,string>;phone:string;address:string;hours:string};
 export const data=raw as unknown as {vehicles:Vehicle[];config:SiteConfig;works:Work[]};
 export const {vehicles,works,config}=data;
-export const vehicleImages=config.vehicleImages, services=config.services;
+export const vehicleImages=config.vehicleImages, services=config.services, brandLogos=config.brandLogos;
 export const asset=(path:string)=>path.startsWith("assets/")?"/"+path:path;
 export const money=(value:number)=>new Intl.NumberFormat("ru-RU").format(value)+" ₽";
 export const baseName=(name:string)=>name.split("(")[0].trim().toLowerCase();
