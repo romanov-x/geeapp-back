@@ -1,13 +1,12 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/catalog";
+import { getServerCity } from "@/lib/server-city";
 
-export default function robots(): MetadataRoute.Robots {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const { origin } = await getServerCity();
+
   return {
     rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-      },
+      { userAgent: "*", allow: "/" },
       {
         userAgent: [
           "OAI-SearchBot",
@@ -21,7 +20,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: ["/", "/llms.txt"],
       },
     ],
-    sitemap: `${SITE_URL}/sitemap.xml`,
-    host: SITE_URL,
+    sitemap: `${origin}/sitemap.xml`,
+    host: origin,
   };
 }

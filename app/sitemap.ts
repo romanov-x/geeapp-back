@@ -1,44 +1,27 @@
 import type { MetadataRoute } from "next";
 import { orderedMakes } from "@/lib/data";
-import { SITE_URL, brandSlug, catalogEntries } from "@/lib/catalog";
+import { brandSlug, catalogEntries } from "@/lib/catalog";
+import { getServerCity } from "@/lib/server-city";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const { origin } = await getServerCity();
   const now = new Date();
 
-  const staticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: SITE_URL,
+  return [
+    { url: origin, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: `${origin}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${origin}/consent`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+    ...orderedMakes().map((make) => ({
+      url: `${origin}/brand/${brandSlug(make)}`,
       lastModified: now,
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${SITE_URL}/privacy`,
+      changeFrequency: "weekly" as const,
+      priority: 0.85,
+    })),
+    ...catalogEntries.map((entry) => ({
+      url: `${origin}/model/${entry.slug}`,
       lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
-    {
-      url: `${SITE_URL}/consent`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
+      changeFrequency: "weekly" as const,
+      priority: entry.supported ? 0.8 : 0.5,
+    })),
   ];
-
-  const brandRoutes: MetadataRoute.Sitemap = orderedMakes().map((make) => ({
-    url: `${SITE_URL}/brand/${brandSlug(make)}`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.85,
-  }));
-
-  const modelRoutes: MetadataRoute.Sitemap = catalogEntries.map((entry) => ({
-    url: `${SITE_URL}/model/${entry.slug}`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: entry.supported ? 0.8 : 0.5,
-  }));
-
-  return [...staticRoutes, ...brandRoutes, ...modelRoutes];
 }

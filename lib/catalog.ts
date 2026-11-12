@@ -576,7 +576,11 @@ export function searchCatalog(
   });
 }
 
-export function buildModelJsonLd(entry: CatalogEntry, baseUrl = SITE_URL) {
+export function buildModelJsonLd(
+  entry: CatalogEntry,
+  baseUrl = SITE_URL,
+  cityName = "Челябинск"
+) {
   const pageUrl = `${baseUrl}/model/${entry.slug}`;
   const brandUrl = `${baseUrl}/brand/${entry.brandSlug}`;
   const imageUrl = entry.photo ? `${baseUrl}${asset(entry.photo)}` : undefined;
@@ -597,16 +601,11 @@ export function buildModelJsonLd(entry: CatalogEntry, baseUrl = SITE_URL) {
     mainEntity: entry.faq.map((item) => ({
       "@type": "Question",
       name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
+      acceptedAnswer: { "@type": "Answer", text: item.a },
     })),
   };
 
-  if (!entry.supported) {
-    return [breadcrumb, faqSchema];
-  }
+  if (!entry.supported) return [breadcrumb, faqSchema];
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -616,15 +615,12 @@ export function buildModelJsonLd(entry: CatalogEntry, baseUrl = SITE_URL) {
     url: pageUrl,
     ...(imageUrl ? { image: imageUrl } : {}),
     provider: {
-      "@type": "AutoRepair",
+      "@type": "Organization",
       name: config.brand || "GeeApp",
       telephone: config.phone,
       url: baseUrl,
     },
-    areaServed: {
-      "@type": "Country",
-      name: "Россия",
-    },
+    areaServed: { "@type": "City", name: cityName },
     ...(entry.minPrice
       ? {
           offers: {

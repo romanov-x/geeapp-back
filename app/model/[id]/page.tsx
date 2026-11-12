@@ -5,61 +5,56 @@ import { Arrow } from "@/components/Arrow";
 import { BookingButton } from "@/components/BookingButton";
 import { DetailFooter, DetailHeader } from "@/components/DetailChrome";
 import { asset, orderedMakes } from "@/lib/data";
+import { formatWorkSummary } from "@/lib/cities";
+import { getServerCity } from "@/lib/server-city";
 import {
   BRAND_ALIASES,
-  SITE_URL,
   brandSlug,
   buildModelJsonLd,
-  catalogEntries,
   entriesByMake,
   resolveModelParam,
 } from "@/lib/catalog";
 
 type Props = { params: Promise<{ id: string }> };
 
-export function generateStaticParams() {
-  return catalogEntries.map((entry) => ({ id: entry.slug }));
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const resolved = resolveModelParam(id);
-  if (!resolved) {
-    return { title: "Модель не найдена — GeeApp" };
-  }
+  if (!resolved) return { title: "Модель не найдена — GeeApp" };
 
+  const { city, origin } = await getServerCity();
   const { entry } = resolved;
-  const canonicalUrl = `${SITE_URL}/model/${entry.slug}`;
+  const canonicalUrl = `${origin}/model/${entry.slug}`;
 
   const servicePhrase = !entry.supported
     ? "совместимость и особенности штатной магнитолы"
     : entry.car?.service === "apps" && entry.rus
-    ? "прошивка, русификация и установка приложений"
+    ? `прошивка, русификация и приложения ${city.inName}`
     : entry.car?.service === "apps"
-    ? "установка приложений и прошивка мультимедиа"
+    ? `установка приложений и прошивка ГУ ${city.inName}`
     : entry.rus
-    ? "русификация мультимедиа и приборной панели"
-    : "прошивка и настройка штатной мультимедиа";
+    ? `русификация мультимедиа ${city.inName}`
+    : `настройка штатной мультимедиа ${city.inName}`;
 
   const pricePhrase =
     entry.supported && entry.minPrice ? ` Цена от ${entry.priceDisplay}.` : "";
+  const formatPhrase = city.isHeadquarters
+    ? "Приём в сервисе в Челябинске (ул. Энтузиастов, 28а) и онлайн-прошивка."
+    : `Мастера-партнёры ${city.inName} и дистанционная онлайн-прошивка.`;
 
   const title = `${entry.fullTitle}: ${servicePhrase} — GeeApp`;
-  const description = `${entry.fullTitle} — ${servicePhrase} на штатный экран.${pricePhrase} Сервис в Челябинске, мастера-партнёры в городах РФ и онлайн-прошивка.`;
+  const description = `${entry.fullTitle} — ${servicePhrase}.${pricePhrase} ${formatPhrase}`;
 
   return {
     title,
     description,
     keywords: [
-      entry.fullTitle,
-      `прошивка ${entry.fullTitle}`,
-      `русификация ${entry.fullTitle}`,
+      `${entry.fullTitle} прошивка ${city.name}`,
+      `русификация ${entry.fullTitle} ${city.name}`,
       `Яндекс Навигатор ${entry.fullTitle}`,
       ...entry.aliases,
     ],
-    alternates: {
-      canonical: canonicalUrl,
-    },
+    alternates: { canonical: canonicalUrl },
     openGraph: {
       title,
       description,
@@ -67,7 +62,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: "GeeApp",
       locale: "ru_RU",
       type: "website",
-      ...(entry.photo ? { images: [{ url: `${SITE_URL}${asset(entry.photo)}` }] } : {}),
+      ...(entry.photo ? { images: [{ url: `${origin}${asset(entry.photo)}` }] } : {}),
     },
   };
 }
@@ -76,16 +71,14 @@ export default async function ModelPage({ params }: Props) {
   const { id } = await params;
   const resolved = resolveModelParam(id);
   if (!resolved) notFound();
+  if (!resolved.isCanonical) permanentRedirect(`/model/${resolved.entry.slug}`);
 
-  if (!resolved.isCanonical) {
-    permanentRedirect(`/model/${resolved.entry.slug}`);
-  }
-
+  const { city, origin } = await getServerCity();
   const { entry } = resolved;
   const siblings = entriesByMake(entry.make)
     .filter((item) => item.slug !== entry.slug)
     .slice(0, 6);
-  const jsonLd = buildModelJsonLd(entry);
+  const jsonLd = buildModelJsonLd(entry, origin, city.name);
   const ruBrand = BRAND_ALIASES[entry.make]?.[0];
   const headerHref = entry.supported
     ? `/?book=${encodeURIComponent(entry.slug)}#home`
@@ -114,9 +107,12 @@ export default async function ModelPage({ params }: Props) {
             <div>
               <p className="kicker" id="model-make">
                 {entry.make}
-                {ruBrand ? ` · ${ruBrand}` : ""}
+                {ruBrand ? ` · ${ruBrand}` : ""} · {city.name}
               </p>
-              <h1 id="model-name">{entry.fullTitle}</h1>
+              <h1 id="model-name">
+                {entry.fullTitle}
+                {entry.supported ? ` — настройка мультимедиа ${city.inName}` : ""}
+              </h1>
 
               {entry.aliases.length > 0 && (
                 <p className="model-aliases">
@@ -127,26 +123,18 @@ export default async function ModelPage({ params }: Props) {
               <div className="chips" id="model-chips">
                 {entry.car?.service === "apps" && entry.supported && (
                   <>
-                    <HeroChip className="chip chip--primary">
-                      Установка приложений
-                    </HeroChip>
+                    <HeroChip className="chip chip--primary">Установка приложений</HeroChip>
                     <HeroChip className="chip">Прошивка ГУ</HeroChip>
                   </>
                 )}
                 {(entry.rus || entry.car?.id === "car-2") && (
                   <HeroChip className="chip">Русификация</HeroChip>
                 )}
-                {!entry.supported && (
-                  <HeroChip className="chip">Не прошивается</HeroChip>
-                )}
-                {entry.needsCompatibility && (
-                  <HeroChip className="chip">Проверка по фото ГУ</HeroChip>
-                )}
+                {!entry.supported && <HeroChip className="chip">Не прошивается</HeroChip>}
+                {entry.needsCompatibility && <HeroChip className="chip">Проверка по фото ГУ</HeroChip>}
               </div>
 
-              <p className="model-price" id="model-price">
-                {entry.priceDisplay}
-              </p>
+              <p className="model-price" id="model-price">{entry.priceDisplay}</p>
 
               {entry.compatibilityNote && (
                 <p className="catalog-restriction model-callout" id="model-restriction">
@@ -162,7 +150,7 @@ export default async function ModelPage({ params }: Props) {
                     car={entry.primary}
                     service={entry.primary.service}
                   >
-                    Оставить заявку для {entry.cleanName} <Arrow />
+                    Оставить заявку {city.inName} <Arrow />
                   </BookingButton>
                 ) : (
                   <HeroLink
@@ -175,10 +163,7 @@ export default async function ModelPage({ params }: Props) {
                 )}
               </div>
 
-              <p className="fine-print model-fine">
-                Администратор проверит версию мультимедиа до записи и подберёт формат:
-                сервис в Челябинске, мастер-партнёр в вашем городе или онлайн-прошивка.
-              </p>
+              <p className="fine-print model-fine">{formatWorkSummary(city)}</p>
             </div>
 
             <div className="vehicle-photo model-photo">
@@ -187,7 +172,7 @@ export default async function ModelPage({ params }: Props) {
                 src={asset(entry.photo || "assets/car-placeholder.svg")}
                 alt={
                   entry.photo
-                    ? `${entry.fullTitle} — настройка штатной мультимедиа GeeApp`
+                    ? `${entry.fullTitle} — прошивка и русификация ${city.inName}`
                     : `Иллюстрация ${entry.fullTitle}`
                 }
                 width={640}
@@ -222,7 +207,7 @@ export default async function ModelPage({ params }: Props) {
           <section className="model-detail" id="model-detail">
             <h2 id="model-detail-title">
               {entry.supported
-                ? `Как проходит настройка ${entry.fullTitle}`
+                ? `Как проходит запись и работа ${city.inName}`
                 : `Техническая справка по ${entry.fullTitle}`}
             </h2>
             <p id="model-detail-text">{entry.expertSummary}</p>
@@ -230,31 +215,33 @@ export default async function ModelPage({ params }: Props) {
             {entry.supported && (
               <div className="model-formats-strip">
                 <div className="model-format-step">
-                  <strong>1. Проверка ревизии ГУ</strong>
-                  <span>
-                    Уточняем год выпуска и версию прошивки по фото экрана перед записью.
-                  </span>
+                  <strong>1. Заявка администратору</strong>
+                  <span>Проверяем год выпуска и версию прошивки ГУ вашего {entry.cleanName} по фото экрана.</span>
                 </div>
                 <div className="model-format-step">
-                  <strong>2. Удобный формат в вашем городе</strong>
+                  <strong>
+                    {city.isHeadquarters
+                      ? "2. Сервис в Челябинске или онлайн"
+                      : `2. Мастер-партнёр ${city.inName} или онлайн`}
+                  </strong>
                   <span>
-                    Бокс в Челябинске, выезд/приём у мастера-партнёра в регионе или
-                    дистанционная онлайн-прошивка.
+                    {city.isHeadquarters
+                      ? "Приглашаем в бокс на ул. Энтузиастов, 28а или подключаем онлайн-прошивку."
+                      : `Администратор передаёт запись проверенному мастеру-партнёру ${city.inName} либо назначает онлайн-сессию.`}
                   </span>
                 </div>
                 <div className="model-format-step">
                   <strong>3. Сохранение штатных систем</strong>
-                  <span>
-                    Камеры 360°, климат, микрофоны и возможность возврата к заводскому
-                    состоянию сохраняются.
-                  </span>
+                  <span>Камеры 360°, климат, микрофоны и возможность возврата к заводскому виду сохраняются.</span>
                 </div>
               </div>
             )}
           </section>
 
           <section className="model-faq-section" aria-labelledby="model-faq-title">
-            <h2 id="model-faq-title">Частые вопросы по {entry.fullTitle}</h2>
+            <h2 id="model-faq-title">
+              Частые вопросы по {entry.fullTitle} {city.inName}
+            </h2>
             <div className="model-faq-grid">
               {entry.faq.map((item) => (
                 <details key={item.q} className="model-faq-item">
@@ -269,20 +256,13 @@ export default async function ModelPage({ params }: Props) {
             <section className="model-siblings" aria-labelledby="siblings-title">
               <div className="models-brand-heading">
                 <h2 id="siblings-title">Другие модели {entry.make}</h2>
-                <HeroLink
-                  className="brand-section-link text-link"
-                  href={`/brand/${entry.brandSlug}`}
-                >
+                <HeroLink className="brand-section-link text-link" href={`/brand/${entry.brandSlug}`}>
                   Все модели {entry.make} ({entriesByMake(entry.make).length}) →
                 </HeroLink>
               </div>
               <div className="sibling-pills">
                 {siblings.map((sib) => (
-                  <HeroLink
-                    key={sib.slug}
-                    className="strip-pill"
-                    href={`/model/${sib.slug}`}
-                  >
+                  <HeroLink key={sib.slug} className="strip-pill" href={`/model/${sib.slug}`}>
                     <span>{sib.fullTitle}</span>
                     <span className="sibling-pill-price">{sib.priceDisplay}</span>
                   </HeroLink>
@@ -295,11 +275,7 @@ export default async function ModelPage({ params }: Props) {
             <p className="kicker">Каталог марок</p>
             <div className="sibling-pills">
               {orderedMakes().map((m) => (
-                <HeroLink
-                  key={m}
-                  className="strip-pill"
-                  href={`/brand/${brandSlug(m)}`}
-                >
+                <HeroLink key={m} className="strip-pill" href={`/brand/${brandSlug(m)}`}>
                   {m}
                 </HeroLink>
               ))}
