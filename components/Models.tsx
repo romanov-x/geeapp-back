@@ -44,20 +44,30 @@ export function Models() {
     }
   };
 
-  useEffect(() => {
+    useEffect(() => {
     const read = () => {
       const rawMake = new URLSearchParams(location.search).get("make");
       const resolved = rawMake ? resolveBrandParam(rawMake) : null;
       setActiveMake(resolved ? resolved.make : makes[0]);
       setVisible(PAGE);
     };
+    const onSelectMake = (e: Event) => {
+      const make = (e as CustomEvent<string>).detail;
+      if (make) {
+        setActiveMake(make);
+        setQuery("");
+        setVisible(PAGE);
+      }
+    };
     read();
     window.addEventListener("popstate", read);
+    window.addEventListener("geeapp:select-make", onSelectMake);
     const observer = new ResizeObserver(sync);
     if (tabs.current) observer.observe(tabs.current);
     return () => {
       observer.disconnect();
       window.removeEventListener("popstate", read);
+      window.removeEventListener("geeapp:select-make", onSelectMake);
     };
   }, []);
 

@@ -1,18 +1,149 @@
 "use client";
-import {forwardRef, useImperativeHandle, useRef, useState, type ButtonHTMLAttributes, type AnchorHTMLAttributes, type HTMLAttributes, type InputHTMLAttributes, type TextareaHTMLAttributes, type DialogHTMLAttributes} from "react";
-import {Button, Link, Card, Chip, Input, Textarea, Checkbox, Modal, ModalContent, ModalHeader, type ButtonProps, type LinkProps, type CardProps} from "@heroui/react";
+import {
+  forwardRef,
+  type AnchorHTMLAttributes,
+  type ButtonHTMLAttributes,
+  type HTMLAttributes,
+  type InputHTMLAttributes,
+  type TextareaHTMLAttributes,
+} from "react";
+import {
+  Button,
+  Card,
+  Checkbox,
+  Chip,
+  Input,
+  Link,
+  Textarea,
+  type ButtonProps,
+  type CardProps,
+  type LinkProps,
+} from "@heroui/react";
 
-export const HeroButton=forwardRef<HTMLButtonElement,ButtonHTMLAttributes<HTMLButtonElement>>(function HeroButton({className="",disabled,...props},ref){return <Button {...props as unknown as ButtonProps} ref={ref} isDisabled={disabled} radius="lg" color={className.includes("primary")?"primary":"default"} variant={className.includes("secondary")?"bordered":"solid"} className={`hero-ui-button ${className}`}/>;});
-export const HeroLink=forwardRef<HTMLAnchorElement,AnchorHTMLAttributes<HTMLAnchorElement>>(function HeroLink({className="",...props},ref){return <Link {...props as unknown as LinkProps} ref={ref} className={`hero-ui-link ${className}`}/>;});
-export const HeroCard=forwardRef<HTMLElement,HTMLAttributes<HTMLElement>>(function HeroCard(props,ref){return <Card as="article" radius="lg" shadow="sm" {...props as unknown as CardProps} ref={ref as React.Ref<HTMLDivElement>}/>;});
-export function HeroChip({children,className=""}:HTMLAttributes<HTMLSpanElement>){return <Chip radius="full" size="sm" variant="flat" className={className}>{children}</Chip>;}
-export const HeroInput=forwardRef<HTMLInputElement,InputHTMLAttributes<HTMLInputElement>>(function HeroInput({type,checked,onChange,...props},ref){if(type==="checkbox")return <Checkbox {...props as object} isSelected={!!checked} onValueChange={value=>onChange?.({target:{checked:value},currentTarget:{checked:value}} as React.ChangeEvent<HTMLInputElement>)} classNames={{base:"hero-consent-checkbox",label:"hidden"}} aria-label={props.name==="consent"?"Согласие на обработку данных":"Ознакомление с условиями"}/>;return <Input {...props as object} ref={ref} aria-label={props["aria-label"]||({year:"Год выпуска",name:"Ваше имя",phone:"Телефон",makeCustom:"Название марки",modelCustom:"Название модели"} as Record<string,string>)[props.name||""]} type={type} onChange={onChange} variant="bordered" radius="lg" classNames={{inputWrapper:"hero-input-wrapper",input:"hero-native-input"}}/>;});
-export const HeroTextarea=forwardRef<HTMLTextAreaElement,TextareaHTMLAttributes<HTMLTextAreaElement>>(function HeroTextarea(props,ref){return <Textarea {...props as object} aria-label="Что хотите настроить?" ref={ref} variant="bordered" radius="lg" minRows={3}/>;});
+const INPUT_LABELS: Record<string, string> = {
+  year: "Год выпуска",
+  name: "Ваше имя",
+  phone: "Телефон",
+  makeCustom: "Название марки",
+  modelCustom: "Название модели",
+};
 
-// Bridge the existing form/menu imperative API to controlled HeroUI modals.
-export const HeroDialog=forwardRef<HTMLDialogElement,DialogHTMLAttributes<HTMLDialogElement>>(function HeroDialog({children,id,className="",onClose,onCancel,onClick,...props},ref){
-  const [isOpen,setOpen]=useState(false),opened=useRef(false),base=useRef<HTMLDivElement>(null);
-  const close=()=>{if(!opened.current)return;opened.current=false;setOpen(false);onClose?.({} as React.SyntheticEvent<HTMLDialogElement>);};
-  useImperativeHandle(ref,()=>({get open(){return opened.current;},showModal(){opened.current=true;setOpen(true);},close,toggleAttribute(name:string,force?:boolean){return base.current?.toggleAttribute(name,force)??false;},querySelector(selector:string){return base.current?.querySelector(selector)??null;},getBoundingClientRect(){return base.current?.getBoundingClientRect()??new DOMRect();}} as unknown as HTMLDialogElement));
-  return <Modal aria-labelledby={props["aria-labelledby"]} isOpen={isOpen} onClose={close} hideCloseButton backdrop="blur" scrollBehavior="inside" size={id==="mobile-nav"?"full":"2xl"} classNames={{base:`hero-ui-modal ${className}`,backdrop:"hero-ui-backdrop"}}><ModalContent><ModalHeader className="sr-only">{id==="booking"?(props["aria-labelledby"]==="success-title"?"Черновик заявки готов.":"Заявка на настройку."):id==="mobile-nav"?"Меню":"Согласие на обработку данных"}</ModalHeader><div {...props as object} ref={base} id={id} className={`hero-dialog-body ${className}`} onClick={onClick as unknown as React.MouseEventHandler<HTMLDivElement>}>{children}</div></ModalContent></Modal>;
+export const HeroButton = forwardRef<
+  HTMLButtonElement,
+  ButtonHTMLAttributes<HTMLButtonElement>
+>(function HeroButton({ className = "", disabled, ...props }, ref) {
+  const isPrimary = className.includes("primary");
+  const isSecondary = className.includes("secondary");
+
+  return (
+    <Button
+      {...(props as unknown as ButtonProps)}
+      ref={ref}
+      isDisabled={disabled}
+      radius="lg"
+      color={isPrimary ? "primary" : "default"}
+      variant={isSecondary ? "bordered" : isPrimary ? "solid" : "flat"}
+      className={`hero-ui-button ${className}`.trim()}
+    />
+  );
+});
+
+export const HeroLink = forwardRef<
+  HTMLAnchorElement,
+  AnchorHTMLAttributes<HTMLAnchorElement>
+>(function HeroLink({ className = "", ...props }, ref) {
+  return (
+    <Link
+      {...(props as unknown as LinkProps)}
+      ref={ref}
+      className={`hero-ui-link ${className}`.trim()}
+    />
+  );
+});
+
+export const HeroCard = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
+  function HeroCard(props, ref) {
+    return (
+      <Card
+        as="article"
+        radius="lg"
+        shadow="none"
+        {...(props as unknown as CardProps)}
+        ref={ref as React.Ref<HTMLDivElement>}
+      />
+    );
+  }
+);
+
+export function HeroChip({
+  children,
+  className = "",
+}: HTMLAttributes<HTMLSpanElement>) {
+  return (
+    <Chip radius="full" size="sm" variant="flat" className={className}>
+      {children}
+    </Chip>
+  );
+}
+
+export const HeroInput = forwardRef<
+  HTMLInputElement,
+  InputHTMLAttributes<HTMLInputElement>
+>(function HeroInput({ type, checked, onChange, ...props }, ref) {
+  if (type === "checkbox") {
+    return (
+      <Checkbox
+        {...(props as object)}
+        isSelected={Boolean(checked)}
+        onValueChange={(value) =>
+          onChange?.({
+            target: { checked: value },
+            currentTarget: { checked: value },
+          } as React.ChangeEvent<HTMLInputElement>)
+        }
+        classNames={{ base: "hero-consent-checkbox", label: "hidden" }}
+        aria-label={
+          props.name === "consent"
+            ? "Согласие на обработку данных"
+            : "Ознакомление с условиями"
+        }
+      />
+    );
+  }
+
+  return (
+    <Input
+      {...(props as object)}
+      ref={ref}
+      aria-label={props["aria-label"] || INPUT_LABELS[props.name || ""]}
+      type={type}
+      onChange={onChange}
+      variant="bordered"
+      radius="lg"
+      classNames={{
+        inputWrapper: "hero-input-wrapper",
+        input: "hero-native-input",
+      }}
+    />
+  );
+});
+
+export const HeroTextarea = forwardRef<
+  HTMLTextAreaElement,
+  TextareaHTMLAttributes<HTMLTextAreaElement>
+>(function HeroTextarea(props, ref) {
+  return (
+    <Textarea
+      {...(props as object)}
+      aria-label="Что хотите настроить?"
+      ref={ref}
+      variant="bordered"
+      radius="lg"
+      minRows={3}
+      classNames={{
+        inputWrapper: "hero-input-wrapper",
+        input: "hero-native-input",
+      }}
+    />
+  );
 });

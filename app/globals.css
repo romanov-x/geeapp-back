@@ -320,3 +320,118 @@
   font-size: 0.875rem;
   line-height: 1.5;
 }
+
+/* === Stage 3: Responsive Layout, Brand Tabs, Touch Works Carousel & Micro-UI === */
+
+/* Широкая боковая панель марок без разрыва Volkswagen / Chevrolet / Ssangyong */
+@media (min-width: 1280px) {
+  .models-layout {
+    grid-template-columns: 16.5rem minmax(0, 1fr);
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .models-layout {
+    grid-template-columns: 15rem minmax(0, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .hero-brand-tab {
+    font-size: 0.8125rem;
+    padding: 0.55rem 0.5rem;
+    min-height: 2.5rem;
+    white-space: nowrap;
+  }
+  .hero-brand-tab [data-slot="tabContent"] {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* На тач-экранах (смартфоны и планшеты) описание работ и кнопка видны сразу без hover */
+@media (hover: none), (pointer: coarse) {
+  .work-card::after {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 6, 18, 0.05) 0%,
+      rgba(10, 6, 18, 0.55) 45%,
+      rgba(10, 6, 18, 0.94) 100%
+    );
+  }
+  .work-details {
+    max-height: none;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Выбор города в мобильном меню */
+.mobile-city-row {
+  margin-top: 1.25rem;
+}
+.mobile-city-row .city-button {
+  background: var(--bg);
+  padding: 0.5rem 0.875rem;
+  font-size: 0.95rem;
+}
+.mobile-nav-links {
+  margin-top: 1.25rem;
+}
+
+/* Ссылки марок в таблице русификации + плавный отклик карточек и таблеток */
+.rt-make--link {
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+.rt-make--link:hover {
+  color: var(--accent);
+}
+.strip-pill {
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .strip-pill:hover {
+    border-color: #b79ce8;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(49, 24, 79, 0.06);
+  }
+  .model-card,
+  .service-tile,
+  .model-package-card {
+    transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  }
+  .model-card:hover,
+  .service-tile:hover,
+  .model-package-card:hover {
+    border-color: #c2b2de;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(49, 24, 79, 0.07);
+  }
+  .btn--primary:hover {
+    filter: brightness(1.05);
+  }
+}
+
+/* Мобильные отступы для поиска и хлебных крошек на узких экранах */
+@media (max-width: 539px) {
+  .catalog-search-input {
+    font-size: 1rem; /* предотвращает авто-зум в iOS Safari при фокусе */
+    padding-left: 1rem;
+  }
+  .catalog-filter-pills {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    padding-bottom: 0.15rem;
+  }
+  .catalog-filter-pills::-webkit-scrollbar {
+    display: none;
+  }
+  .catalog-filter-pill {
+    flex: none;
+  }
+  .work-card {
+    width: min(80vw, 19.5rem);
+  }
+}
