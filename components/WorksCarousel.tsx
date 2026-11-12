@@ -1,11 +1,17 @@
 "use client";
 import { HeroButton, HeroLink, HeroCard } from "@/components/HeroPrimitives";
-import { useEffect, useRef } from "react";
-import { asset, vehicles, works } from "@/lib/data";
-import { entryForVehicleId } from "@/lib/catalog";
+import { useEffect, useMemo, useRef } from "react";
+import { asset } from "@/lib/data";
+import { buildCatalogFromModels, entryByVehicleId } from "@/lib/catalog";
+import { useCms } from "./CmsProvider";
 import { Arrow } from "./Arrow";
 
 export function WorksCarousel() {
+  const cms = useCms();
+  const entries = useMemo(
+    () => buildCatalogFromModels(cms.models, cms.brandAliases, cms.works),
+    [cms.models, cms.brandAliases, cms.works]
+  );
   const track = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,7 +25,7 @@ export function WorksCarousel() {
     sync();
     media.addEventListener("change", sync);
     return () => media.removeEventListener("change", sync);
-  }, []);
+  }, [cms.works]);
 
   const move = (direction: number) => {
     const el = track.current;
@@ -36,42 +42,27 @@ export function WorksCarousel() {
         : el.scrollLeft <= 2
         ? max
         : Math.max(0, el.scrollLeft - step);
-    el.scrollTo({
-      left,
-      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "instant"
-        : "smooth",
-    });
+    el.scrollTo({ left, behavior: "smooth" });
   };
 
   return (
     <>
       <div className="works-track" id="works-track" ref={track}>
-        {works.map((work) => {
-          const car = vehicles.find((v) => v.id === work.car);
-          const catalogEntry = entryForVehicleId(work.car);
-          const modelSlug = catalogEntry ? catalogEntry.slug : work.car;
+        {cms.works.map((work) => {
+          const entry = entryByVehicleId(entries, work.car);
+          const modelSlug = entry ? entry.slug : work.car;
 
           return (
             <HeroCard
               className="work-card"
               tabIndex={0}
               onClick={(e) => e.currentTarget.focus()}
-              key={work.car}
-              onMouseEnter={(e) => e.currentTarget.querySelector("video")?.pause()}
-              onMouseLeave={(e) => {
-                if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-                  void e.currentTarget
-                    .querySelector("video")
-                    ?.play()
-                    .catch(() => {});
-                }
-              }}
+              key={work.id}
             >
               {work.video ? (
                 <video
                   src={asset(work.video)}
-                  poster={asset(work.img)}
+                  poster={work.img ? asset(work.img) : undefined}
                   muted
                   playsInline
                   loop
@@ -81,7 +72,7 @@ export function WorksCarousel() {
               ) : (
                 <img
                   src={asset(work.img || "assets/car-placeholder.svg")}
-                  alt={catalogEntry?.fullTitle || ""}
+                  alt={entry?.fullTitle || "Кейс GeeApp"}
                   loading="lazy"
                   width={720}
                   height={1280}
@@ -89,19 +80,19 @@ export function WorksCarousel() {
               )}
               <div className="work-body">
                 <h4 className="work-car">
-                  {car
-                    ? `${car.make} ${car.name.split("(")[0].trim()}`
-                    : "Автомобиль"}
+                  {entry ? entry.fullTitle : "Автомобиль"}
                 </h4>
                 <div className="work-details">
                   <p className="work-done">{work.done}</p>
-                  <HeroLink
-                    className="button btn work-link"
-                    href={`/model/${modelSlug}`}
-                  >
-                    <span>Страница модели</span>
-                    <Arrow />
-                  </HeroLink>
+                  {entry && (
+                    <HeroLink
+                      className="button btn work-link"
+                      href={`/model/${modelSlug}`}
+                    >
+                      <span>Страница модели</span>
+                      <Arrow />
+                    </HeroLink>
+                  )}
                 </div>
               </div>
             </HeroCard>
@@ -111,13 +102,12 @@ export function WorksCarousel() {
       <div
         className="works-controls"
         aria-label="Управление каруселью работ"
-        hidden={works.length < 2}
+        hidden={cms.works.length < 2}
       >
         <HeroButton
           id="works-prev"
           className="button btn btn--secondary"
           aria-label="Предыдущая работа"
-          aria-controls="works-track"
           onClick={() => move(-1)}
         >
           ←
@@ -126,7 +116,6 @@ export function WorksCarousel() {
           id="works-next"
           className="button btn btn--secondary"
           aria-label="Следующая работа"
-          aria-controls="works-track"
           onClick={() => move(1)}
         >
           →

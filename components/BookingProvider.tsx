@@ -1,9 +1,9 @@
 "use client";
-
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { BookingDialog } from "./BookingDialog";
 import { type Vehicle } from "@/lib/data";
-import { resolveModelParam } from "@/lib/catalog";
+import { buildCatalogFromModels, resolveModelFromEntries } from "@/lib/catalog";
+import { useCms } from "./CmsProvider";
 
 export type BookingOptions = {
   service?: string;
@@ -24,6 +24,7 @@ const BookingContext = createContext<BookingContextValue>({
 export const useBooking = () => useContext(BookingContext);
 
 export function BookingProvider({ children }: { children: React.ReactNode }) {
+  const cms = useCms();
   const [open, setOpen] = useState(false);
   const [request, setRequest] = useState<{
     options: BookingOptions;
@@ -38,23 +39,22 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const bookParam = new URLSearchParams(location.search).get("book");
     if (!bookParam) return;
-    const resolved = resolveModelParam(bookParam);
+    const entries = buildCatalogFromModels(
+      cms.models,
+      cms.brandAliases,
+      cms.works
+    );
+    const resolved = resolveModelFromEntries(entries, bookParam);
     if (resolved && resolved.entry.supported) {
       const car = resolved.entry.primary;
       show({ service: car.service, car });
     }
-  }, [show]);
+  }, [cms.models, cms.brandAliases, cms.works, show]);
 
   return (
-    <BookingContext.Provider
-      value={{ open: show, close: () => setOpen(false) }}
-    >
+    <BookingContext.Provider value={{ open: show, close: () => setOpen(false) }}>
       {children}
-      <BookingDialog
-        open={open}
-        request={request}
-        onClose={() => setOpen(false)}
-      />
+      <BookingDialog open={open} request={request} onClose={() => setOpen(false)} />
     </BookingContext.Provider>
   );
 }

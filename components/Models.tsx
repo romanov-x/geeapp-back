@@ -1,17 +1,18 @@
 "use client";
 import { HeroButton, HeroLink } from "@/components/HeroPrimitives";
 import { Tabs, Tab } from "@heroui/react";
-import { useEffect, useRef, useState } from "react";
-import { orderedMakes } from "@/lib/data";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   brandSlug,
-  resolveBrandParam,
-  searchCatalog,
+  buildCatalogFromModels,
+  orderedMakesFromEntries,
+  resolveBrandFromEntries,
+  searchEntries,
   type ServiceFilter,
 } from "@/lib/catalog";
+import { useCms } from "./CmsProvider";
 import { ModelCard } from "./ModelCard";
 
-const makes = orderedMakes();
 const PAGE = 9;
 
 const FILTERS: { id: ServiceFilter; label: string }[] = [
@@ -21,7 +22,17 @@ const FILTERS: { id: ServiceFilter; label: string }[] = [
 ];
 
 export function Models() {
-  const [activeMake, setActiveMake] = useState(makes[0]);
+  const cms = useCms();
+  const allEntries = useMemo(
+    () => buildCatalogFromModels(cms.models, cms.brandAliases, cms.works),
+    [cms.models, cms.brandAliases, cms.works]
+  );
+  const makes = useMemo(
+    () => orderedMakesFromEntries(allEntries),
+    [allEntries]
+  );
+
+  const [activeMake, setActiveMake] = useState(makes[0] || "Geely");
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<ServiceFilter>("all");
   const [visible, setVisible] = useState(PAGE);
@@ -31,11 +42,17 @@ export function Models() {
   const results = useRef<HTMLDivElement>(null);
 
   const isGlobalSearch = query.trim().length > 0;
-  const cards = searchCatalog(query, filter, isGlobalSearch ? undefined : activeMake);
+  const cards = searchEntries(
+    allEntries,
+    query,
+    filter,
+    isGlobalSearch ? undefined : activeMake
+  );
 
   const sync = () => {
     const el =
-      tabs.current?.querySelector<HTMLElement>('[role="tablist"]') || tabs.current;
+      tabs.current?.querySelector<HTMLElement>('[role="tablist"]') ||
+      tabs.current;
     if (el) {
       setOverflow({
         left: el.scrollLeft > 2,
@@ -44,11 +61,13 @@ export function Models() {
     }
   };
 
-    useEffect(() => {
+  useEffect(() => {
     const read = () => {
       const rawMake = new URLSearchParams(location.search).get("make");
-      const resolved = rawMake ? resolveBrandParam(rawMake) : null;
-      setActiveMake(resolved ? resolved.make : makes[0]);
+      const resolved = rawMake
+        ? resolveBrandFromEntries(allEntries, rawMake)
+        : null;
+      setActiveMake(resolved ? resolved.make : makes[0] || "Geely");
       setVisible(PAGE);
     };
     const onSelectMake = (e: Event) => {
@@ -69,26 +88,17 @@ export function Models() {
       window.removeEventListener("popstate", read);
       window.removeEventListener("geeapp:select-make", onSelectMake);
     };
-  }, []);
-
-  useEffect(() => {
-    const active = tabs.current?.querySelector<HTMLElement>('[aria-selected="true"]');
-    const el = tabs.current;
-    if (active && el) {
-      const r = active.getBoundingClientRect();
-      const box = el.getBoundingClientRect();
-      if (r.left < box.left || r.right > box.right) {
-        el.scrollLeft += r.left - box.left - (box.width - r.width) / 2;
-      }
-    }
-    sync();
-  }, [activeMake]);
+  }, [allEntries, makes]);
 
   const selectMake = (make: string) => {
     setActiveMake(make);
     setQuery("");
     setVisible(PAGE);
-    history.replaceState(null, "", `?make=${encodeURIComponent(brandSlug(make))}#models`);
+    history.replaceState(
+      null,
+      "",
+      `?make=${encodeURIComponent(brandSlug(make))}#models`
+    );
     requestAnimationFrame(() =>
       results.current?.scrollIntoView({
         block: "start",
@@ -117,17 +127,21 @@ export function Models() {
             <h2 id="models-title">Найдите свой автомобиль.</h2>
             <p>
               Выберите марку или введите название модели / кузова (например:{" "}
-              <strong>Monjaro</strong>, <strong>KX11</strong>, <strong>Jolion</strong>,{" "}
-              <strong>Camry XV80</strong>). Покажем доступные пакеты, цены и ограничения.
+              <strong>Monjaro</strong>, <strong>KX11</strong>,{" "}
+              <strong>Jolion</strong>, <strong>Camry XV80</strong>).
             </p>
           </div>
           <span className="section-aside">
-            <span>Приложения 8&nbsp;000–30&nbsp;000&nbsp;₽</span>
-            <span>Русификация по запросу</span>
+            <span>Актуальные цены и пакеты</span>
+            <span>Русификация и приложения</span>
           </span>
         </div>
 
-        <div className="catalog-toolbar" role="search" aria-label="Поиск по моделям авто">
+        <div
+          className="catalog-toolbar"
+          role="search"
+          aria-label="Поиск по моделям авто"
+        >
           <div className="catalog-search-box">
             <input
               type="search"
@@ -155,7 +169,11 @@ export function Models() {
             )}
           </div>
 
-          <div className="catalog-filter-pills" role="group" aria-label="Фильтр по услуге">
+          <div
+            className="catalog-filter-pills"
+            role="group"
+            aria-label="Фильтр по услуге"
+          >
             {FILTERS.map((item) => (
               <button
                 key={item.id}
@@ -182,7 +200,6 @@ export function Models() {
                 type="button"
                 id="models-prev"
                 aria-label="Предыдущие марки"
-                aria-controls="brand-tabs"
                 disabled={!overflow.left}
                 onClick={() => scroll(-1)}
               >
@@ -192,7 +209,6 @@ export function Models() {
                 type="button"
                 id="models-next"
                 aria-label="Следующие марки"
-                aria-controls="brand-tabs"
                 disabled={!overflow.right}
                 onClick={() => scroll(1)}
               >
@@ -207,7 +223,6 @@ export function Models() {
               <div
                 className="brand-tabs"
                 id="brand-tabs"
-                aria-label="Выбор марки"
                 ref={tabs}
                 onScroll={sync}
               >
@@ -241,7 +256,6 @@ export function Models() {
               {!isGlobalSearch && (
                 <HeroLink
                   className="brand-section-link text-link"
-                  id="brand-section-link"
                   href={`/brand/${brandSlug(activeMake)}`}
                 >
                   Все модели {activeMake} <span aria-hidden="true">↗</span>
@@ -252,8 +266,8 @@ export function Models() {
             {cards.length === 0 ? (
               <div className="catalog-empty">
                 <p>
-                  По запросу <strong>«{query.trim() || activeMake}»</strong> с выбранным
-                  фильтром готовых карточек не найдено.
+                  По запросу <strong>«{query.trim() || activeMake}»</strong>{" "}
+                  готовых карточек не найдено.
                 </p>
                 <HeroButton
                   type="button"
@@ -284,21 +298,8 @@ export function Models() {
                   <HeroButton
                     id="models-more"
                     className="button btn btn--secondary"
-                    aria-controls="model-cards"
                     hidden={visible >= cards.length}
-                    onClick={(e) => {
-                      const first = visible;
-                      setVisible((v) => v + PAGE);
-                      if (e.detail === 0) {
-                        requestAnimationFrame(() =>
-                          document
-                            .querySelectorAll<HTMLAnchorElement>(
-                              "#model-cards .model-link"
-                            )
-                            [first]?.focus({ preventScroll: true })
-                        );
-                      }
-                    }}
+                    onClick={() => setVisible((v) => v + PAGE)}
                   >
                     Показать ещё
                   </HeroButton>
@@ -307,11 +308,6 @@ export function Models() {
             )}
           </div>
         </div>
-
-        <p className="fine-print">
-          Совместимость и состав работ подтверждаем перед записью. Работаем в сервисе в
-          Челябинске, через мастеров-партнёров в регионах и в формате онлайн-прошивки.
-        </p>
       </div>
     </section>
   );

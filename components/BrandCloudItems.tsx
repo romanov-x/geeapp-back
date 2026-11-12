@@ -1,14 +1,28 @@
 "use client";
 import { HeroLink } from "@/components/HeroPrimitives";
-import { asset, brandLogo, monogram, orderedMakes } from "@/lib/data";
-import { brandSlug, entriesByMake } from "@/lib/catalog";
+import { asset, monogram } from "@/lib/data";
+import {
+  brandSlug,
+  buildCatalogFromModels,
+  entriesFromMake,
+  orderedMakesFromEntries,
+} from "@/lib/catalog";
+import { useCms } from "./CmsProvider";
 
 export function BrandCloudItems() {
+  const cms = useCms();
+  const entries = buildCatalogFromModels(
+    cms.models,
+    cms.brandAliases,
+    cms.works
+  );
+  const makes = orderedMakesFromEntries(entries);
+
   return (
     <div className="brands-strip" id="brands-strip">
-      {orderedMakes().map((make) => {
-        const count = entriesByMake(make).length;
-        const logo = brandLogo(make);
+      {makes.map((make) => {
+        const count = entriesFromMake(entries, make).length;
+        const logo = cms.brandLogos[make];
         const slug = brandSlug(make);
 
         return (
@@ -44,12 +58,7 @@ export function BrandCloudItems() {
               aria-hidden="true"
             >
               {logo ? (
-                <img
-                  src={asset(logo)}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
+                <img src={asset(logo)} alt="" loading="lazy" decoding="async" />
               ) : (
                 monogram(make)
               )}

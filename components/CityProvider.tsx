@@ -65,21 +65,34 @@ export function CityButton() {
 
 export function CityProvider({
   initialSlug = DEFAULT_CITY.slug,
+  citiesList,
   children,
 }: {
   initialSlug?: string;
+  citiesList?: CityInfo[];
   children: React.ReactNode;
 }) {
   const router = useRouter();
+  const activeCities = citiesList && citiesList.length > 0 ? citiesList : CITIES;
+
+  const resolveFromList = (slug?: string | null): CityInfo => {
+    if (!slug) return activeCities[0] || DEFAULT_CITY;
+    const clean = slug.toLowerCase().trim();
+    return (
+      activeCities.find((c) => c.slug === clean || c.subdomain === clean) ||
+      getCityBySlug(clean)
+    );
+  };
+
   const [cityInfo, setCityInfo] = useState<CityInfo>(() =>
-    getCityBySlug(initialSlug)
+    resolveFromList(initialSlug)
   );
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    setCityInfo(getCityBySlug(initialSlug));
-  }, [initialSlug]);
+    setCityInfo(resolveFromList(initialSlug));
+  }, [initialSlug, citiesList]);
 
   function select(target: CityInfo) {
     setCityInfo(target);
@@ -102,12 +115,11 @@ export function CityProvider({
       return;
     }
 
-    // В Codespaces / localhost переключаем cookie и обновляем серверные компоненты без смены домена
     document.cookie = `${CITY_COOKIE}=${target.slug}; path=/; max-age=31536000; SameSite=Lax`;
     router.refresh();
   }
 
-  const filtered = CITIES.filter((item) =>
+  const filtered = activeCities.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase().trim())
   );
 
@@ -157,9 +169,16 @@ export function CityProvider({
                 </Button>
               ))}
             </div>
-            {filtered.length === 0 && <p>Город не найден в быстром списке — оставьте заявку, подберём онлайн-формат.</p>}
+            {filtered.length === 0 && (
+              <p>
+                Город не найден в быстром списке — оставьте заявку, подберём
+                онлайн-формат.
+              </p>
+            )}
             <p className="city-note">
-              В Челябинске работает наш стационарный сервис (ул. Энтузиастов, 28а). В других городах работают проверенные мастера-партнёры и доступна онлайн-прошивка — администратор распределит вашу заявку.
+              В Челябинске работает наш стационарный сервис (ул. Энтузиастов,
+              28а). В других городах работают проверенные мастера-партнёры и
+              доступна онлайн-прошивка — администратор распределит вашу заявку.
             </p>
           </ModalBody>
         </ModalContent>

@@ -6,7 +6,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
 
   return {
     rules: [
-      { userAgent: "*", allow: "/" },
+      { userAgent: "*", allow: "/", disallow: ["/admin", "/api/admin"] },
       {
         userAgent: [
           "OAI-SearchBot",
@@ -17,7 +17,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
           "Yandex",
           "YandexAdditional",
         ],
-        allow: ["/", "/llms.txt"],
+        allow: ["/", "/llms.txt"], disallow: ["/admin", "/api/admin"]
       },
     ],
     sitemap: `${origin}/sitemap.xml`,
