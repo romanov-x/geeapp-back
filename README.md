@@ -36,3 +36,14 @@ The one-time `tools/port-vanilla-layout.py` script documents how the static mark
 - `/privacy` and `/consent` — original legal copy; `/#data-consent` opens the consent dialog.
 
 `lib/data.json` is a snapshot of the running Vanilla catalog, with 121 records and 100 photo mappings. The Next.js preview still uses this snapshot, rather than the SQLite write layer. The form prepares and downloads a local draft; it does not send a request or reserve a time.
+
+## Live preview from GitHub in Codespaces
+
+Keep the existing `npm run dev` terminal running on port 3000. In a second terminal:
+
+```sh
+git pull --ff-only origin main
+npm run preview:sync
+```
+
+The watcher checks `origin/main` every five seconds and applies fast-forward updates on a clean `main` branch. Next.js dev refreshes the page after source changes. It pauses if there are local edits, another branch is checked out, or the history diverges; it never resets or stashes files. Ignored `storage/` content stays untouched. If dependency files change, run `npm ci` and restart the dev server as shown in the watcher output. Keep the watcher terminal and Codespace running; stop with Ctrl+C.
