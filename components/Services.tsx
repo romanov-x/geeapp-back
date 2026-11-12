@@ -4,6 +4,7 @@ import { useCms } from "./CmsProvider";
 
 const SERVICE_ICONS: Record<string, React.ReactNode> = {
   apps: <><rect x="3" y="3" width="8" height="8" rx="2" /><rect x="13" y="3" width="8" height="8" rx="2" /><rect x="3" y="13" width="8" height="8" rx="2" /><rect x="13" y="13" width="8" height="8" rx="2" /></>,
+  firmware: <><path d="M4 7h16M4 17h16M8 4v6M16 14v6" /><circle cx="8" cy="7" r="2" /><circle cx="16" cy="17" r="2" /></>,
   russian: <><rect x="2.5" y="4" width="19" height="12" rx="2" /><path d="M8 20h8M12 16v4M7 10h4M7 7.5h7" /></>,
   dash: <><path d="M4 14a8 8 0 0 1 16 0M12 14l3.5-3.5" /><circle cx="12" cy="14" r="1.4" /></>,
   format: <><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z" /><circle cx="12" cy="10" r="2.6" /></>,
