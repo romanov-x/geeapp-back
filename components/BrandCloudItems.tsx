@@ -1,6 +1,6 @@
 "use client";
 import { HeroLink } from "@/components/HeroPrimitives";
-import { asset, monogram } from "@/lib/data";
+import { asset, brandLogo, monogram } from "@/lib/data";
 import {
   brandSlug,
   buildCatalogFromModels,
@@ -20,7 +20,7 @@ export function BrandCloudItems() {
 
   const renderMake = (make: string) => {
         const count = entriesFromMake(entries, make).length;
-        const logo = cms.brandLogos[make];
+        const logo = cms.brandLogos[make] || brandLogo(make);
         const slug = brandSlug(make);
 
         return (

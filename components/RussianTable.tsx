@@ -1,6 +1,6 @@
 "use client";
 import { HeroLink } from "@/components/HeroPrimitives";
-import { asset, monogram } from "@/lib/data";
+import { asset, brandLogo, monogram } from "@/lib/data";
 import { brandSlug } from "@/lib/catalog";
 import { useCms } from "./CmsProvider";
 
@@ -51,7 +51,7 @@ export function RussianTable() {
   return (
     <div className="russian-table" id="russian-table">
       {items.map(({ make, isBrand, text, truncated }) => {
-        const logo = cms.brandLogos[make];
+        const logo = cms.brandLogos[make] || brandLogo(make);
         const content = (
           <>
             {isBrand && (
